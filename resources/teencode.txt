@@ -1,0 +1,67 @@
+# Ch.2 §2.4 word correction: <abbreviation/teencode>\t<standard form>
+# Matched as whole words, case-insensitive. Ambiguous ones (bt, bh, kg, kt, nc, a) left out.
+ko	không
+k	không
+kh	không
+khg	không
+hok	không
+hông	không
+hem	không
+hk	không
+khum	không
+kô	không
+dc	được
+đc	được
+dk	được
+đk	được
+duoc	được
+sp	sản phẩm
+nv	nhân viên
+ktv	kỹ thuật viên
+mn	mọi người
+mng	mọi người
+ng	người
+j	gì
+v	vậy
+z	vậy
+zậy	vậy
+dzậy	vậy
+r	rồi
+rùi	rồi
+cx	cũng
+cg	cũng
+sd	sử dụng
+sdung	sử dụng
+xd	sử dụng
+vs	với
+trc	trước
+ms	mới
+mik	mình
+mjh	mình
+mh	mình
+mjnh	mình
+wa	quá
+qá	quá
+thik	thích
+nhiu	nhiều
+lun	luôn
+lém	lắm
+bik	biết
+bjk	biết
+ntn	như thế nào
+ib	nhắn tin
+tks	cảm ơn
+thanks	cảm ơn
+thank	cảm ơn
+cám	cảm
+cskh	chăm sóc khách hàng
+đmx	điện máy xanh
+dmx	điện máy xanh
+tv	tivi
+tr	triệu
+oke	ok
+okie	ok
+oki	ok
+okay	ok
+sài	xài
+bảo hàng	bảo hành

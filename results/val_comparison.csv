@@ -1,0 +1,8 @@
+feature,algo,input,feat_params,clf_params,macro_f1,accuracy,f1_Negative,f1_Neutral,f1_Positive
+-,Baseline (lớp đông nhất),-,,,0.2498,0.5993,0.0,0.0,0.7495
+BoW,NB,text_clean,"{""ngram"": [1, 2], ""min_df"": 2}","{""alpha"": 0.1, ""fit_prior"": true}",0.7308,0.8124,0.7359,0.5398,0.9167
+BoW,SVM,text_clean,"{""ngram"": [1, 2], ""min_df"": 1}","{""C"": 0.01}",0.7075,0.8113,0.7632,0.4527,0.9065
+TF-IDF,NB,text_clean,"{""ngram"": [1, 2], ""min_df"": 2}","{""alpha"": 0.5, ""fit_prior"": false}",0.7384,0.8256,0.7782,0.5207,0.9162
+TF-IDF,SVM,text_clean,"{""ngram"": [1, 2], ""min_df"": 1}","{""C"": 0.1}",0.7232,0.819,0.7669,0.4858,0.9167
+W2V,NB,text_clean,"{""vector_size"": 200}","{""var_smoothing"": 1e-09, ""priors"": null}",0.6557,0.7274,0.6888,0.4452,0.8332
+W2V,SVM,text_clean,"{""vector_size"": 200}","{""C"": 0.3}",0.7171,0.7826,0.7388,0.5179,0.8945

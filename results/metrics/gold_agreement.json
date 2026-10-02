@@ -1,0 +1,23 @@
+{
+  "n_gold": 500,
+  "n_flagged_for_review": 191,
+  "n_reviewed_row_by_row": 2,
+  "n_llm_accepted_in_bulk": 189,
+  "n_llm_corrected": 0,
+  "pct_llm_corrected_of_reviewed": 0.0,
+  "label_final": {
+    "Negative": 289,
+    "Positive": 164,
+    "Neutral": 47
+  },
+  "label_source": {
+    "llm": 309,
+    "llm_accepted": 189,
+    "human": 2
+  },
+  "g100_n": 100,
+  "kappa_llm_vs_member2": 0.7975,
+  "agree_llm_vs_member2": 0.88,
+  "kappa_final_vs_member2": 0.7975,
+  "pct_star_label_differs_from_final": 0.312
+}

@@ -1,0 +1,42 @@
+{
+  "train": {
+    "n": 5134,
+    "label": {
+      "Positive": 3080,
+      "Negative": 1274,
+      "Neutral": 780
+    },
+    "label_pct": {
+      "Positive": 60.0,
+      "Negative": 24.8,
+      "Neutral": 15.2
+    }
+  },
+  "val": {
+    "n": 906,
+    "label": {
+      "Positive": 543,
+      "Negative": 225,
+      "Neutral": 138
+    },
+    "label_pct": {
+      "Positive": 59.9,
+      "Negative": 24.8,
+      "Neutral": 15.2
+    }
+  },
+  "test": {
+    "n": 500,
+    "label": {
+      "Negative": 289,
+      "Positive": 164,
+      "Neutral": 47
+    },
+    "label_pct": {
+      "Negative": 57.8,
+      "Positive": 32.8,
+      "Neutral": 9.4
+    }
+  },
+  "note": "train/val label = star label; test label = gold label (LLM-labelled, human-checked)"
+}

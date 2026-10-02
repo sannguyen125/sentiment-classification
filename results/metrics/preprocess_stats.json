@@ -1,0 +1,20 @@
+{
+  "n_reviews": 6540,
+  "empty_text_clean": 0,
+  "tokens_mean": {
+    "text_seg": 21.88,
+    "text_nostop": 19.14,
+    "text_clean": 14.84
+  },
+  "vocab_size": {
+    "text_nostop": 7182,
+    "text_clean": 7083
+  },
+  "pct_tokens_removed_as_stopwords": 0.2245,
+  "reviews_with_word_correction": 2067,
+  "word_corrections_total": 3772,
+  "n_stopwords": 111,
+  "n_keep_words": 39,
+  "n_teencode_entries": 65,
+  "segmented_multi_syllable_tokens_pct": 0.2349
+}

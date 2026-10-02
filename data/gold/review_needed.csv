@@ -1,0 +1,192 @@
+﻿id,text,label_llm,reason,label_human,nguon_nhan
+G001,Tủ mua gần 1 tháng . Sd kêu tích tích khoảng 5 10p lại kêu . Là bị s v ạ,Negative,"Tủ kêu tích tích định kỳ, hỏi vì nghi bị lỗi",Neg,nguoi
+G003,"Bị đọng nước ngăn mát, đang nhờ bảo hành",Negative,"Báo lỗi đọng nước ngăn mát, phải bảo hành",Neg,nguoi
+G015,"Máy dùng cho nhà rộng ít đồ đạc thì được, cũng thích vẻ ngoài, dễ sử dụng, nhà mà ít người đi lại thì máy dọn mới sạch, hoạt động cũng không êm lắm",Neutral,"Khen vẻ ngoài, dễ dùng nhưng kén nhà và không êm",Neutral,llm_chap_nhan
+G017,Tủ OK nhưng đóng tuyết cả ngăn mát Hài lòng về cách phục vụ khách hàng của điện máy xanh,Neutral,Tủ đóng tuyết ngăn mát nhưng khen tủ OK và phục vụ,Neutral,llm_chap_nhan
+G021,Khi máy hoạt động âm thanh rất to cứ như máy sấy tóc vậy,Negative,Chê máy hoạt động quá ồn,Negative,llm_chap_nhan
+G022,Phần cơm dưới đáy nồi dễ bị cháy.,Negative,Chê cơm đáy nồi dễ bị cháy,Negative,llm_chap_nhan
+G023,Ủa sao để giá 3990k. Mjh mua hôm qua tại điện máy xanh phường hóa an TP Biên Hòa giá 4290k,Negative,Phàn nàn mua giá cao hơn giá niêm yết,Negative,llm_chap_nhan
+G025,"Tốt, nhưng thợ lắp khoang 3 lổ tường lấy 100k /lổ tường 20cm là sao vậy",Neutral,Khen tốt chung chung nhưng phàn nàn phí khoan tường,Neutral,llm_chap_nhan
+G027,"Máy giặt cũng im, ít rung, để nước giặt nhiều thì bọt bị trào.Đang đổi loại nước giặt Omo matic giành cho lòng ngang.Đang theo dõi thêm",Positive,"Khen máy im, ít rung; bọt trào do nước giặt",Positive,llm_chap_nhan
+G031,Thấy bình thường. Ko biết có lọc thật ko nữa,Neutral,"Bình thường, kèm nghi ngờ nhẹ về khả năng lọc",Neutral,llm_chap_nhan
+G037,Quạt chạy hơi ồn. Tiếng gió vù vù nhưng lại k mát như như mong đợi!,Negative,"Quạt ồn, không mát như mong đợi",Negative,llm_chap_nhan
+G043,Cho mình hỏi máy lọc nước từ dùng 60k nước sạch giờ lên 150k nước sạch thì có bị hao nước quá không ạ. Do sinh hoạt là dùng nước giếng chỉ sài mỗi lọc nước là nước máy thui,Neutral,"Hỏi về hao nước máy lọc, có chút lo ngại",Neutral,llm_chap_nhan
+G045,Vừa mua tận nơi tại Điện Máy Xanh Cẩm Phả với giá 7490k.vào web xem lại mua online 6600k.mua xong rồi ấm ức. Nhân viên ko tư vấn hết quyền lợi cho khách hàng. Cảm thấy như bị lừa,Negative,"Mua giá cao hơn online, thấy bị lừa",Negative,llm_chap_nhan
+G047,"Máy giặt khá lâu mới hoàn thành, lực giặt không mạnh lắm. Với giá tiền thì cũng khá ổn rồi.",Neutral,"Chê giặt lâu, lực yếu nhưng thấy ổn so với giá",Neutral,llm_chap_nhan
+G049,con này kêu to thật cứ ù ù như trực thăng,Negative,Chê máy kêu to như trực thăng,Negative,llm_chap_nhan
+G051,tôi mới mua máy hôm 11/4/2026 không thấy được tặng quạt đứng media,Negative,Phàn nàn không được tặng quà khuyến mãi như hứa,Negative,llm_chap_nhan
+G053,Như máy điều hòa,Positive,"Có vẻ khen mát như điều hòa, nhưng quá ngắn, thiếu ngữ cảnh",Positive,llm_chap_nhan
+G054,"Mới mua nhưng hình như thiếu nhớt bôi trơn, quạt kêu",Negative,"Mới mua quạt đã kêu, nghi thiếu nhớt",Negative,llm_chap_nhan
+G057,Máy lạnh tốt nhưng nhân viên đi đường dây điện quá xấu,Neutral,"Khen máy lạnh tốt nhưng chê thợ đi dây điện quá xấu, cân bằng",Neutral,llm_chap_nhan
+G058,"Mọi thứ khá ổn trừ cái nồi bên trong, chống dính cực kỳ tệ",Negative,"Khá ổn nhưng lòng nồi chống dính cực kỳ tệ, lỗi chính nặng hơn",Negative,llm_chap_nhan
+G061,"Máy tạm ổn, thợ lắp rỉ ống nước, máy tự nhảy chế độ giặt. Báo lỗi thợ hẹn tới hẹn lui qua tận ngày hôm sau vẫn không đến sửa. Nguyên 1 ngày ngâm đồ trong máy, ngồi ở nhà chờ cuộc gọi để tới sửa máy. Nhân viên tổng đài gọi tới 3 lần vẫn hẹn, ko có hướng xử lí cụ thể, hẹn hoài bực bội quá sức. Từ 14h30 ngày hôm trước đến 10h sáng ngày hôm sau vẫn chỉ được 1 từ CHỜ, đi đúng tuyến sửa mới tới lượt mình. Chê",Negative,"Máy lỗi, thợ hẹn lần lữa không đến sửa, rất bực bội",Negative,llm_chap_nhan
+G064,"Sử dụng gần 10 ngày rồi chứ thấy thất thường gì, sử dụng bình thường",Neutral,"Chỉ nói dùng bình thường, chưa thấy bất thường, không khen rõ",Neutral,llm_chap_nhan
+G067,"Máy có bơm trơj lực nhưng nước ko mạnh, làm nóng nhanh.",Neutral,"Chê nước không mạnh, khen làm nóng nhanh, cân bằng",Neutral,llm_chap_nhan
+G069,kh ok 5sao ổn,Positive,"Câu khó hiểu, có ý 5 sao ổn nên nghiêng khen",Positive,llm_chap_nhan
+G072,Sản phẩm đúng chất lượng,Positive,Khen sản phẩm đúng chất lượng,Positive,llm_chap_nhan
+G074,Nấu nhanh nhưng gấm điện hâm lại bị cháy cơm,Negative,"Nấu nhanh nhưng hâm lại bị cháy cơm, lỗi nặng hơn lời khen",Negative,llm_chap_nhan
+G076,Chưa sài nên chưa biết,Neutral,Chưa sử dụng nên chưa đánh giá,Neutral,llm_chap_nhan
+G078,"Tôi muốn đổi mấy khác được không Thứ 1 chế độ đảo quá chậm, thứ 2 mấy nút điều khiển quay lên trên khi đổ nước ỏ trên nước lở tay nước văn ra là tràng vào cái nút điều khiển như 1 vũng nước kiểu lâu dài sẽ bị rò diện và hư mạch điều khiển. Đặt hàng mình chọn thì 10 ngày mới giao, nhờ nhân viên DMX tìm và tư vấn mấy giao sớm thì tư vấn cho cái đòng sp lỗi thiết kế. Ai có nhu cầu mua thì tiệt đối và không nên mua sản phẩm có bộ điều khiển quay lên trên trừ điều khiển cảm biến và có chỗ đỗ nước ở dưới rộng tí lổ đổ nước ở dưới mây này bé tí đổ vào nữa ra ngoài nữa. Xin lỗi vì che hơi nhiều nhưng nó đúng là vậy.",Negative,"Chê nhiều lỗi thiết kế, giao chậm, khuyên không nên mua",Negative,llm_chap_nhan
+G079,bếp nóng chậm. ko bằng bếp ga và bếp từ,Negative,"Chê bếp nóng chậm, kém bếp ga và bếp từ",Negative,llm_chap_nhan
+G080,"Nghe tiếng ồn, nhân viên bảo hành xuống không nhiệt tình vẫn chưa khắc phục được",Negative,"Máy ồn, bảo hành không nhiệt tình, chưa khắc phục",Negative,llm_chap_nhan
+G083,Đáy nồi dể trầy,Negative,"Chê đáy nồi dễ trầy, không có ý khen",Negative,llm_chap_nhan
+G087,"Mình mới mua sử dụng được 6 tháng thì lòng nồi bong tróc, có hỗ trợ lòng nồi k shop",Negative,"Dùng 6 tháng lòng nồi bong tróc, hỏi hỗ trợ",Negative,llm_chap_nhan
+G088,Mình dùng chưa đến một năm nhưng mặt kính bếp bị vỡ thì có được bảo hành không ạ. Nếu không thì bên mình có hỗ trợ thay kính không và chi phí thay là bao nhiêu ạ,Negative,"Mặt kính bếp bị vỡ chưa đến một năm, hỏi bảo hành",Negative,llm_chap_nhan
+G091,"Quạt quá ồn luôn, không biết khắc phục như thế nào vì tối rất khó ngủ",Negative,"Quạt quá ồn, tối khó ngủ",Negative,llm_chap_nhan
+G092,"Mình mua nồi đã qua sử dụng, nên không đánh giá cao được. Xài tạm ổn. Có trầy xước. Nấu tạm ổn nhé. Giá mua 180k cũng ok rồi.",Neutral,"Hàng cũ, tạm ổn, có trầy xước, giá ok, cân bằng",Neutral,llm_chap_nhan
+G093,"Nút mở ra k được trơn, tiếng kêu khi mở cánh lò vi sóng không êm, nghe hơi khó chịu",Negative,"Nút mở không trơn, cửa lò kêu khó chịu",Negative,llm_chap_nhan
+G095,Mới mua nhưng không có được tặng máy hút bụi,Negative,Phàn nàn không được tặng máy hút bụi,Negative,llm_chap_nhan
+G097,"Ngoại hình đẹp, sang trọng phù hợp nhiều không gian bếp. Thực phẩm được chiên, nướng nhanh. Tuy nhiên lớp chống dính không được cao cấp. Mới mua sử dụng lần đầu mà đã bị tróc ra mặc dù chưa qua vệ sinh. Hơi thất vọng",Negative,"Khen ngoại hình nhưng chống dính tróc ngay lần đầu, thất vọng",Negative,llm_chap_nhan
+G099,"Nhân viên bán hàng tư vấn không nhiệt tình, không tư vấn về sản phẩm, sản phẩm sài tạm ổn, mua được giá khuyến mãi.",Neutral,"Chê nhân viên tư vấn, sản phẩm tạm ổn, giá tốt, cân bằng",Neutral,llm_chap_nhan
+G102,Vừa mua cách đây vài ngày giá 6190 nay giảm 5690 khá thất vọng.,Negative,"Mới mua đã giảm giá, người viết thất vọng",Negative,llm_chap_nhan
+G103,Mới mua mà chưa biết chọn chương trình giặt chăn màn và quần áo trẻ em,Neutral,"Hỏi cách chọn chương trình giặt, không có cảm xúc",Neutral,llm_chap_nhan
+G104,"Sử dụng ổn, tuy nhiên vẫn có mùi nhựa khi nướng đồ ăn",Neutral,"Khen dùng ổn nhưng chê có mùi nhựa khi nướng, khá cân bằng",Neutral,llm_chap_nhan
+G105,dùng cũng được,Neutral,"Dùng cũng được, tương đương tạm được, không khen rõ",Neutral,llm_chap_nhan
+G109,"tủ hoạt động tốt, mà mình cảm thấy không được làm lạnh lắm",Neutral,"Khen hoạt động tốt nhưng chê làm lạnh chưa đủ, khá cân bằng",Neutral,llm_chap_nhan
+G117,Mình mới mua được 3 tuần máy chạy thì ok êm nhưng mình cảm là chỉ mát 1 chỗ xung quanh thì ko mát nha ko hiểu,Neutral,"Khen chạy êm nhưng chê chỉ mát một chỗ, khá cân bằng",Neutral,llm_chap_nhan
+G118,"Chưa thử nên chưa biết thế nào , giao hàng rất nhanh",Positive,Chưa dùng thử nhưng khen giao hàng rất nhanh,Positive,llm_chap_nhan
+G119,"Mới phát hiện bị rò điện ngày hôm nay. 24/04/2024Mua ngày 24/04/2023.Khiếu nại ngày 25/04 hết bảo hành. Bây giờ cần DMx tư vấn bán lại hay ntn, dùng này nguy hiểm quá",Negative,"Báo máy rò điện, vừa hết bảo hành, lo nguy hiểm",Negative,llm_chap_nhan
+G127,Chỉ chọn vắt sao máy cứ xả nước giặt r mới vắt v,Negative,"Hỏi vì máy chạy sai chế độ vắt, nghi gặp sự cố",Negative,llm_chap_nhan
+G128,Có cách nào để chỉnh nhiệt độ ngăn đông mềm k ạ. Vì tôi ktra thấy nhiệt độ ngăn đông mềm cũng như ngăn mát. K có gì khác nhau.,Negative,"Hỏi vì ngăn đông mềm không khác ngăn mát, nghi lỗi",Negative,llm_chap_nhan
+G130,Nước chảy qua máy yếu hơn nước trực tiếp,Negative,"Chê nước chảy qua máy yếu, không có ý khen",Negative,llm_chap_nhan
+G137,Bếp nấu ok mà sau ko chuyển qua chế độ rán được Bếp hạ lửa giảm nóng rất nhanh,Negative,"Báo bếp không chuyển được chế độ rán, hạ lửa nhanh",Negative,llm_chap_nhan
+G140,Hút bụi mịn ok lắm Lau sàn cũng tạm Mau hết pin,Neutral,"Khen hút bụi, lau sàn tạm, chê mau hết pin, cân bằng",Neutral,llm_chap_nhan
+G148,Cảm nhận đầu tiên là máy hoạt động rất lâu báo 48p kết quả xong đồ là 1h40pGiặt đồ sạch. Lúc giặt kêu vừa tạm chấp nhận đc. Vắt khá êm. Hơi tiếc ko có vắt cực khô như máy nhà đang sd....,Neutral,"Khen giặt sạch, vắt êm nhưng chê giặt lâu, hơi ồn, thiếu chế độ",Neutral,llm_chap_nhan
+G156,"Máy nén kêu kẹt kẹt, rất khó chịu",Negative,"Máy nén kêu kẹt kẹt, rất khó chịu",Negative,llm_chap_nhan
+G158,Mấy cái gói 12th tặng không có tài khoản để đăng nhập vào sử dụng đc,Negative,Gói quà tặng không đăng nhập sử dụng được,Negative,llm_chap_nhan
+G159,Mua được hơn 1 tháng tủ lạnh cứ kêu cọc cọc là sao vậy ạ . Mong được phản hồi sớm. Trân trọng,Negative,"Tủ lạnh kêu cọc cọc sau 1 tháng, hỏi vì sự cố",Negative,llm_chap_nhan
+G160,Lâu lâu chạm vào mặt ngoài tủ lạnh thì bị giật nhẹ,Negative,Chạm vỏ tủ lạnh bị giật điện nhẹ,Negative,llm_chap_nhan
+G166,Hôm trước vừa gắn xong chạy cũng ok nhưng sao ĐMX lắp máy lạnh không có hút chân không vậy Thiếu bước hút chân không rồi,Negative,Máy chạy ok nhưng phàn nàn lắp thiếu hút chân không,Negative,llm_chap_nhan
+G168,Dùng tốt có điều hơi yếu một chút,Positive,"Khen dùng tốt, chê nhẹ hơi yếu",Positive,llm_chap_nhan
+G169,Máy bị lỗi liên tục....Nhân viên ĐMX k chịu hoàn tiền ..đổi đến cây thứ 4 mới sài đượcNước lọc ra uống k được ngọt như những cây khác,Negative,"Máy lỗi liên tục, đổi nhiều lần, nước không ngon",Negative,llm_chap_nhan
+G173,kêu to ồn,Negative,Chê máy kêu to ồn,Negative,llm_chap_nhan
+G175,Quạt chạy êm nhưng tốc độ làm mác không mạnh,Neutral,"Khen chạy êm nhưng chê gió không mạnh, cân bằng",Neutral,llm_chap_nhan
+G176,Ngày nào cũng được ăn cơm cháy :))),Negative,Mỉa mai nồi làm cháy cơm hằng ngày,Negative,llm_chap_nhan
+G177,Cục nóng kêu to,Negative,Cục nóng kêu to,Negative,llm_chap_nhan
+G178,"máy tốt, chân hơi khập khiểng",Positive,"Khen máy tốt, chê nhẹ chân khập khiễng",Positive,llm_chap_nhan
+G180,"Máy chạy êm, ổn định. Có điều nước thải ra hơi nhiều",Positive,"Khen êm, ổn định, chê nhẹ xả nước nhiều",Positive,llm_chap_nhan
+G181,Sao mình mới mua dc 1 tuần tủ bị hư ron. Không thể tin được luôn. Muốn liên hệ bảo trì máy thì sao ad,Negative,"Tủ hư ron sau 1 tuần, hỏi bảo trì",Negative,llm_chap_nhan
+G182,"Sao nó i như cái quạt gió tắt quạt là hết lạnh vậy ,",Negative,Phàn nàn tắt quạt là hết lạnh ngay,Negative,llm_chap_nhan
+G185,Tủ vận hành êm làm lạnh nhanh nhưng 2 bên hong tủ tỏ nhiệt rất nóng chạm vào muốn phỏng tay,Negative,"Khen êm, lạnh nhanh nhưng hông tủ nóng bỏng tay",Negative,llm_chap_nhan
+G190,Sài cũng tạm ổn,Neutral,"Chỉ nói tạm ổn, không có ý khen cụ thể",Neutral,llm_chap_nhan
+G191,Cho hỏi khoảng 1l nước chế độ trung bình thì bao lâu sôi . Mới đầu thấy nhanh mà giờ lâu quá,Negative,Hỏi vì đun sôi ngày càng lâu,Negative,llm_chap_nhan
+G196,"Mới lắp sd ok, nhưng chạy chưa được 1 tháng cục nóng chạy ồn, phiền hàng xóm quá.",Negative,Chưa được 1 tháng cục nóng chạy ồn,Negative,llm_chap_nhan
+G201,Có ai bị hiện tượng hơi nóng bay ra từ cánh cửa không KTV của ĐMX cho hỏi đây là hiện tượng bình thường hay lỗi kỹ thuật Vì thấy cánh cửa có ron cao su nhưng không kín thì phải.,Negative,"Hỏi vì hơi nóng thoát ra cửa, nghi ron không kín, lỗi",Negative,llm_chap_nhan
+G207,Bếp đun hơi lâu,Negative,"Chỉ chê nhẹ bếp đun hơi lâu, không có ý khen",Negative,llm_chap_nhan
+G210,"ngăn đông đá hơi lâu,sao không có đế",Negative,"Chê đông đá lâu và thiếu đế, không có ý khen",Negative,llm_chap_nhan
+G216,Xài ko có gì nổi bật. Máy bơm ko mạnh như máy cũ đã từng xài (hiệu akpha),Negative,"Không nổi bật, bơm yếu hơn máy cũ",Negative,llm_chap_nhan
+G219,"Mh Sài được 5 tháng, bị lỗi báo hãng sửa không ra ôn gì còn báo bình thường mà Sài thì không được1 hãng lớn nhưng rất kì cụcCòn nhân viên điện máy xanh thì quá OK coi 1 lần ra liền",Negative,"Máy lỗi hãng sửa không được, chỉ khen nhân viên ĐMX",Negative,llm_chap_nhan
+G220,Tiện lợi êm khi mở,Positive,"Khen tiện lợi, êm khi mở",Positive,llm_chap_nhan
+G225,"Xài tương đối ổn, giá chấp nhận được với chất lượng, tiền nào của đó các bạn ạ .",Positive,"Tương đối ổn, giá chấp nhận được, tiền nào của đó",Positive,llm_chap_nhan
+G226,Máy rẻ nhưng sấy rất tốt .nên mua .nên để chế độ tiêu chuẩn để sấy,Positive,"Máy rẻ, sấy rất tốt, khuyên nên mua",Positive,llm_chap_nhan
+G227,Máy bơm hút nước nên ko đc em lắm,Negative,Chê máy bơm hút nước không êm lắm,Negative,llm_chap_nhan
+G228,Máy giặt rất ồn nhờ ĐMX hỗ trợ. Máy mình mới giặt lần đầu. Nhận máy ngày 06/09/2023,Negative,"Máy giặt rất ồn ngay lần đầu, nhờ hỗ trợ",Negative,llm_chap_nhan
+G230,"mới lắp,chưa dùng nên chưa biết sản phẩm tốt k. nhưng chính sách và ưu đãi thì điện máy xanh luôn tốt nhất.",Positive,Chưa dùng sản phẩm nhưng khen chính sách ưu đãi ĐMX,Positive,llm_chap_nhan
+G234,Nước nóng nhanh nhưng chế độ tăng áp thì ko có tác dụng lắm,Neutral,"Khen nước nóng nhanh, chê tăng áp không hiệu quả, cân bằng",Neutral,llm_chap_nhan
+G236,Làm Lạnh Nhanh.Mọi thứ đều ổn.Nhưng theo thông số ghi là 296 kw nhưng theo mình nghĩ chắc phải hơn 296 Chắc Cũng uống điện Như uống bia Là Cái Chắc,Positive,"Làm lạnh nhanh, mọi thứ ổn, chỉ đùa tốn điện",Positive,llm_chap_nhan
+G241,cơm chín nhưng chưa ngon,Negative,"Cơm chín nhưng chưa ngon, chê nhẹ không có khen",Negative,llm_chap_nhan
+G243,"Mới dùng nên chưa đánh giá sâu đc, tạm thời thấy ổn",Positive,"Mới dùng, tạm thời thấy ổn",Positive,llm_chap_nhan
+G251,"Cân nhắc trước khi mua. Máy hoạt động hơi ồn. Mùa đông, thức ăn rau củ trong tủ lạnh muốn đóng đá mà máy hoạt động liên tục. Dừng một lúc lại hoạt động. Cùng giá tiền nên mua Panasonic hay Aqua.",Negative,"Khuyên cân nhắc, máy ồn, rau củ bị đóng đá",Negative,llm_chap_nhan
+G252,"máy mua về lạnh tầm 45 phút là không lạnh,bật máy lạnh mà có hơi gió chừ không có hơi lạnh.lạnh ở họng gió còn phòng thì không",Negative,Máy lạnh chỉ lạnh 45 phút rồi không lạnh,Negative,llm_chap_nhan
+G253,Chiên cá chưa được ngon,Negative,"Chê chiên cá chưa ngon, không có ý khen",Negative,llm_chap_nhan
+G254,Nấu cũng được,Neutral,"Cũng được tương đương tạm được, không khen rõ",Neutral,llm_chap_nhan
+G260,máy có bơm trợ lực không kiểm soát được bơm luồng nước ra từ vòi yếu hơn so với việc chưa gắn máy nước nóng.,Negative,Chê bơm trợ lực làm nước ra yếu hơn,Negative,llm_chap_nhan
+G263,Nước yếu và ít nước,Negative,Chê nước yếu và ít,Negative,llm_chap_nhan
+G267,Tại sao cư đang nấu dc mấy phút thj nó se tự động nhảy qua chế độ tăng giảm nhiệt độ. Cứ giảm nhiệt độ xong lại vù lên oy lại giảm. Co ai hỗ trợ dc ko ạ. Mjnh mua o ĐMx Trần phú.,Negative,Hỏi vì bếp tự đổi nhiệt độ bất thường,Negative,llm_chap_nhan
+G268,Quạt thì mới mà sao để trong cái thùng cũ rách cũng không biết nữa. Có khi nào mình mua phải quạt cũ hay là hàng trưng bày không vậy,Negative,"Thùng cũ rách, nghi mua hàng cũ",Negative,llm_chap_nhan
+G270,Cho e hỏi giờ e lỡ làm mất chìa khóa tủ vậy rồi bên mình có bán k ạ.,Neutral,"Hỏi mua chìa khóa tủ, thông tin thuần túy",Neutral,llm_chap_nhan
+G271,Hiện tại có 1 số công ty lừa đảo lấy danh nghĩa điện máy xanh đi tuyển dụng làm thêm hoặc tặng quà tri ân để lừa đảo. Mong điện máy xanh viết bài cảnh báo giảm số người bị lừa.,Neutral,"Cảnh báo lừa đảo, không đánh giá sản phẩm",Neutral,llm_chap_nhan
+G274,Nồi cơm nấu có nhiều cơm cháy.ai thích ăn cơm cháy có thể mua nồi này về nấu.,Negative,Mỉa mai nồi nấu nhiều cơm cháy,Negative,llm_chap_nhan
+G275,Mìn mua được 1 tuần. Máy chạy ổn chỉ có quạt hơn lớn nhưng có thể chấp nhận được.,Positive,"Máy chạy ổn, quạt hơi lớn nhưng chấp nhận được",Positive,llm_chap_nhan
+G276,Nhân viên lắp cẩu thả,Negative,Chê nhân viên lắp cẩu thả,Negative,llm_chap_nhan
+G279,Quạt bị lỗi liên hệ vs hotline bên điện máy ko được quạt mới giao,Negative,"Quạt lỗi, liên hệ hotline không được đổi",Negative,llm_chap_nhan
+G285,"Quạt hơi yếu, nhưng vậy là ổn áp.",Positive,Quạt hơi yếu nhưng kết luận ổn áp,Positive,llm_chap_nhan
+G287,"Mới lắp 2 ngày cục nóng kêu to, bị chảy nước. Cục lạnh làm lạnh chậm, bật chế độ powefull kêu to.",Negative,"Cục nóng kêu to, chảy nước, lạnh chậm",Negative,llm_chap_nhan
+G290,Quạt rất ồn,Negative,Quạt rất ồn,Negative,llm_chap_nhan
+G291,"máy chọn sấy 90p nhưng không thấy khô quần áo,còn lại ok",Negative,"Chức năng sấy không khô, còn lại ok",Negative,llm_chap_nhan
+G292,Cần hỗ trợ dầu mỡ chảy qua khe ngay kính,Negative,Cần hỗ trợ vì dầu mỡ chảy qua khe kính,Negative,llm_chap_nhan
+G293,Bị lỗi chạy nước mới đc đổi con khác để xem có ổn ko,Negative,"Bị lỗi chảy nước, đã đổi nhưng chưa chắc ổn",Negative,llm_chap_nhan
+G297,Tôi muốn vệ sinh máy giặt ở quỳnh lưu nghệ an,Neutral,Yêu cầu dịch vụ vệ sinh máy giặt,Neutral,llm_chap_nhan
+G298,Mình cần dịch vụ bảo hành,Negative,"Cần bảo hành, ngụ ý sản phẩm có vấn đề",Negative,llm_chap_nhan
+G299,Ba số điều chung 1 lượng gió,Negative,Chê ba số quạt cùng một lượng gió,Negative,llm_chap_nhan
+G300,"Máy sài nước yếu.. vòi sen để trên cao. Bật nước thì bơm k hoạt động, nước k ra.. gọi bảo hành xuống thì bảo do nước nhà yếu. Mặc dù sài từ đầu vẫn ổn. Bảo hành như không. Giờ hết bảo hành..Giờ vòi sen hạ xuống 1 nữa, dùng được vài tháng lại k ra nước... giờ phải thả vòi sen dưới đất thì nước mới chảy ra..",Negative,"Máy bơm không ra nước, bảo hành như không",Negative,llm_chap_nhan
+G303,Remote bị hư 1 nút ko sử dụng đc. Cần bảo hành đổi remote khác thì làm ntn au,Negative,"Remote hư nút, hỏi cách bảo hành đổi",Negative,llm_chap_nhan
+G307,Mới mua sử dụng chưa đc mấy lần mà bị lỗi màn hình nhiệt độ không chính xác có đc đổi lại không,Negative,"Mới dùng đã lỗi màn hình nhiệt độ, hỏi đổi",Negative,llm_chap_nhan
+G308,Dc nhưng giá vẫn hơi cao,Neutral,"Được nhưng chê giá hơi cao, hai bên cân nhau",Neutral,llm_chap_nhan
+G310,Máy ok. Nhưng chỗ xả nước hơi bị rỉ .,Neutral,"Máy ok nhưng chỗ xả nước bị rỉ, khen chê cân bằng",Neutral,llm_chap_nhan
+G311,Dùng đc 3-4 ngày,Neutral,"Chỉ nêu thời gian dùng, thiếu ngữ cảnh",Neutral,llm_chap_nhan
+G316,"Ngăn đông Ok, ngăn mát mát bình thường, không phải kiểu lạnh sâu",Neutral,"Ngăn đông ok, ngăn mát chỉ bình thường, cân bằng",Neutral,llm_chap_nhan
+G319,Truoc mua con cubgx ariston. Mà domgf khac. Thấy ok lắm Con nay Máy bơm yếu. Làm nóng ơt mức trung.bình,Negative,"Chê máy bơm yếu, làm nóng trung bình",Negative,llm_chap_nhan
+G323,thợ lắp đặt thiếu chuyên nghiệp,Negative,Chê thợ lắp đặt thiếu chuyên nghiệp,Negative,llm_chap_nhan
+G324,"Nhân viên khá nhiệt tình. Thất vọng vì máy k đáp ứng kỳ vọng. K xử lý được bụi như quảng cáo. Dùng hơn 10 ngày, bụi vẫn bay lơ lững khá nhiều dưới ánh đèn điện thoại.",Negative,Khen nhân viên nhưng thất vọng vì máy không lọc bụi,Negative,llm_chap_nhan
+G326,ngăn mát hơi yếu. ngăn đông hoạt động tốt,Neutral,"Ngăn mát hơi yếu, ngăn đông tốt, khen chê cân bằng",Neutral,llm_chap_nhan
+G333,"Hình ảnh sắc nét, nhưng mở clip 4K thì load rất chậm. Âm thanh to, rõ.",Positive,"Khen hình ảnh, âm thanh, chê load 4K chậm",Positive,llm_chap_nhan
+G334,Quạt thì OK nhưng nhân viên bán hàng làm thái độ khi khách yêu cầu lắp quạt ủa bán hàng mà đưa cái hộp tùm lum linh kiện hết trơn sao khách biết ráp bán buôn mà thái độ khi khách yêu cầu lắp,Negative,Quạt ok nhưng bức xúc thái độ nhân viên bán hàng,Negative,llm_chap_nhan
+G337,"Máy lọc này chỉ đc mức cơ bản phòng 15m2 đốt nhang mù mịt mới báo đỏ , vs mức giá rẻ z chỉ đc như này thôi ai kỹ tính muốn hiệu quả cao vs nhạy khử mùi tốt thì tham khảo những dòng máy mắc , mình thì ở trọ cơ bản lọc vậy củng tạm ổn",Neutral,"Máy chỉ ở mức cơ bản, tạm ổn với giá rẻ",Neutral,llm_chap_nhan
+G338,Máy cửa hút bụi bé không thể hút khe giường đc .,Negative,"Chê cửa hút nhỏ, không hút được khe giường",Negative,llm_chap_nhan
+G340,Sử dụng 3 tháng hư động cơ quạt sử dụng 1 năm hơn cháy bơm vậy có là bình thường?,Negative,"Hư động cơ quạt, cháy bơm, hỏi vì gặp sự cố",Negative,llm_chap_nhan
+G342,Giải nhiệt mùa nóng,Positive,"Nêu công dụng giải nhiệt, hơi nghiêng khen",Positive,llm_chap_nhan
+G343,Cục nóng hơi ồn,Negative,Chỉ chê nhẹ cục nóng hơi ồn,Negative,llm_chap_nhan
+G346,"Hình thức đẹp, dễ sử dụng, tuy nhiên khi bật chế độ làm mát thì rất ồn, đề nghị bên cskh liên hệ lại xem có cách nào khắc phục k",Negative,"Khen đẹp dễ dùng nhưng rất ồn, yêu cầu khắc phục",Negative,llm_chap_nhan
+G347,Mua gói vệ sinh 3 năm bên đmx nhân viên bảo là 6 tháng sẽ có người gọi để vệ sinhNhưng từ lúc mua đến giờ gần 7 tháng hơn rồi có người gọi r hẹn đến nay 1 tháng hơn r mà chưa có ai đến vệ sinh gì cả,Negative,Mua gói vệ sinh nhưng quá hạn chưa ai đến,Negative,llm_chap_nhan
+G350,"Mơi dùng 1 tuần chưa đánh gia đc, cảm nhận tốt",Positive,"Mới dùng chưa đánh giá, nhưng cảm nhận tốt",Positive,llm_chap_nhan
+G351,"Số 1,Chạy tít quá, Chạy số to nhất cắt gió hơi ù",Negative,"Chê số nhỏ nhất chạy quá mạnh, số to bị ù; ý khá mơ hồ",Negative,llm_chap_nhan
+G352,"Cảm quan là khá ok với tầm tiền này, sấy đồ khô rong dù là ctrinh 1 tiếng. Tuy nhiên các chi tiết nhựa lẫy cửa, hộp bụi vải hơi đểu đểu, ko biết dùng lâu dài có giòn hỏng ko",Neutral,"Khen sấy khô, giá hợp lý nhưng chê nhựa kém, lo độ bền",Neutral,llm_chap_nhan
+G355,"Chất lượng máy tốt nhưng dịch vụ lắp đặt quá kém, thiếu thẩm mỹ",Negative,Máy tốt nhưng chê nặng dịch vụ lắp đặt quá kém,Negative,llm_chap_nhan
+G356,"Rất tiếc tôi mua onl nên k đến xem quạt trước, khi cho nước vào phải đổ ở trên xuống. Nhà sx không thiết kế cửa bên dưới cạnh thùng chứa nước thì tiện hơn",Negative,"Tiếc vì mua online, chê thiết kế đổ nước bất tiện",Negative,llm_chap_nhan
+G357,Mới mua ngày 2/5 .giặt sao kêu quá.còn lại thì êm. Nhờ bên kỹ thuật tư vấn dùm.,Negative,"Máy giặt kêu to, nhờ kỹ thuật tư vấn vì sự cố",Negative,llm_chap_nhan
+G358,"Tủ thi thoảng kêu to, liên hệ với tôi, cần bảo hành",Negative,"Tủ thỉnh thoảng kêu to, yêu cầu bảo hành",Negative,llm_chap_nhan
+G359,Quạt mua it khi su dung. Ma quạt số 1 no keu phát ra tiếng quá ồn,Negative,Quạt số 1 phát tiếng quá ồn,Negative,llm_chap_nhan
+G367,"Không biết có bấm nút nấu thường được không , mình mở lên bấm nút nấu thường không được ,",Negative,"Bấm nút nấu thường không được, hỏi vì gặp sự cố",Negative,llm_chap_nhan
+G368,"Mới sử dụng thì thấy ok, chờ thời gian xem độ bền thế nào",Positive,"Mới dùng thấy ok, còn chờ xem độ bền",Positive,llm_chap_nhan
+G370,Máy ồn dã man. Lực hút ko mạnh như quảng cáo,Negative,"Chê máy ồn dã man, lực hút yếu hơn quảng cáo",Negative,llm_chap_nhan
+G382,Bếp ko đạt tới công suất quảng cáo. Nấu hơi lâu,Negative,"Chê bếp không đạt công suất quảng cáo, nấu lâu",Negative,llm_chap_nhan
+G384,"Giá thay đổi liên tục,lúc vào xem thì 2tr490 Lúc mua thì 2tr790Xong đến lúc vào đánh giá thì 2tr490Máy có bơm nên khi dùng ò ò ù hết tai. Chẳng bằng máy rapido 990k bắt ở trọ nữa. Khó dùng mà điều chỉnh nước nóng cũng khó hơn. Bắt cho ba mẹ lớn tuổi mà mình còn thấy khó dùng. Biết thể dùng hãng rapido còn ổn hơn",Negative,"Chê giá thay đổi, máy ồn, khó dùng, thua hãng khác",Negative,llm_chap_nhan
+G388,tủ hoạt động bình thường,Neutral,"Chỉ nói tủ hoạt động bình thường, không có ý khen chê",Neutral,llm_chap_nhan
+G391,"Thật sự chán, vòi nước thì rỉ nước, khi trời mưa thì có hiện tượng đổ mồ hôi, tiechs tụ nước trên cánh tủ, phải lau đi, bảo hành thì cứ bảo sử dụng đi rồi khi chảy thì gọi nữa, nói 1 hồi thì nói phụ kiện ngoài hãng ko hỗ trợ đổi, tui mệt mỏi với cái dụ này mất.",Negative,"Vòi rỉ nước, tủ đọng nước, bảo hành không hỗ trợ",Negative,llm_chap_nhan
+G396,Bếp trong quá trình sử dụng giờ bị nức kính thì có được bảo hành hay không,Negative,"Bếp bị nứt kính, hỏi về bảo hành",Negative,llm_chap_nhan
+G397,"Để sấy 3 tiếng nhưng vẫn có đồ bị ẩm, ko khô hoàn toàn. Máy không ồn, chạy êm.",Negative,"Sấy 3 tiếng đồ vẫn ẩm, dù khen máy êm",Negative,llm_chap_nhan
+G399,Mới mua hôm trước 549 2 ngày sau 518k buồn thật,Negative,"Phàn nàn giá giảm ngay sau khi mua, buồn",Negative,llm_chap_nhan
+G400,"Đã mua máy ngày 2/4, giao hàng 3/4, hiện tại máy chạy yếu đề nghị trả mất phí. Nhân viên nói hôm nay 29/4 trả phí 20% nhưng không có nhân viên do kẹt đơn nên xin dời lại 5/5 hỗ trợ và thu phí thành 30% do đổi trả quá 1 tháng, hôm nay báo chưa đủ 1 tháng. DMX lại dời lên thành 2 tháng để thu thêm phí, tôi thấy ko họp lý chút nào. Nên xem lại cách phục vụ khách hàng đi ạ. Gọi bào hành rất khó và giờ lại hẹn tiếp cho đến khi qua ngày đủ thành tháng thứ 2",Negative,"Máy chạy yếu, đổi trả bị dời lịch, thu phí vô lý",Negative,llm_chap_nhan
+G403,"Mình sấy dc vài lần thấy sấy ok. Muốn sấy khô dc quần áo thì phải giặt và vắt hết nước từ trước, sau đó cho vào máy, chọn chế độ sấy tăng một chút là khô rang. Chế độ sấy nhanh không khô lắm. Tạm ổn so với giá tiền",Positive,"Sấy ok, khô rang; chế độ nhanh chưa khô, tạm ổn so với giá",Positive,llm_chap_nhan
+G405,Nồi có mùi nhựa rất khó chịu khi sử dụng,Negative,Nồi có mùi nhựa rất khó chịu,Negative,llm_chap_nhan
+G406,Máy k hút được tóc,Negative,Máy không hút được tóc,Negative,llm_chap_nhan
+G410,"Mua về 1 ngày mà cắm điện vô kêu e e,hai bên hông tủ lạnh nóng",Negative,"Mới 1 ngày tủ kêu e e, hông tủ nóng",Negative,llm_chap_nhan
+G414,Đã mua 2 cái.. cả 2 nước đầu ra quá yếu.. không biết có trả lại được không,Negative,"Cả 2 máy nước đầu ra quá yếu, muốn trả lại",Negative,llm_chap_nhan
+G416,Lúc kéo quạt lên cao nhất thì chân quạt nó bị rung và tạo ra tiếng kêu hơi lớn,Negative,"Chân quạt rung và kêu lớn khi kéo cao, không có ý khen",Negative,llm_chap_nhan
+G417,Đèn đẹp. Cảm giác thay đổi môi trường không khí chưa rõ rệt. Khi cắm điện không có đèn led bật sẵn hơi bất tiện.,Neutral,Khen đèn đẹp nhưng chê hiệu quả chưa rõ và bất tiện nhỏ,Neutral,llm_chap_nhan
+G418,Máy hay bị lỗi,Negative,Máy hay bị lỗi,Negative,llm_chap_nhan
+G420,Sản phẩm khi dùng có nước đọng trên thành tủ. Đóng băng 4 mặt bên trong tủ,Negative,Báo lỗi nước đọng và đóng băng trong tủ,Negative,llm_chap_nhan
+G421,Bề mặt muốn vệ sinh sạch sẽ dễ dàng thì làm ntn ạ?,Neutral,Hỏi thông tin cách vệ sinh bề mặt,Neutral,llm_chap_nhan
+G423,"màu nhạt lắm, đôi khi trời nắng mà ở trong nhà xem tivi là choá k thấy gì luôn. mài sắc thua Sony và LG nhiều.",Negative,"Chê màu nhạt, chói, thua Sony và LG",Negative,llm_chap_nhan
+G424,"Sao bếp đã tắt rồi nhưng đèn vẫng nháy, chỉ khi rút phím cấm ra mới hết. Ko biết là lỗi hay bếp nó vậy",Negative,"Hỏi vì đèn bếp vẫn nháy khi tắt, nghi lỗi",Negative,llm_chap_nhan
+G431,Lúc nhận hàng mình quên kiểm tra. Mở thùng ra thì thấy nồi bị móp 1 bên,Negative,Nhận nồi bị móp một bên,Negative,llm_chap_nhan
+G434,"Mới mua về thử nấu thì nghe âm thanh to quá, nghe ồn khó chịu",Negative,"Nấu nghe âm thanh to, ồn khó chịu",Negative,llm_chap_nhan
+G436,"Nồi cơm nấu ít hơi lắm , cho nên cơm ăn ko ngon",Negative,"Nồi nấu ít hơi, cơm không ngon",Negative,llm_chap_nhan
+G437,Sp bình thường. Không có gì khen cũng chẳng chê gì. Đang lắp máy nước nóng bơm nhiệt. Nên dùng chống cháy ít hôm. Xong gọi trả hàng theo chính sách dmx.,Neutral,"Nói bình thường, không khen không chê, dự định trả hàng",Neutral,llm_chap_nhan
+G443,"Nồi bị lổi , nhân viên hổ trợ đổi mới giao tận nơi . Nói chung tạm hài lòng",Neutral,"Nồi bị lỗi nhưng được đổi mới, tạm hài lòng",Neutral,llm_chap_nhan
+G446,Biếp mua về lâu nóng hơn so với các biếp khác,Negative,Bếp lâu nóng hơn bếp khác,Negative,llm_chap_nhan
+G449,Mới đầu làm lạnh chưa nhanh,Negative,"Chê làm lạnh chưa nhanh lúc đầu, không có ý khen",Negative,llm_chap_nhan
+G452,Máy dùng ổn nhưng nươc hơi và bơm yếu,Neutral,"Khen dùng ổn nhưng chê nước và bơm yếu, gần cân bằng",Neutral,llm_chap_nhan
+G454,Nước nóng thì nóng thiệt . Nhưng nước lạnh không lạnh lắm. Chỉ hơi mát. Mọi người nên cân nhắc sản phẩm này .,Negative,"Nước lạnh không lạnh, khuyên cân nhắc, chỉ khen nước nóng",Negative,llm_chap_nhan
+G455,"Máy bị lỗi, không xả nước, mong sớm được hỗ trợ",Negative,"Báo lỗi không xả nước, chờ hỗ trợ",Negative,llm_chap_nhan
+G457,"Tủ vừa mua chạy 1 ngày mà kêu o o o rất khó chịu, tôi cần liên lạc gấp để được giải quyết nhanh nhất.",Negative,"Tủ mới chạy 1 ngày kêu khó chịu, cần giải quyết gấp",Negative,llm_chap_nhan
+G459,Bếp cũng được e ak,Neutral,"Cũng được, tương đương tạm được, không khen rõ",Neutral,llm_chap_nhan
+G461,"tivi tốt nhưng âm thanh chưa được hay so với tivi samsung, chấm được 4 sao",Positive,"Tivi tốt, chê nhẹ âm thanh, tự chấm 4 sao",Positive,llm_chap_nhan
+G462,nồi chị nấy mà vẫn bị sém cơm,Negative,Nồi vẫn bị sém cơm,Negative,llm_chap_nhan
+G465,Gửi hàng mà khó hết lấy hàng trưng bày cũng OK cho rồi mà lại hư 1 nút bấm. Khá là khó chịu dù cửa hàng có bảo là có hàng sẽ gửi đổi. Nên thôi k nhận luôn. Hủy đơn luôn,Negative,"Hàng trưng bày hư nút, khó chịu, hủy đơn",Negative,llm_chap_nhan
+G466,Sao lúc nấu ngoài tiếng của bếp ra còn có tiếng rắc rắc như z có bình thường ko,Negative,Hỏi vì bếp có tiếng rắc rắc lạ,Negative,llm_chap_nhan
+G467,Mn cho mh hỏi máy lạnh này là có chế độ tiết kiệm điện trên remot là khi sử dụng mình phải bấm nút đó nó mới tiết kiệm điện hả,Neutral,Hỏi thông tin thuần túy về chế độ tiết kiệm điện,Neutral,llm_chap_nhan
+G471,Tủ dùng hơn năm đã hư điện bảo hành k xuống sửa đc dịch tả buồn sản phẩm này chất lượng không được tốt,Negative,"Tủ hư sau hơn năm, bảo hành không xuống sửa",Negative,llm_chap_nhan
+G472,Máy bơm quá yếu,Negative,Chê máy bơm quá yếu,Negative,llm_chap_nhan
+G473,Khoang gãy giá đỡ remot nhà mình,Negative,"Báo gãy giá đỡ remote, câu ngắn thiếu ngữ cảnh",Negative,llm_chap_nhan
+G474,"Smarth tệ hơn loại khác , hầu như ko tải được và xem,dùng 2 loại,,,được chiếu từ đt,ánh sáng ,âm thanh",Negative,"Smart tivi tệ, hầu như không tải và xem được",Negative,llm_chap_nhan
+G480,"Cục nóng máy lạnh lắp bị nghiêng sang một bên, không biết có ảnh hưởng độ bền không",Negative,"Cục nóng lắp bị nghiêng, lo ảnh hưởng độ bền",Negative,llm_chap_nhan
+G483,Tôi mua tủ mới nhưng có vết xước rất dài giữa lòng tủ. Nhân viên báo đợi 2 tuần nữa tủ mới khác đang trên đường về để đổi. Sau 2 tuần thì nhân viên báo mã tủ hết hàng. Hi vọng là trong quá trình sử dụng tủ không bị lỗi. Cũng mong ĐMX lần sau kiểm tra kỹ hàng hoá trước khi giao cho khách.,Negative,"Tủ mới bị xước dài, không đổi được vì hết hàng",Negative,llm_chap_nhan
+G485,ngăn mát bị đóng tuyết,Negative,Báo lỗi ngăn mát bị đóng tuyết,Negative,llm_chap_nhan
+G487,"Sao mình bỏ nước giặc và nước xả vải chung, bấm nút, 2 hộc đó trộn lẫn đổ hết vào lồng giặc khi giặc,Không tách ra được, nước giặc trước, giặc xong mới xả, nên sau khi giặc xong, đồ không thơm tí nàoĐMX liên hệ hỗ trợ lại giúp mình phần này nhé",Negative,"Nước giặt và nước xả trộn lẫn, nhờ hỗ trợ",Negative,llm_chap_nhan
+G490,Đã hoàn thành 1 lần giặt và muốn máy vắt thêm lần nữa cho đồ khô thì máy giặt lại đỗ thêm nước vô thành U19 T chỉ chọn chế độ máy xoay cho khô đồ thôi lại quay lại bước thêm nước vô để vắt cũng như không.,Negative,"Phàn nàn chế độ vắt lại cấp nước, báo lỗi U19",Negative,llm_chap_nhan
+G492,"Tôi mua máy lần thứ hai, máy dùng tốt lần đầu nhân viên lắp đặt rất cẩn thận và chu đáo nhiệt tình.mua lần 2 nhân viên lắp đặt quá cầu thả, làm bừa bộn không thu rọn sạch sẽ lại thu thêm tiền khoan tường để luồn ống tôi thắc mắc không hiểu kiểu gì, không hút chân không nữa nói chung nhân viên lắp đặt quá kém , quá thất vọng",Negative,"Lần lắp thứ hai cẩu thả, thu thêm tiền, rất thất vọng",Negative,llm_chap_nhan
+G494,"Máy hơi khờ, kêu to, k lưu bản đồ, ...",Negative,"Máy khờ, kêu to, không lưu bản đồ",Negative,llm_chap_nhan
+G498,"Mua trực tiếp tại cửa hàng về xài bên nóng nó k nóng gọi thợ xuống thì bên tư vấn hỏi đã bật bên nóng chưa nếu bật r mà nó nóng thì ngta gọi lên làm cái gì, xong báo địa chỉ rồi cũng hong ai lên luôn, giỡn hả trời",Negative,"Máy không nóng, báo bảo hành không ai đến",Negative,llm_chap_nhan
+G500,"Máy làm nóng nhanh, lạnh sâu,tiết kiệm điện ,còn tốt hay không thì chưa biết",Positive,"Khen nóng nhanh, lạnh sâu, tiết kiệm điện nhưng chưa biết độ bền",Positive,llm_chap_nhan

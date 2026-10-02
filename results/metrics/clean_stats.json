@@ -1,0 +1,72 @@
+{
+  "raw": 9481,
+  "drop_empty": 17,
+  "drop_short_lt3_words": 1976,
+  "drop_non_vietnamese": 3,
+  "drop_staff_reply": 0,
+  "exact_dup_conflict_groups_dropped": 5,
+  "drop_exact_dup": 690,
+  "drop_near_dup_cos_gt_0.9": 255,
+  "near_dup_pairs_with_different_star": 75,
+  "clean": 6540,
+  "clean_by_star": {
+    "1": 1057,
+    "2": 612,
+    "3": 1068,
+    "4": 1306,
+    "5": 2497
+  },
+  "clean_by_label": {
+    "Positive": 3803,
+    "Negative": 1669,
+    "Neutral": 1068
+  },
+  "clean_by_category": {
+    "may-lanh": 882,
+    "tu-lanh": 833,
+    "quat-dieu-hoa": 630,
+    "bep-hong-ngoai": 454,
+    "noi-com-dien": 443,
+    "may-nuoc-nong": 422,
+    "may-giat": 329,
+    "quat": 326,
+    "tivi": 311,
+    "lo-vi-song": 307,
+    "may-hut-bui": 266,
+    "noi-chien-khong-dau": 237,
+    "tu-dong": 232,
+    "robot-hut-bui": 184,
+    "may-say-quan-ao": 172,
+    "may-loc-nuoc": 169,
+    "may-rua-chen": 166,
+    "may-loc-khong-khi": 143,
+    "bep-tu": 34
+  },
+  "n_categories": 19,
+  "n_products": 72,
+  "words_median": 13.0,
+  "gold": 500,
+  "gold_by_star": {
+    "1": 100,
+    "2": 70,
+    "3": 150,
+    "4": 80,
+    "5": 100
+  },
+  "gold_by_label_star": {
+    "Positive": 180,
+    "Negative": 170,
+    "Neutral": 150
+  },
+  "gold_double_labelled": 100,
+  "gold_max_per_product": 15,
+  "gold_n_products": 71,
+  "gold_n_categories": 19,
+  "pool_after_gold": 6040,
+  "pool_n_categories": 19,
+  "pool_by_label_star": {
+    "Positive": 3623,
+    "Negative": 1499,
+    "Neutral": 918
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "label_distribution_pct": {
+    "train": {
+      "Positive": 60.0,
+      "Negative": 24.8,
+      "Neutral": 15.2
+    },
+    "val": {
+      "Positive": 59.9,
+      "Negative": 24.8,
+      "Neutral": 15.2
+    },
+    "test": {
+      "Negative": 57.8,
+      "Positive": 32.8,
+      "Neutral": 9.4
+    }
+  },
+  "label_distribution_note": "train/val = star labels, test = gold labels (text-based) -> distributions differ",
+  "test_neutral_support": 47,
+  "pool_reviews": 6040,
+  "clean_reviews": 6540,
+  "raw_reviews": 9481,
+  "target_reviews": "8000-10000"
+}

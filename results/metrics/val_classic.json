@@ -1,0 +1,110 @@
+{
+  "best_per_config": [
+    {
+      "feature": "-",
+      "algo": "Baseline (lớp đông nhất)",
+      "input": "-",
+      "feat_params": "",
+      "clf_params": "",
+      "macro_f1": 0.2498,
+      "accuracy": 0.5993,
+      "f1_Negative": 0.0,
+      "f1_Neutral": 0.0,
+      "f1_Positive": 0.7495
+    },
+    {
+      "feature": "BoW",
+      "algo": "NB",
+      "input": "text_clean",
+      "feat_params": "{\"ngram\": [1, 2], \"min_df\": 2}",
+      "clf_params": "{\"alpha\": 0.1, \"fit_prior\": true}",
+      "macro_f1": 0.7308,
+      "accuracy": 0.8124,
+      "f1_Negative": 0.7359,
+      "f1_Neutral": 0.5398,
+      "f1_Positive": 0.9167
+    },
+    {
+      "feature": "BoW",
+      "algo": "SVM",
+      "input": "text_clean",
+      "feat_params": "{\"ngram\": [1, 2], \"min_df\": 1}",
+      "clf_params": "{\"C\": 0.01}",
+      "macro_f1": 0.7075,
+      "accuracy": 0.8113,
+      "f1_Negative": 0.7632,
+      "f1_Neutral": 0.4527,
+      "f1_Positive": 0.9065
+    },
+    {
+      "feature": "TF-IDF",
+      "algo": "NB",
+      "input": "text_clean",
+      "feat_params": "{\"ngram\": [1, 2], \"min_df\": 2}",
+      "clf_params": "{\"alpha\": 0.5, \"fit_prior\": false}",
+      "macro_f1": 0.7384,
+      "accuracy": 0.8256,
+      "f1_Negative": 0.7782,
+      "f1_Neutral": 0.5207,
+      "f1_Positive": 0.9162
+    },
+    {
+      "feature": "TF-IDF",
+      "algo": "SVM",
+      "input": "text_clean",
+      "feat_params": "{\"ngram\": [1, 2], \"min_df\": 1}",
+      "clf_params": "{\"C\": 0.1}",
+      "macro_f1": 0.7232,
+      "accuracy": 0.819,
+      "f1_Negative": 0.7669,
+      "f1_Neutral": 0.4858,
+      "f1_Positive": 0.9167
+    },
+    {
+      "feature": "W2V",
+      "algo": "NB",
+      "input": "text_clean",
+      "feat_params": "{\"vector_size\": 200}",
+      "clf_params": "{\"var_smoothing\": 1e-09, \"priors\": null}",
+      "macro_f1": 0.6557,
+      "accuracy": 0.7274,
+      "f1_Negative": 0.6888,
+      "f1_Neutral": 0.4452,
+      "f1_Positive": 0.8332
+    },
+    {
+      "feature": "W2V",
+      "algo": "SVM",
+      "input": "text_clean",
+      "feat_params": "{\"vector_size\": 200}",
+      "clf_params": "{\"C\": 0.3}",
+      "macro_f1": 0.7171,
+      "accuracy": 0.7826,
+      "f1_Negative": 0.7388,
+      "f1_Neutral": 0.5179,
+      "f1_Positive": 0.8945
+    }
+  ],
+  "stopword_experiment": {
+    "config": "TF-IDF + NB",
+    "with_stopword_removal": {
+      "macro_f1": 0.7384,
+      "accuracy": 0.8256,
+      "f1_Negative": 0.7782,
+      "f1_Neutral": 0.5207,
+      "f1_Positive": 0.9162
+    },
+    "without_stopword_removal": {
+      "macro_f1": 0.7487,
+      "accuracy": 0.8168,
+      "f1_Negative": 0.7856,
+      "f1_Neutral": 0.5586,
+      "f1_Positive": 0.902
+    },
+    "best_params_without": {
+      "feat": "{\"ngram\": [1, 2], \"min_df\": 3}",
+      "clf": "{\"alpha\": 0.3, \"fit_prior\": false}"
+    }
+  },
+  "note": "val labels = star labels; tuned by macro-F1 on val; models fitted on train only"
+}

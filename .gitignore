@@ -1,0 +1,30 @@
+# Raw crawl data + HTML cache (88 MB, raw scraped pages; reproducible with src/crawl)
+data/raw/
+**/html_cache/
+
+# Models / checkpoints (PhoBERT 517 MB, VnCoreNLP jar, joblib; reproducible with src/ + notebook)
+models/
+*.bin
+*.pt
+*.safetensors
+*.joblib
+
+# Course slides (lecturer's material, the team already has them)
+slides/
+
+# Machine-specific Claude Code permissions
+.claude/settings.local.json
+
+# Python / Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,495 @@
+{
+  "models": {
+    "Baseline (lớp đông nhất)": {
+      "accuracy": 0.328,
+      "macro_precision": 0.1093,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1647,
+      "precision_Negative": 0.0,
+      "recall_Negative": 0.0,
+      "f1_Negative": 0.0,
+      "support_Negative": 289,
+      "precision_Neutral": 0.0,
+      "recall_Neutral": 0.0,
+      "f1_Neutral": 0.0,
+      "support_Neutral": 47,
+      "precision_Positive": 0.328,
+      "recall_Positive": 1.0,
+      "f1_Positive": 0.494,
+      "support_Positive": 164,
+      "accuracy_by_star": {
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0867,
+        "4": 0.6875,
+        "5": 0.96
+      },
+      "agree_with_star_label_by_star": {
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 1.0,
+        "5": 1.0
+      },
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          289
+        ],
+        [
+          0,
+          0,
+          47
+        ],
+        [
+          0,
+          0,
+          164
+        ]
+      ]
+    },
+    "BoW + NB": {
+      "accuracy": 0.654,
+      "macro_precision": 0.6077,
+      "macro_recall": 0.6016,
+      "macro_f1": 0.5677,
+      "precision_Negative": 0.9461,
+      "recall_Negative": 0.5467,
+      "f1_Negative": 0.693,
+      "support_Negative": 289,
+      "precision_Neutral": 0.1145,
+      "recall_Neutral": 0.3191,
+      "f1_Neutral": 0.1685,
+      "support_Neutral": 47,
+      "precision_Positive": 0.7624,
+      "recall_Positive": 0.939,
+      "f1_Positive": 0.8415,
+      "support_Positive": 164,
+      "accuracy_by_star": {
+        "1": 0.77,
+        "2": 0.5,
+        "3": 0.4133,
+        "4": 0.7375,
+        "5": 0.94
+      },
+      "agree_with_star_label_by_star": {
+        "1": 0.77,
+        "2": 0.5143,
+        "3": 0.4733,
+        "4": 0.775,
+        "5": 0.95
+      },
+      "confusion_matrix": [
+        [
+          158,
+          108,
+          23
+        ],
+        [
+          7,
+          15,
+          25
+        ],
+        [
+          2,
+          8,
+          154
+        ]
+      ]
+    },
+    "BoW + SVM": {
+      "accuracy": 0.682,
+      "macro_precision": 0.6092,
+      "macro_recall": 0.6281,
+      "macro_f1": 0.5812,
+      "precision_Negative": 0.994,
+      "recall_Negative": 0.5744,
+      "f1_Negative": 0.7281,
+      "support_Negative": 289,
+      "precision_Neutral": 0.1739,
+      "recall_Neutral": 0.3404,
+      "f1_Neutral": 0.2302,
+      "support_Neutral": 47,
+      "precision_Positive": 0.6598,
+      "recall_Positive": 0.9695,
+      "f1_Positive": 0.7852,
+      "support_Positive": 164,
+      "accuracy_by_star": {
+        "1": 0.81,
+        "2": 0.5857,
+        "3": 0.4133,
+        "4": 0.75,
+        "5": 0.97
+      },
+      "agree_with_star_label_by_star": {
+        "1": 0.81,
+        "2": 0.5857,
+        "3": 0.3533,
+        "4": 0.85,
+        "5": 0.99
+      },
+      "confusion_matrix": [
+        [
+          166,
+          71,
+          52
+        ],
+        [
+          1,
+          16,
+          30
+        ],
+        [
+          0,
+          5,
+          159
+        ]
+      ]
+    },
+    "TF-IDF + NB": {
+      "accuracy": 0.742,
+      "macro_precision": 0.6381,
+      "macro_recall": 0.666,
+      "macro_f1": 0.6329,
+      "precision_Negative": 0.9474,
+      "recall_Negative": 0.6851,
+      "f1_Negative": 0.7952,
+      "support_Negative": 289,
+      "precision_Neutral": 0.1868,
+      "recall_Neutral": 0.3617,
+      "f1_Neutral": 0.2464,
+      "support_Neutral": 47,
+      "precision_Positive": 0.78,
+      "recall_Positive": 0.9512,
+      "f1_Positive": 0.8571,
+      "support_Positive": 164,
+      "accuracy_by_star": {
+        "1": 0.87,
+        "2": 0.7,
+        "3": 0.54,
+        "4": 0.7625,
+        "5": 0.93
+      },
+      "agree_with_star_label_by_star": {
+        "1": 0.87,
+        "2": 0.7,
+        "3": 0.3333,
+        "4": 0.7875,
+        "5": 0.91
+      },
+      "confusion_matrix": [
+        [
+          198,
+          69,
+          22
+        ],
+        [
+          8,
+          17,
+          22
+        ],
+        [
+          3,
+          5,
+          156
+        ]
+      ]
+    },
+    "TF-IDF + SVM": {
+      "accuracy": 0.734,
+      "macro_precision": 0.6321,
+      "macro_recall": 0.6623,
+      "macro_f1": 0.6255,
+      "precision_Negative": 0.9602,
+      "recall_Negative": 0.6678,
+      "f1_Negative": 0.7878,
+      "support_Negative": 289,
+      "precision_Neutral": 0.1954,
+      "recall_Neutral": 0.3617,
+      "f1_Neutral": 0.2537,
+      "support_Neutral": 47,
+      "precision_Positive": 0.7406,
+      "recall_Positive": 0.9573,
+      "f1_Positive": 0.8351,
+      "support_Positive": 164,
+      "accuracy_by_star": {
+        "1": 0.88,
+        "2": 0.6714,
+        "3": 0.5067,
+        "4": 0.75,
+        "5": 0.96
+      },
+      "agree_with_star_label_by_star": {
+        "1": 0.88,
+        "2": 0.6857,
+        "3": 0.3333,
+        "4": 0.8,
+        "5": 0.97
+      },
+      "confusion_matrix": [
+        [
+          193,
+          66,
+          30
+        ],
+        [
+          5,
+          17,
+          25
+        ],
+        [
+          3,
+          4,
+          157
+        ]
+      ]
+    },
+    "W2V + NB": {
+      "accuracy": 0.646,
+      "macro_precision": 0.6118,
+      "macro_recall": 0.6318,
+      "macro_f1": 0.5829,
+      "precision_Negative": 0.8731,
+      "recall_Negative": 0.5952,
+      "f1_Negative": 0.7078,
+      "support_Negative": 289,
+      "precision_Neutral": 0.1748,
+      "recall_Neutral": 0.5319,
+      "f1_Neutral": 0.2632,
+      "support_Neutral": 47,
+      "precision_Positive": 0.7875,
+      "recall_Positive": 0.7683,
+      "f1_Positive": 0.7778,
+      "support_Positive": 164,
+      "accuracy_by_star": {
+        "1": 0.74,
+        "2": 0.5857,
+        "3": 0.5133,
+        "4": 0.6125,
+        "5": 0.82
+      },
+      "agree_with_star_label_by_star": {
+        "1": 0.74,
+        "2": 0.5857,
+        "3": 0.4133,
+        "4": 0.5875,
+        "5": 0.78
+      },
+      "confusion_matrix": [
+        [
+          172,
+          95,
+          22
+        ],
+        [
+          10,
+          25,
+          12
+        ],
+        [
+          15,
+          23,
+          126
+        ]
+      ]
+    },
+    "W2V + SVM": {
+      "accuracy": 0.616,
+      "macro_precision": 0.6384,
+      "macro_recall": 0.6362,
+      "macro_f1": 0.571,
+      "precision_Negative": 0.9517,
+      "recall_Negative": 0.4775,
+      "f1_Negative": 0.6359,
+      "support_Negative": 289,
+      "precision_Neutral": 0.1453,
+      "recall_Neutral": 0.5532,
+      "f1_Neutral": 0.2301,
+      "support_Neutral": 47,
+      "precision_Positive": 0.8182,
+      "recall_Positive": 0.878,
+      "f1_Positive": 0.8471,
+      "support_Positive": 164,
+      "accuracy_by_star": {
+        "1": 0.7,
+        "2": 0.5571,
+        "3": 0.36,
+        "4": 0.675,
+        "5": 0.91
+      },
+      "agree_with_star_label_by_star": {
+        "1": 0.7,
+        "2": 0.5286,
+        "3": 0.64,
+        "4": 0.7,
+        "5": 0.88
+      },
+      "confusion_matrix": [
+        [
+          138,
+          135,
+          16
+        ],
+        [
+          5,
+          26,
+          16
+        ],
+        [
+          2,
+          18,
+          144
+        ]
+      ]
+    },
+    "PhoBERT": {
+      "accuracy": 0.714,
+      "macro_precision": 0.6623,
+      "macro_recall": 0.6831,
+      "macro_f1": 0.632,
+      "precision_Negative": 0.9887,
+      "recall_Negative": 0.6055,
+      "f1_Negative": 0.7511,
+      "support_Negative": 289,
+      "precision_Neutral": 0.1692,
+      "recall_Neutral": 0.4681,
+      "f1_Neutral": 0.2486,
+      "support_Neutral": 47,
+      "precision_Positive": 0.829,
+      "recall_Positive": 0.9756,
+      "f1_Positive": 0.8964,
+      "support_Positive": 164,
+      "accuracy_by_star": {
+        "1": 0.86,
+        "2": 0.6857,
+        "3": 0.4533,
+        "4": 0.75,
+        "5": 0.95
+      },
+      "agree_with_star_label_by_star": {
+        "1": 0.86,
+        "2": 0.6857,
+        "3": 0.5267,
+        "4": 0.8125,
+        "5": 0.96
+      },
+      "confusion_matrix": [
+        [
+          175,
+          105,
+          9
+        ],
+        [
+          1,
+          22,
+          24
+        ],
+        [
+          1,
+          3,
+          160
+        ]
+      ]
+    },
+    "TF-IDF + NB, không bỏ stopword [tham khảo]": {
+      "accuracy": 0.714,
+      "macro_precision": 0.6625,
+      "macro_recall": 0.6965,
+      "macro_f1": 0.6389,
+      "precision_Negative": 0.962,
+      "recall_Negative": 0.6125,
+      "f1_Negative": 0.7484,
+      "support_Negative": 289,
+      "precision_Neutral": 0.1923,
+      "recall_Neutral": 0.5319,
+      "f1_Neutral": 0.2825,
+      "support_Neutral": 47,
+      "precision_Positive": 0.8333,
+      "recall_Positive": 0.9451,
+      "f1_Positive": 0.8857,
+      "support_Positive": 164,
+      "accuracy_by_star": {
+        "1": 0.84,
+        "2": 0.6286,
+        "3": 0.4667,
+        "4": 0.775,
+        "5": 0.97
+      },
+      "agree_with_star_label_by_star": {
+        "1": 0.84,
+        "2": 0.6286,
+        "3": 0.4933,
+        "4": 0.75,
+        "5": 0.94
+      },
+      "confusion_matrix": [
+        [
+          177,
+          98,
+          14
+        ],
+        [
+          5,
+          25,
+          17
+        ],
+        [
+          2,
+          7,
+          155
+        ]
+      ]
+    }
+  },
+  "best_classic_by_val": "TF-IDF + NB",
+  "reference_only": "TF-IDF + NB, không bỏ stopword [tham khảo]",
+  "label_noise_overall_pct_differs": 0.312,
+  "gold_agreement": {
+    "n_gold": 500,
+    "n_flagged_for_review": 191,
+    "n_reviewed_row_by_row": 2,
+    "n_llm_accepted_in_bulk": 189,
+    "n_llm_corrected": 0,
+    "pct_llm_corrected_of_reviewed": 0.0,
+    "label_final": {
+      "Negative": 289,
+      "Positive": 164,
+      "Neutral": 47
+    },
+    "label_source": {
+      "llm": 309,
+      "llm_accepted": 189,
+      "human": 2
+    },
+    "g100_n": 100,
+    "kappa_llm_vs_member2": 0.7975,
+    "agree_llm_vs_member2": 0.88,
+    "kappa_final_vs_member2": 0.7975,
+    "pct_star_label_differs_from_final": 0.312
+  },
+  "error_groups": {
+    "PhoBERT": {
+      "Châm biếm": 0,
+      "Chê/báo lỗi bị đoán Neutral": 7,
+      "Chưa dùng / ranh giới Neutral": 2,
+      "Câu cụt, viết tắt, thiếu ngữ cảnh": 1,
+      "Câu hỏi thông tin": 0,
+      "Câu hỏi vì gặp sự cố": 3,
+      "Khen chê lẫn lộn": 0,
+      "Phàn nàn dịch vụ/khuyến mãi": 1,
+      "Phủ định": 1
+    },
+    "TF-IDF + NB": {
+      "Châm biếm": 1,
+      "Chê/báo lỗi bị đoán Neutral": 5,
+      "Chưa dùng / ranh giới Neutral": 1,
+      "Câu cụt, viết tắt, thiếu ngữ cảnh": 1,
+      "Câu hỏi thông tin": 1,
+      "Câu hỏi vì gặp sự cố": 0,
+      "Khen chê lẫn lộn": 5,
+      "Phàn nàn dịch vụ/khuyến mãi": 0,
+      "Phủ định": 1
+    }
+  }
+}

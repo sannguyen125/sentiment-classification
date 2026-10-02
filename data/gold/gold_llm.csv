@@ -1,0 +1,501 @@
+﻿id,label_llm,confidence,reason
+G001,Negative,high,"Tủ kêu tích tích định kỳ, hỏi vì nghi bị lỗi"
+G002,Positive,high,"Khen dùng rất ok, nhân viên tư vấn nhiệt tình"
+G003,Negative,high,"Báo lỗi đọng nước ngăn mát, phải bảo hành"
+G004,Positive,high,Khen âm thanh tốt
+G005,Positive,high,Khen hút bụi mịn rất ok
+G006,Negative,high,"Nồi lỗi nhảy chế độ ủ, đổi máy mới vẫn bị"
+G007,Negative,high,"Hỏng trong tuần, bảo hành kéo dài, khuyên không mua"
+G008,Positive,high,"Khen giá hợp lý, nhân viên và quản lý nhiệt tình"
+G009,Positive,high,"Khen máy hút rất tốt, hút mạnh"
+G010,Negative,high,Phàn nàn nhân viên lắp đặt không dùng dây mới
+G011,Positive,high,"Khen sản phẩm tốt, hài lòng"
+G012,Positive,high,"Khen nồi tiện lợi, khuyên nên mua, giá hợp lý"
+G013,Negative,high,"Máy rò nước, sửa 4 lần không hết, chê rất tệ"
+G014,Positive,high,Khen hàng dùng rất ổn
+G015,Neutral,low,"Khen vẻ ngoài, dễ dùng nhưng kén nhà và không êm"
+G016,Negative,high,"Phàn nàn giao hàng quá lâu, hẹn nhiều lần"
+G017,Neutral,low,Tủ đóng tuyết ngăn mát nhưng khen tủ OK và phục vụ
+G018,Negative,high,"Tố tư vấn sai thời hạn bảo hành, gian dối"
+G019,Negative,high,Báo lỗi rò rỉ nước nhiều
+G020,Negative,high,"Cả 2 sản phẩm giao đến đều lỗi, hối hận đặt"
+G021,Negative,high,Chê máy hoạt động quá ồn
+G022,Negative,high,Chê cơm đáy nồi dễ bị cháy
+G023,Negative,high,Phàn nàn mua giá cao hơn giá niêm yết
+G024,Negative,high,"Chê tư vấn chậm, máy nhỏ, gió ít"
+G025,Neutral,low,Khen tốt chung chung nhưng phàn nàn phí khoan tường
+G026,Negative,high,"Máy mới giặt thử rất ồn, hỏi vì nghi lỗi"
+G027,Positive,low,"Khen máy im, ít rung; bọt trào do nước giặt"
+G028,Positive,high,"Khen dịch vụ tốt, chuyên nghiệp"
+G029,Positive,high,"Khen giá tốt, tính năng hay, là món hời"
+G030,Negative,high,"Quạt ồn, nước bắn, hư sau vài tháng"
+G031,Neutral,low,"Bình thường, kèm nghi ngờ nhẹ về khả năng lọc"
+G032,Negative,high,"Tủ hư chưa tới 1 tháng, bảo hành không xử lý"
+G033,Negative,high,"Tủ hư nhiều lần, bảo hành chậm"
+G034,Negative,high,"Ngăn đá không đông, đổi tủ vẫn lỗi, thất vọng"
+G035,Positive,high,"Khen tủ lạnh nhanh, giữ tươi, chạy êm"
+G036,Negative,high,Chê nấu rất lâu sôi
+G037,Negative,high,"Quạt ồn, không mát như mong đợi"
+G038,Negative,high,"Dùng không ổn định, gãy chân bánh xe"
+G039,Negative,high,"Khiếu nại lắp đặt ống đồng, giải quyết rườm rà"
+G040,Positive,high,"Khen quạt êm, mát"
+G041,Negative,high,"Tivi lỗi trong tuần đầu, hẹn xử lý mãi"
+G042,Positive,high,"Khen tủ chạy êm, làm đá nhanh, mẫu đẹp"
+G043,Neutral,low,"Hỏi về hao nước máy lọc, có chút lo ngại"
+G044,Positive,high,"Khen hàng đẹp, giao nhanh, dùng tốt"
+G045,Negative,high,"Mua giá cao hơn online, thấy bị lừa"
+G046,Positive,high,"Khen máy đẹp, hút sạch, êm, rất hài lòng"
+G047,Neutral,low,"Chê giặt lâu, lực yếu nhưng thấy ổn so với giá"
+G048,Negative,high,"Tủ ồn lớn ban đêm kéo dài, xin hỗ trợ"
+G049,Negative,high,Chê máy kêu to như trực thăng
+G050,Negative,high,Máy lỗi cảm ứng sau hơn một tháng
+G051,Negative,high,Phàn nàn không được tặng quà khuyến mãi như hứa
+G052,Positive,high,"Khen sản phẩm tốt, đẹp, dễ dùng, sạch"
+G053,Positive,low,"Có vẻ khen mát như điều hòa, nhưng quá ngắn, thiếu ngữ cảnh"
+G054,Negative,high,"Mới mua quạt đã kêu, nghi thiếu nhớt"
+G055,Negative,high,"Bảo hành hẹn lần lữa, không ai gọi kiểm tra sửa chữa"
+G056,Positive,high,"Rửa sạch, khô, chứa nhiều, rất hài lòng"
+G057,Neutral,low,"Khen máy lạnh tốt nhưng chê thợ đi dây điện quá xấu, cân bằng"
+G058,Negative,low,"Khá ổn nhưng lòng nồi chống dính cực kỳ tệ, lỗi chính nặng hơn"
+G059,Positive,high,Khen sử dụng rất tiện lợi
+G060,Positive,high,"Sản phẩm tốt, nhân viên nhiệt tình, rất hài lòng"
+G061,Negative,high,"Máy lỗi, thợ hẹn lần lữa không đến sửa, rất bực bội"
+G062,Negative,high,"Nhận hàng nồi bị móp, bức xúc với shop"
+G063,Negative,high,Chê dịch vụ hậu mãi rất kém
+G064,Neutral,low,"Chỉ nói dùng bình thường, chưa thấy bất thường, không khen rõ"
+G065,Negative,high,Chê máy kêu to và ồn
+G066,Negative,high,"Hẹn lắp điều hòa rồi không lắp được, chê làm ăn vớ vẩn"
+G067,Neutral,low,"Chê nước không mạnh, khen làm nóng nhanh, cân bằng"
+G068,Negative,high,Nói thẳng xài không tốt
+G069,Positive,low,"Câu khó hiểu, có ý 5 sao ổn nên nghiêng khen"
+G070,Negative,high,Dùng được 1 tiếng đã phát ra tiếng ồn
+G071,Neutral,high,Chỉ nói chất lượng bình thường
+G072,Positive,high,Khen sản phẩm đúng chất lượng
+G073,Positive,high,"Máy êm, giặt sạch thơm, rất hài lòng"
+G074,Negative,low,"Nấu nhanh nhưng hâm lại bị cháy cơm, lỗi nặng hơn lời khen"
+G075,Positive,high,"Bếp dùng tốt hơn 2 năm, khuyên nên mua"
+G076,Neutral,high,Chưa sử dụng nên chưa đánh giá
+G077,Negative,high,"Chạy quá ồn, không như mong đợi"
+G078,Negative,high,"Chê nhiều lỗi thiết kế, giao chậm, khuyên không nên mua"
+G079,Negative,high,"Chê bếp nóng chậm, kém bếp ga và bếp từ"
+G080,Negative,high,"Máy ồn, bảo hành không nhiệt tình, chưa khắc phục"
+G081,Negative,high,"Nồi lần nào cũng cháy cơm, muốn đổi trả"
+G082,Positive,high,"Khen sản phẩm tốt, nấu cơm ngon"
+G083,Negative,high,"Chê đáy nồi dễ trầy, không có ý khen"
+G084,Positive,high,Nhận xét chung là ok
+G085,Negative,high,"Dùng chưa đầy 10 ngày đã hỏng, bảo hành bất tiện"
+G086,Positive,high,"Khen nấu cơm rất ngon, dẻo"
+G087,Negative,high,"Dùng 6 tháng lòng nồi bong tróc, hỏi hỗ trợ"
+G088,Negative,high,"Mặt kính bếp bị vỡ chưa đến một năm, hỏi bảo hành"
+G089,Positive,high,"Máy oke, giao đúng hẹn, thợ lắp thân thiện, chỉ lo tốn điện"
+G090,Positive,high,"Tủ hoạt động tốt, xài rất ok"
+G091,Negative,high,"Quạt quá ồn, tối khó ngủ"
+G092,Neutral,low,"Hàng cũ, tạm ổn, có trầy xước, giá ok, cân bằng"
+G093,Negative,high,"Nút mở không trơn, cửa lò kêu khó chịu"
+G094,Positive,high,"Lò dùng ổn, hâm nhanh, tiện lợi"
+G095,Negative,high,Phàn nàn không được tặng máy hút bụi
+G096,Negative,high,"Máy chạy rất ồn khó chịu, hỏi cách khắc phục"
+G097,Negative,low,"Khen ngoại hình nhưng chống dính tróc ngay lần đầu, thất vọng"
+G098,Positive,high,"Tốt hơn tưởng tượng, giá tốt, chất lượng tốt"
+G099,Neutral,low,"Chê nhân viên tư vấn, sản phẩm tạm ổn, giá tốt, cân bằng"
+G100,Negative,high,"Hút không được, phải để trong tủ không dùng"
+G101,Negative,high,"Tố quảng cáo sai về quà tặng, khuyên mọi người đừng mua"
+G102,Negative,high,"Mới mua đã giảm giá, người viết thất vọng"
+G103,Neutral,high,"Hỏi cách chọn chương trình giặt, không có cảm xúc"
+G104,Neutral,low,"Khen dùng ổn nhưng chê có mùi nhựa khi nướng, khá cân bằng"
+G105,Neutral,low,"Dùng cũng được, tương đương tạm được, không khen rõ"
+G106,Positive,high,"Khen dễ lau chùi, bền, có nướng đối lưu tiện lợi"
+G107,Negative,high,"Quạt loạn cảm ứng, kêu liên tục, khuyên không nên mua"
+G108,Negative,high,"Máy mới giặt lần hai đã báo lỗi, khuyên không nên mua"
+G109,Neutral,low,"Khen hoạt động tốt nhưng chê làm lạnh chưa đủ, khá cân bằng"
+G110,Positive,high,Khen máy chạy tốt
+G111,Positive,high,"Khen máy tốt so với tầm giá, chia sẻ cách sấy"
+G112,Negative,high,"Máy mới không lạnh, chưa được xử lý, rất thất vọng"
+G113,Positive,high,Nói rõ hài lòng với sản phẩm
+G114,Positive,high,"Khen quạt êm, mát"
+G115,Negative,high,"Chê kém hơn Daikin, cục nóng kêu khó chịu"
+G116,Negative,high,"Quạt kêu to, rung, trào nước, muốn bán lại"
+G117,Neutral,low,"Khen chạy êm nhưng chê chỉ mát một chỗ, khá cân bằng"
+G118,Positive,low,Chưa dùng thử nhưng khen giao hàng rất nhanh
+G119,Negative,high,"Báo máy rò điện, vừa hết bảo hành, lo nguy hiểm"
+G120,Positive,high,Rất ưng bụng
+G121,Positive,high,Khen hiện tại dùng tốt lắm
+G122,Negative,high,"Nồi nấu cháy dính đáy, nắp bị hở"
+G123,Positive,high,"Khen máy chạy ok, nóng nhanh"
+G124,Positive,high,"Khen máy tốt, okeee"
+G125,Negative,high,"Máy không lạnh, tốn điện, bảo hành không xử lý được"
+G126,Positive,high,"Khen tủ tốt, nhân viên nhiệt tình, giao nhanh"
+G127,Negative,low,"Hỏi vì máy chạy sai chế độ vắt, nghi gặp sự cố"
+G128,Negative,low,"Hỏi vì ngăn đông mềm không khác ngăn mát, nghi lỗi"
+G129,Positive,high,"Khen hàng chuẩn, tốt"
+G130,Negative,low,"Chê nước chảy qua máy yếu, không có ý khen"
+G131,Positive,high,"Khen nóng lạnh ok, nhân viên nhiệt tình"
+G132,Negative,high,"Tủ ngừng hoạt động định kỳ, bảo hành giải thích không thỏa đáng"
+G133,Negative,high,"Nồi bốc khói mùi nhựa, mặt kính mờ, chưa được bảo hành"
+G134,Neutral,high,Hỏi thông tin chế độ kho của bếp
+G135,Negative,high,"Quạt kêu rất to, tuyên bố không mua ở ĐMX nữa"
+G136,Positive,high,"Khen sản phẩm tốt, xài ok lắm"
+G137,Negative,low,"Báo bếp không chuyển được chế độ rán, hạ lửa nhanh"
+G138,Negative,high,"Chê nhân viên cửa hàng không tư vấn khuyến mãi, bảo hành"
+G139,Negative,high,Tủ mới mua để 1 độ mà không hề mát
+G140,Neutral,low,"Khen hút bụi, lau sàn tạm, chê mau hết pin, cân bằng"
+G141,Positive,high,"Đang xài tốt, độ bền chờ thời gian"
+G142,Positive,high,Mới dùng nhưng hiện tại rất tốt
+G143,Negative,high,"Tivi lỗi tìm kiếm giọng nói, bảo hành không đến, chán"
+G144,Positive,high,"Khen ok, vừa tầm giá"
+G145,Positive,high,Dùng thấy ok
+G146,Positive,high,Khen dịch vụ 5 sao
+G147,Positive,high,"Khen hàng dùng tốt, phục vụ nhiệt tình"
+G148,Neutral,low,"Khen giặt sạch, vắt êm nhưng chê giặt lâu, hơi ồn, thiếu chế độ"
+G149,Positive,high,"Khen máy chạy rất ok, nước uống ngon"
+G150,Negative,high,"Lắp nhầm cục nóng, sai IMEI bảo hành, chờ lâu chưa xử lý"
+G151,Positive,high,"Khen sản phẩm tốt, sẽ giới thiệu bạn bè"
+G152,Positive,high,"Bếp dùng tốt, chưa có vấn đề"
+G153,Negative,high,"Chê chờ lắp lâu, nhân viên lắp đặt tệ"
+G154,Negative,high,"Máy thiếu chế độ giặt riêng, đòi đổi máy"
+G155,Negative,high,"Không như mong muốn, giao hàng thiếu tôn trọng"
+G156,Negative,high,"Máy nén kêu kẹt kẹt, rất khó chịu"
+G157,Positive,high,"Khen tiết kiệm điện, êm, đẹp, nhân viên nhiệt tình"
+G158,Negative,high,Gói quà tặng không đăng nhập sử dụng được
+G159,Negative,high,"Tủ lạnh kêu cọc cọc sau 1 tháng, hỏi vì sự cố"
+G160,Negative,high,Chạm vỏ tủ lạnh bị giật điện nhẹ
+G161,Positive,high,Quạt xài ok
+G162,Negative,high,"Máy không lạnh, cầu cứu"
+G163,Negative,high,"Chưa được lắp đặt, thợ lỡ hẹn, không nghe máy"
+G164,Negative,high,"Tủ hư chưa đến 2 năm, rất thất vọng"
+G165,Negative,high,"Tủ không lạnh sau 2 ngày, yêu cầu kiểm tra"
+G166,Negative,low,Máy chạy ok nhưng phàn nàn lắp thiếu hút chân không
+G167,Positive,high,"Dùng tốt, tiết kiệm điện"
+G168,Positive,low,"Khen dùng tốt, chê nhẹ hơi yếu"
+G169,Negative,high,"Máy lỗi liên tục, đổi nhiều lần, nước không ngon"
+G170,Positive,high,Quạt dùng ok lắm
+G171,Negative,high,"Máy báo quá tải vô lý, nhân viên không giải quyết"
+G172,Positive,high,Khen nồi nấu nhanh
+G173,Negative,high,Chê máy kêu to ồn
+G174,Negative,high,Dùng chưa được 1 tuần đã kêu to
+G175,Neutral,low,"Khen chạy êm nhưng chê gió không mạnh, cân bằng"
+G176,Negative,low,Mỉa mai nồi làm cháy cơm hằng ngày
+G177,Negative,high,Cục nóng kêu to
+G178,Positive,low,"Khen máy tốt, chê nhẹ chân khập khiễng"
+G179,Negative,high,Nồi giữ ấm làm cơm bị khê
+G180,Positive,high,"Khen êm, ổn định, chê nhẹ xả nước nhiều"
+G181,Negative,high,"Tủ hư ron sau 1 tuần, hỏi bảo trì"
+G182,Negative,high,Phàn nàn tắt quạt là hết lạnh ngay
+G183,Negative,high,"Quạt kêu sau 1 tháng, chăm sóc khách hàng tệ"
+G184,Negative,high,"Quạt lỗi sau 4 tháng, chính sách bảo hành kém"
+G185,Negative,low,"Khen êm, lạnh nhanh nhưng hông tủ nóng bỏng tay"
+G186,Positive,high,"Bếp tốt, nóng nhanh, nhỏ gọn"
+G187,Negative,high,"Gãy tay cầm, hết bảo hành thì không lên điện"
+G188,Negative,high,"Quạt ồn, văng nước, mùi mốc, đổi nhiều lần vẫn lỗi"
+G189,Negative,high,"Đun lâu, 10 phút không sôi"
+G190,Neutral,low,"Chỉ nói tạm ổn, không có ý khen cụ thể"
+G191,Negative,low,Hỏi vì đun sôi ngày càng lâu
+G192,Negative,high,"Máy lạnh lỗi, không được đổi, tổng đài hứa lèo"
+G193,Negative,high,"Cục nóng rung, cực kỳ ồn, chất lượng tệ"
+G194,Positive,high,"Dùng ổn, chưa thấy vấn đề"
+G195,Positive,high,"Khen giá tốt, khử mùi ưng ý"
+G196,Negative,high,Chưa được 1 tháng cục nóng chạy ồn
+G197,Positive,high,Nồi nấu cơm rất ngon
+G198,Positive,high,Rất hài lòng
+G199,Positive,high,"Cảm ơn, rất hài lòng"
+G200,Negative,high,Chê cả sản phẩm lẫn bảo hành quá tệ
+G201,Negative,low,"Hỏi vì hơi nóng thoát ra cửa, nghi ron không kín, lỗi"
+G202,Negative,high,"Quạt đổi 4 lần vẫn rò nước, kêu to, khuyên không mua"
+G203,Negative,high,"Hàng giao kém hơn trưng bày, tổng đài làm việc chán, 1 sao"
+G204,Positive,high,"Máy chạy êm, lạnh tốt"
+G205,Positive,high,"Khen chất lượng Nhật, tủ rất ổn định"
+G206,Negative,high,"Máy ồn rè rè cả đêm, lỗi nhà sản xuất"
+G207,Negative,low,"Chỉ chê nhẹ bếp đun hơi lâu, không có ý khen"
+G208,Negative,high,Tivi hỏng khi chưa được 2 tháng
+G209,Negative,high,Bếp mới dùng 2 tháng đã kêu rất to
+G210,Negative,low,"Chê đông đá lâu và thiếu đế, không có ý khen"
+G211,Negative,high,"Tủ kêu to như công nông, mất ngủ, rất stress"
+G212,Negative,high,"Ngăn mát không lạnh, tươm nước, đóng tuyết, đang chờ xử lý"
+G213,Negative,high,"Máy dùng chưa 10 lần đã hỏng, đang bực mình"
+G214,Positive,high,Sản phẩm hoạt động ok
+G215,Positive,high,"Khen mẫu mã đẹp, sang trọng, tốt"
+G216,Negative,low,"Không nổi bật, bơm yếu hơn máy cũ"
+G217,Negative,high,"Khay nồi bị han gỉ, nhân viên tư vấn kém"
+G218,Negative,high,"Máy kêu to, dở, khuyên không nên mua"
+G219,Negative,low,"Máy lỗi hãng sửa không được, chỉ khen nhân viên ĐMX"
+G220,Positive,high,"Khen tiện lợi, êm khi mở"
+G221,Negative,high,"Bếp bung mặt kính sau vài tháng, quạt ồn"
+G222,Negative,high,"Nồi dở, tự nhảy nút làm cơm sống"
+G223,Negative,high,"Máy lạnh lỗi liên tục, chưa được hỗ trợ đổi trả"
+G224,Positive,high,"Máy rửa bát sạch, vợ khen, khuyên nên mua"
+G225,Positive,low,"Tương đối ổn, giá chấp nhận được, tiền nào của đó"
+G226,Positive,high,"Máy rẻ, sấy rất tốt, khuyên nên mua"
+G227,Negative,low,Chê máy bơm hút nước không êm lắm
+G228,Negative,high,"Máy giặt rất ồn ngay lần đầu, nhờ hỗ trợ"
+G229,Negative,high,Nồi dùng chưa 1 tháng đã nấu cơm không chín
+G230,Positive,low,Chưa dùng sản phẩm nhưng khen chính sách ưu đãi ĐMX
+G231,Negative,high,"Đổi 2 lần cùng lỗi, phải mất phí đổi hãng khác"
+G232,Positive,high,"Dùng tốt, nấu cơm ngon"
+G233,Negative,high,"Máy chập điện tắt liên tục, chê lắp đặt và bảo hành"
+G234,Neutral,low,"Khen nước nóng nhanh, chê tăng áp không hiệu quả, cân bằng"
+G235,Negative,high,"Máy rò nước lần đầu giặt, xử lý sự cố chậm tệ"
+G236,Positive,low,"Làm lạnh nhanh, mọi thứ ổn, chỉ đùa tốn điện"
+G237,Positive,high,"Lượng nước đủ, độ lạnh nóng ok"
+G238,Positive,high,"Quạt mạnh, giá phải chăng, khuyên nên mua"
+G239,Positive,high,Khen máy giặt tốt
+G240,Positive,high,Khen nồi chín nhanh
+G241,Negative,low,"Cơm chín nhưng chưa ngon, chê nhẹ không có khen"
+G242,Positive,high,"Sản phẩm tốt, nhân viên tận tình"
+G243,Positive,low,"Mới dùng, tạm thời thấy ổn"
+G244,Negative,high,Chê hoạt động không hiệu quả
+G245,Negative,high,Báo lỗi cảm ứng không ăn
+G246,Positive,high,"Nồi tốt, đáng tiền, khuyên nên mua"
+G247,Positive,high,"Giá rẻ, chất lượng tốt, lắp đặt chuyên nghiệp"
+G248,Negative,high,"Nồi trào bẩn, đổi 3 lần vẫn lỗi, quá tệ"
+G249,Negative,high,"Máy giặt rất ồn, rung lắc mạnh, tệ"
+G250,Positive,high,Khen dễ sử dụng
+G251,Negative,high,"Khuyên cân nhắc, máy ồn, rau củ bị đóng đá"
+G252,Negative,high,Máy lạnh chỉ lạnh 45 phút rồi không lạnh
+G253,Negative,high,"Chê chiên cá chưa ngon, không có ý khen"
+G254,Neutral,low,"Cũng được tương đương tạm được, không khen rõ"
+G255,Negative,high,Nấu cơm không chín
+G256,Negative,high,"Khuyên bỏ qua, ngăn mát ngăn đông không lạnh"
+G257,Positive,high,"Khen máy chạy êm, không ồn"
+G258,Negative,high,"Bếp lâu sôi, nhiệt độ rất kém"
+G259,Positive,high,"Khen bản lề chắc, cửa đầm, ok"
+G260,Negative,high,Chê bơm trợ lực làm nước ra yếu hơn
+G261,Positive,high,Nói xài ổn
+G262,Positive,high,Khen sản phẩm rất tốt và phục vụ ok
+G263,Negative,high,Chê nước yếu và ít
+G264,Negative,high,"Hút yếu, thiếu tính năng, thất vọng"
+G265,Negative,high,"Máy kêu ồn, bảo hành đùn đẩy, phí tiền"
+G266,Positive,high,Rất ưng ý sản phẩm
+G267,Negative,high,Hỏi vì bếp tự đổi nhiệt độ bất thường
+G268,Negative,high,"Thùng cũ rách, nghi mua hàng cũ"
+G269,Negative,high,"Kính nứt sau 1 tháng, bảo hành chỉ dán keo"
+G270,Neutral,high,"Hỏi mua chìa khóa tủ, thông tin thuần túy"
+G271,Neutral,low,"Cảnh báo lừa đảo, không đánh giá sản phẩm"
+G272,Positive,high,"Sản phẩm OK, nhân viên nhiệt tình"
+G273,Positive,high,"Khen hút mạnh, sạch, nhân viên nhiệt tình"
+G274,Negative,high,Mỉa mai nồi nấu nhiều cơm cháy
+G275,Positive,high,"Máy chạy ổn, quạt hơi lớn nhưng chấp nhận được"
+G276,Negative,high,Chê nhân viên lắp cẩu thả
+G277,Negative,high,"Lắp đặt kém, máy ngừng hoạt động, tự sửa"
+G278,Negative,high,"Giao hàng trễ hẹn nhiều lần, không quay lại"
+G279,Negative,high,"Quạt lỗi, liên hệ hotline không được đổi"
+G280,Positive,high,"Giá cao nhưng xứng chất lượng, nước ngon, tiện"
+G281,Negative,high,"Nướng bị chảy mỡ ra sàn, hỏi bảo hành"
+G282,Positive,high,"Khen thiết kế, dễ dùng, nhiều chức năng, giới thiệu người khác"
+G283,Negative,high,"Máy lỗi không đổi, ồn, khuyên không nên mua"
+G284,Positive,high,"Tốt, dễ dùng, ít hao điện"
+G285,Positive,low,Quạt hơi yếu nhưng kết luận ổn áp
+G286,Negative,high,Phàn nàn thợ tính vật tư quá mắc
+G287,Negative,high,"Cục nóng kêu to, chảy nước, lạnh chậm"
+G288,Negative,high,Tủ không đông đá
+G289,Negative,high,"Hẹn lắp không đến, không thông báo, dịch vụ tệ"
+G290,Negative,high,Quạt rất ồn
+G291,Negative,low,"Chức năng sấy không khô, còn lại ok"
+G292,Negative,high,Cần hỗ trợ vì dầu mỡ chảy qua khe kính
+G293,Negative,low,"Bị lỗi chảy nước, đã đổi nhưng chưa chắc ổn"
+G294,Positive,high,"Mọi thứ ok, nhất là loa"
+G295,Positive,high,"Rất ổn, rất ưng, đáng tiền"
+G296,Negative,high,"Cục nóng kêu, rung, ồn lớn"
+G297,Neutral,high,Yêu cầu dịch vụ vệ sinh máy giặt
+G298,Negative,low,"Cần bảo hành, ngụ ý sản phẩm có vấn đề"
+G299,Negative,low,Chê ba số quạt cùng một lượng gió
+G300,Negative,high,"Máy bơm không ra nước, bảo hành như không"
+G301,Negative,high,"Máy không bật được, phải nhờ người qua kiểm tra"
+G302,Negative,high,"Chê đun nước quá lâu, 20 phút mới sôi"
+G303,Negative,high,"Remote hư nút, hỏi cách bảo hành đổi"
+G304,Negative,high,"Máy mới mua chạy rất ồn, yêu cầu kiểm tra"
+G305,Positive,high,"Khen sản phẩm tốt, giá hợp lý, mua thêm"
+G306,Positive,high,Khen giá rẻ và giặt êm
+G307,Negative,high,"Mới dùng đã lỗi màn hình nhiệt độ, hỏi đổi"
+G308,Neutral,high,"Được nhưng chê giá hơi cao, hai bên cân nhau"
+G309,Positive,high,"Khen dễ dùng, phù hợp nhiều thế hệ"
+G310,Neutral,low,"Máy ok nhưng chỗ xả nước bị rỉ, khen chê cân bằng"
+G311,Neutral,low,"Chỉ nêu thời gian dùng, thiếu ngữ cảnh"
+G312,Positive,high,"Khen nhỏ gọn, nóng nhanh, rất hài lòng"
+G313,Negative,high,"Máy hư nhiều lần, bảo hành kém, không dám mua lại"
+G314,Negative,high,"Bức xúc thợ lắp không hút chân không, thiếu chuyên nghiệp"
+G315,Positive,high,"Khen ổn, đẹp, máy chạy tốt"
+G316,Neutral,low,"Ngăn đông ok, ngăn mát chỉ bình thường, cân bằng"
+G317,Negative,high,Chê máy chạy kêu to
+G318,Positive,high,"Thấy ok, khen cấp đông mềm tiện"
+G319,Negative,low,"Chê máy bơm yếu, làm nóng trung bình"
+G320,Positive,high,"Dùng ổn, nấu cơm ngon"
+G321,Negative,high,"Tủ nóng bên ngoài, hối hận khi mua"
+G322,Negative,high,"Nồi chiên dính cá, nát thịt, không ăn được"
+G323,Negative,high,Chê thợ lắp đặt thiếu chuyên nghiệp
+G324,Negative,high,Khen nhân viên nhưng thất vọng vì máy không lọc bụi
+G325,Negative,high,"Tốn điện, chất lượng kém, bảo hành tệ"
+G326,Neutral,low,"Ngăn mát hơi yếu, ngăn đông tốt, khen chê cân bằng"
+G327,Positive,high,"Khen tư vấn nhanh, lắp đặt sớm, dịch vụ rất ok"
+G328,Positive,high,"Khen chạy êm, tốt"
+G329,Positive,high,"Khen dùng rất tốt, làm lạnh nhanh"
+G330,Negative,high,Nấu bị cháy và hao gạo
+G331,Negative,high,"Nút cảm ứng chập chờn, đèn tự sáng"
+G332,Positive,high,"Nhiều ý khen dịch vụ, chỉ chê nhẹ tổng đài"
+G333,Positive,low,"Khen hình ảnh, âm thanh, chê load 4K chậm"
+G334,Negative,low,Quạt ok nhưng bức xúc thái độ nhân viên bán hàng
+G335,Positive,high,"Nhiều ý khen cụ thể, chỉ chê nhẹ rung, đáng mua"
+G336,Positive,high,Khen hình ảnh âm thanh tốt với tầm giá
+G337,Neutral,low,"Máy chỉ ở mức cơ bản, tạm ổn với giá rẻ"
+G338,Negative,high,"Chê cửa hút nhỏ, không hút được khe giường"
+G339,Neutral,high,"Mới dùng vài lần, chưa đánh giá được"
+G340,Negative,high,"Hư động cơ quạt, cháy bơm, hỏi vì gặp sự cố"
+G341,Negative,high,Nồi cơm nấu bị cháy
+G342,Positive,low,"Nêu công dụng giải nhiệt, hơi nghiêng khen"
+G343,Negative,low,Chỉ chê nhẹ cục nóng hơi ồn
+G344,Negative,high,"Nấu nước bị trào, không nên mua"
+G345,Negative,high,"Mới 1 ngày đã đơ màn hình, không bật lên"
+G346,Negative,low,"Khen đẹp dễ dùng nhưng rất ồn, yêu cầu khắc phục"
+G347,Negative,high,Mua gói vệ sinh nhưng quá hạn chưa ai đến
+G348,Negative,high,"Chê bơm yếu, nóng chậm"
+G349,Positive,high,"Khen máy làm khô đồ nhanh, rất cần"
+G350,Positive,low,"Mới dùng chưa đánh giá, nhưng cảm nhận tốt"
+G351,Negative,low,"Chê số nhỏ nhất chạy quá mạnh, số to bị ù; ý khá mơ hồ"
+G352,Neutral,low,"Khen sấy khô, giá hợp lý nhưng chê nhựa kém, lo độ bền"
+G353,Positive,high,"Khen dùng ok lắm, khuyên mọi người nên mua"
+G354,Positive,high,"Khen máy lạnh nhanh và sâu, dùng thấy OK"
+G355,Negative,low,Máy tốt nhưng chê nặng dịch vụ lắp đặt quá kém
+G356,Negative,high,"Tiếc vì mua online, chê thiết kế đổ nước bất tiện"
+G357,Negative,high,"Máy giặt kêu to, nhờ kỹ thuật tư vấn vì sự cố"
+G358,Negative,high,"Tủ thỉnh thoảng kêu to, yêu cầu bảo hành"
+G359,Negative,high,Quạt số 1 phát tiếng quá ồn
+G360,Negative,high,"Cơm chín không đều, tróc chống dính sau 6 tháng, hối hận"
+G361,Positive,high,"Khen mẫu mã đẹp, giao nhanh, sẽ ủng hộ thêm"
+G362,Positive,high,"Khen máy dùng tốt, khuyên nên mua"
+G363,Positive,high,"Khen máy đẹp, công nghệ hiện đại, khuyên nên mua"
+G364,Positive,high,"Khen sản phẩm ok, làm nóng tốt, chạy êm"
+G365,Negative,high,"Quạt lỗi cảm ứng, bảo hành nhiều lần vẫn hư, rất bức xúc"
+G366,Positive,high,Khen rất ổn
+G367,Negative,low,"Bấm nút nấu thường không được, hỏi vì gặp sự cố"
+G368,Positive,low,"Mới dùng thấy ok, còn chờ xem độ bền"
+G369,Positive,high,"Khen dùng tốt, mẫu mã đẹp, sẽ ủng hộ DMX"
+G370,Negative,high,"Chê máy ồn dã man, lực hút yếu hơn quảng cáo"
+G371,Positive,high,Khen máy dùng ok
+G372,Negative,high,"Chê máy giặt rất tệ, giặt không sạch, vắt lỗi"
+G373,Positive,high,"Khen máy dùng ổn, tốt"
+G374,Positive,high,Khen tủ lạnh tốt
+G375,Negative,high,Chê không lọc được mùi
+G376,Negative,high,"Hút bụi một lát là nóng máy, không hút được"
+G377,Negative,high,"Máy lỗi sau 1 tuần, sửa chữa chậm trễ, rất thất vọng"
+G378,Negative,high,"Chê robot rất tệ, mất kết nối, kém thông minh, ồn"
+G379,Positive,high,"Nhiều lời khen cụ thể và khen dịch vụ, chỉ chê nhẹ lực bơm"
+G380,Positive,high,"Khen máy rất ok, phòng 20m2 lạnh tốt"
+G381,Positive,high,"Khen tủ tốt, chạy êm, nhân viên nhiệt tình, khuyên mua"
+G382,Negative,high,"Chê bếp không đạt công suất quảng cáo, nấu lâu"
+G383,Negative,high,"Vắt không khô, rung mạnh, yêu cầu hỗ trợ"
+G384,Negative,high,"Chê giá thay đổi, máy ồn, khó dùng, thua hãng khác"
+G385,Negative,high,"Bơm ồn, máy hư sau vài ngày, nước không nóng"
+G386,Positive,high,"Khen tủ lạnh quá tốt, lắp đặt và tư vấn nhiệt tình"
+G387,Negative,high,"Chê nặng nhân viên giao lắp, làm nứt tường, thu phí, quá tệ"
+G388,Neutral,low,"Chỉ nói tủ hoạt động bình thường, không có ý khen chê"
+G389,Negative,high,Báo lỗi cơm bị cháy
+G390,Negative,high,"Quạt lỗi cảm ứng sau vài hôm, chê hàng kém chất lượng"
+G391,Negative,high,"Vòi rỉ nước, tủ đọng nước, bảo hành không hỗ trợ"
+G392,Negative,high,Phàn nàn không có thợ lắp ráp
+G393,Negative,high,"Nắp nồi hở dần sau 2 tuần, hỏi cách khắc phục"
+G394,Positive,high,"Khen hàng chất lượng ổn, giao nhanh, tốt"
+G395,Negative,high,"Máy mới lắp ồn và rung lắc nhiều, nghi lỗi"
+G396,Negative,high,"Bếp bị nứt kính, hỏi về bảo hành"
+G397,Negative,low,"Sấy 3 tiếng đồ vẫn ẩm, dù khen máy êm"
+G398,Negative,high,"Pin nhanh hết, khuyên cân nhắc khi mua"
+G399,Negative,high,"Phàn nàn giá giảm ngay sau khi mua, buồn"
+G400,Negative,high,"Máy chạy yếu, đổi trả bị dời lịch, thu phí vô lý"
+G401,Negative,high,"Chê nặng dịch vụ lắp đặt và thu thêm phí, chỉ khen nhẹ chất lượng máy"
+G402,Positive,high,"Khen khá ổn, giá tốt, khuyên nên mua"
+G403,Positive,low,"Sấy ok, khô rang; chế độ nhanh chưa khô, tạm ổn so với giá"
+G404,Positive,high,"Khen tủ đẹp, gọn, sang trọng"
+G405,Negative,high,Nồi có mùi nhựa rất khó chịu
+G406,Negative,high,Máy không hút được tóc
+G407,Negative,high,"Hư màn hình sau hơn 1 năm, bảo hành đổ lỗi vô nước"
+G408,Negative,high,"Chê chổi phụ, động cơ yếu, hay kẹt, app vô dụng"
+G409,Positive,high,"Mới mua dùng tốt, chưa biết độ bền lâu dài"
+G410,Negative,high,"Mới 1 ngày tủ kêu e e, hông tủ nóng"
+G411,Positive,high,"Sản phẩm ổn trong tầm giá, đáng mua"
+G412,Positive,high,Khen tốt về giá và chất lượng
+G413,Negative,high,"Tủ lạnh không đều, kêu khó chịu, bảo hành ầm ờ"
+G414,Negative,high,"Cả 2 máy nước đầu ra quá yếu, muốn trả lại"
+G415,Negative,high,"Thất vọng: quạt không mát, kêu ầm, có rêu, muốn trả"
+G416,Negative,high,"Chân quạt rung và kêu lớn khi kéo cao, không có ý khen"
+G417,Neutral,low,Khen đèn đẹp nhưng chê hiệu quả chưa rõ và bất tiện nhỏ
+G418,Negative,high,Máy hay bị lỗi
+G419,Negative,high,"Nước không nóng, bơm yếu, chạy ồn, hối hận khi mua"
+G420,Negative,high,Báo lỗi nước đọng và đóng băng trong tủ
+G421,Neutral,high,Hỏi thông tin cách vệ sinh bề mặt
+G422,Negative,high,Mới mua nước chảy yếu dù có bơm trợ lực
+G423,Negative,high,"Chê màu nhạt, chói, thua Sony và LG"
+G424,Negative,low,"Hỏi vì đèn bếp vẫn nháy khi tắt, nghi lỗi"
+G425,Negative,high,"Tủ mới chạy liên tục không nghỉ, cần hỗ trợ"
+G426,Negative,high,"Cục nóng hư, bảo hành không phản hồi, rất bức xúc"
+G427,Negative,high,Máy mới lắp đã ồn ở 2 dàn
+G428,Positive,high,Đồ dùng xài tốt
+G429,Negative,high,Kiếng vỡ 2 lần trong 2 tháng
+G430,Negative,high,Nồi nướng hôi mùi nhựa khó chịu
+G431,Negative,high,Nhận nồi bị móp một bên
+G432,Positive,high,"Xài rất ok, giá tốt, khuyên nên mua"
+G433,Neutral,high,Hỏi thông tin tải ứng dụng K+ trên TV
+G434,Negative,high,"Nấu nghe âm thanh to, ồn khó chịu"
+G435,Positive,high,"Hàng dùng tốt, yên tâm chất lượng DMX"
+G436,Negative,high,"Nồi nấu ít hơi, cơm không ngon"
+G437,Neutral,low,"Nói bình thường, không khen không chê, dự định trả hàng"
+G438,Positive,high,"Quạt chạy êm, rất mát"
+G439,Positive,high,"Dùng 3 năm rất tốt, hỏi chỗ mua màng lọc"
+G440,Negative,high,"Máy hư sửa đắt, ống đồng dỏm, bảo hành tệ"
+G441,Positive,high,"Giá rẻ, chất lượng OK, nấu nhanh"
+G442,Negative,high,"Chê tệ, không lạnh"
+G443,Neutral,low,"Nồi bị lỗi nhưng được đổi mới, tạm hài lòng"
+G444,Positive,high,"Máy rất tốt, chạy êm, mát"
+G445,Negative,high,Đặt cọc cả tuần không ai gọi hay giao
+G446,Negative,high,Bếp lâu nóng hơn bếp khác
+G447,Negative,high,"Mới 3 tháng cắm không vào điện, bực mình"
+G448,Positive,high,"Chạy êm, mát"
+G449,Negative,low,"Chê làm lạnh chưa nhanh lúc đầu, không có ý khen"
+G450,Negative,high,"Máy lạnh không dùng được, khiếu nại không được giải quyết"
+G451,Positive,high,"Khen máy ngon, nhân viên tư vấn nhiệt tình, lắp nhanh"
+G452,Neutral,low,"Khen dùng ổn nhưng chê nước và bơm yếu, gần cân bằng"
+G453,Negative,high,"Cục nóng kêu to, bị rè, nghi giao sai mã"
+G454,Negative,low,"Nước lạnh không lạnh, khuyên cân nhắc, chỉ khen nước nóng"
+G455,Negative,high,"Báo lỗi không xả nước, chờ hỗ trợ"
+G456,Positive,high,"Dùng chưa có vấn đề, mọi thứ ok"
+G457,Negative,high,"Tủ mới chạy 1 ngày kêu khó chịu, cần giải quyết gấp"
+G458,Positive,high,"Máy ổn định, sử dụng tốt"
+G459,Neutral,low,"Cũng được, tương đương tạm được, không khen rõ"
+G460,Negative,high,"Phàn nàn lắp thiếu ống đồng khuyến mãi, đòi giải thích"
+G461,Positive,low,"Tivi tốt, chê nhẹ âm thanh, tự chấm 4 sao"
+G462,Negative,high,Nồi vẫn bị sém cơm
+G463,Positive,high,Dùng thử thấy khá ok
+G464,Positive,high,Tủ lạnh ổn định tốt
+G465,Negative,high,"Hàng trưng bày hư nút, khó chịu, hủy đơn"
+G466,Negative,high,Hỏi vì bếp có tiếng rắc rắc lạ
+G467,Neutral,high,Hỏi thông tin thuần túy về chế độ tiết kiệm điện
+G468,Negative,high,"Rau hư, ngăn đông đóng tuyết, chỉ khen chạy êm"
+G469,Negative,high,"Máy quay có tiếng rít, sấy ồn, so sánh kém máy cũ"
+G470,Negative,high,"Nồi nhảy nút, gạo sống, đổi 2 lần, chất lượng tệ"
+G471,Negative,high,"Tủ hư sau hơn năm, bảo hành không xuống sửa"
+G472,Negative,high,Chê máy bơm quá yếu
+G473,Negative,low,"Báo gãy giá đỡ remote, câu ngắn thiếu ngữ cảnh"
+G474,Negative,high,"Smart tivi tệ, hầu như không tải và xem được"
+G475,Negative,high,Động cơ quạt kêu quá ồn
+G476,Neutral,high,"Mới dùng, chưa biết độ bền"
+G477,Positive,high,Hài lòng giá cả và chất lượng dịch vụ
+G478,Negative,high,"Tủ hỏng sau 5 ngày, bảo hành ngâm lâu không xử lý"
+G479,Positive,high,"Dùng rất OK, mua thêm cái nữa"
+G480,Negative,low,"Cục nóng lắp bị nghiêng, lo ảnh hưởng độ bền"
+G481,Negative,high,"Máy lạnh bật 18 độ vẫn không lạnh, thất vọng"
+G482,Positive,high,Rất thích tủ cấp đông này
+G483,Negative,high,"Tủ mới bị xước dài, không đổi được vì hết hàng"
+G484,Negative,high,"Máy không chạy khi nước yếu, chê tệ, chỉ đáng 1 sao"
+G485,Negative,high,Báo lỗi ngăn mát bị đóng tuyết
+G486,Positive,high,Rất hài lòng về sản phẩm
+G487,Negative,high,"Nước giặt và nước xả trộn lẫn, nhờ hỗ trợ"
+G488,Negative,high,"Không lọc được mùi, chê như không có"
+G489,Negative,high,"Máy hư, bảo hành chậm, đòi tiền sửa vô lý"
+G490,Negative,high,"Phàn nàn chế độ vắt lại cấp nước, báo lỗi U19"
+G491,Negative,high,"Ngăn mát không mát, cần bảo hành"
+G492,Negative,high,"Lần lắp thứ hai cẩu thả, thu thêm tiền, rất thất vọng"
+G493,Negative,high,"Hỏng sau 33 ngày, bảo hành 2 tháng chưa xong"
+G494,Negative,high,"Máy khờ, kêu to, không lưu bản đồ"
+G495,Negative,high,"Hàng giao lỗi, đổi mới lại bị tê điện, thất vọng"
+G496,Positive,high,"Máy chạy êm, lạnh, điều khiển qua app tiện dụng"
+G497,Positive,high,"Dễ dùng, sản phẩm rất ok"
+G498,Negative,high,"Máy không nóng, báo bảo hành không ai đến"
+G499,Neutral,high,"Chưa dùng tới, không đánh giá"
+G500,Positive,low,"Khen nóng nhanh, lạnh sâu, tiết kiệm điện nhưng chưa biết độ bền"

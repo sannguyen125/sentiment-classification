@@ -1,0 +1,31 @@
+review_id,nhom_loi,ghi_chu
+e9e6f5b22428e379,Chê/báo lỗi bị đoán Neutral,"Nhận nồi bị móp, chỉ kể sự việc"
+bb799a739e9b0e40,Phủ định,'ko đc êm lắm' - phủ định + mức độ
+364c78042f96f5b5,Câu hỏi thông tin,"Hỏi chế độ tiết kiệm điện, bị đoán Pos"
+ad015a76f5fd43a7,Chê/báo lỗi bị đoán Neutral,'rất lâu sôi' là chê rõ
+ad77c58676b31a11,Khen chê lẫn lộn,"Khen ngoại hình rồi chê tróc chống dính, 'hơi thất vọng'"
+c31be5a894f32759,Châm biếm,Mỉa 'ai thích ăn cơm cháy'
+2f3e1e1024350f70,Khen chê lẫn lộn,"Khen tủ + phục vụ, chê đóng tuyết; TV2 gán Pos, gold Neu - nhãn tranh cãi"
+8105687ff99da13d,Chê/báo lỗi bị đoán Neutral,"Chân quạt rung, kêu lớn"
+9435df31ec784afb,Chê/báo lỗi bị đoán Neutral,Cơm đáy nồi dễ cháy
+d6f14dc4808df3de,Chê/báo lỗi bị đoán Neutral,"Nút cảm ứng chập chờn, đèn tự sáng"
+06a81b59af2de09b,Khen chê lẫn lộn,"Nhiều ý khen + chê (lâu, ồn, thiếu vắt khô)"
+5199e10f9550f787,"Câu cụt, viết tắt, thiếu ngữ cảnh","'Như máy điều hòa' quá ngắn; TV2 gán Neu, gold Pos - nhãn tranh cãi"
+fe03fb64d0db418b,Khen chê lẫn lộn,"Chê sấy không khô, khen êm"
+40d6cf0bb5ddb13b,Chưa dùng / ranh giới Neutral,Chưa đánh giá được độ bền
+9eea1f6225bd0d82,Khen chê lẫn lộn,"'sd ok, nhưng... cục nóng chạy ồn'"
+31339e0dc5daffe1,Chê/báo lỗi bị đoán Neutral,"Lắp cục nóng bị nghiêng, lo độ bền"
+95402a139bc4a458,Câu hỏi vì gặp sự cố,Hỏi vì ngăn đông mềm không khác ngăn mát; bị đoán Pos
+baa7fdbdf5f1ebeb,Chê/báo lỗi bị đoán Neutral,"'kêu to như máy cày' - chê rõ, PhoBERT vẫn đoán Neu"
+558e53c52c4cda63,Câu hỏi vì gặp sự cố,"Thùng cũ rách, nghi hàng trưng bày"
+a189a5d21d934a5a,Chê/báo lỗi bị đoán Neutral,'hơi ồn... không mát như mong đợi'
+3cb4829662eddb5e,Phàn nàn dịch vụ/khuyến mãi,Không được tặng quà khuyến mãi
+e1d400bf5b46b933,Chưa dùng / ranh giới Neutral,"'Chưa sài nên chưa biết', bị đoán Pos"
+0a9b3f1d1f477b1a,Chê/báo lỗi bị đoán Neutral,"'Cục nóng hơi ồn' - chê nhẹ, ngắn"
+3542490f210632cc,Chê/báo lỗi bị đoán Neutral,"Ồn, rung lớn (1★)"
+a55bbe8612535cb3,"Câu cụt, viết tắt, thiếu ngữ cảnh","'kh ok 5sao ổn' khó hiểu; TV2 gán Neu, gold Pos - nhãn tranh cãi"
+01fcb23e23a77271,Chưa dùng / ranh giới Neutral,'cũng được' = tạm được
+5d64fec338cbab76,Phủ định,'chưa ngon' - phủ định
+701b44dd12b5bfc4,Chê/báo lỗi bị đoán Neutral,'động cơ kêu quá ồn'
+33c9ca3e5c8dda85,Câu hỏi vì gặp sự cố,"Kính bếp vỡ, hỏi bảo hành"
+6c271218d85cf579,Chê/báo lỗi bị đoán Neutral,'Bếp đun hơi lâu' - chê nhẹ

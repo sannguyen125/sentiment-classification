@@ -1,0 +1,6 @@
+star,Negative,Neutral,Positive,n,label_star,pct_star_label_differs
+1,100,0,0,100,Negative,0.0
+2,68,2,0,70,Negative,0.0286
+3,112,25,13,150,Neutral,0.8333
+4,7,18,55,80,Positive,0.3125
+5,2,2,96,100,Positive,0.04

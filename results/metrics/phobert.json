@@ -1,0 +1,78 @@
+{
+  "model": "vinai/phobert-base-v2",
+  "config": {
+    "model": "vinai/phobert-base-v2",
+    "max_len": 128,
+    "batch": 16,
+    "accum": 1,
+    "lr": 2e-05,
+    "epochs": 4,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.1,
+    "fp16": true,
+    "seed": 42,
+    "batch_used": 16,
+    "grad_accum_used": 1
+  },
+  "segmenter": "RDRSegmenter (VnCoreNLP)",
+  "input": "text_seg (re-segmented)",
+  "truncated_train_pct": 0.0152,
+  "class_weights": {
+    "Negative": 1.3433,
+    "Neutral": 2.194,
+    "Positive": 0.5556
+  },
+  "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+  "in_colab": false,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.7613,
+      "sec": 46,
+      "val_macro_f1": 0.7356,
+      "val_accuracy": 0.8179,
+      "val_f1_Negative": 0.815,
+      "val_f1_Neutral": 0.4792,
+      "val_f1_Positive": 0.9128
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.5146,
+      "sec": 45,
+      "val_macro_f1": 0.7686,
+      "val_accuracy": 0.8411,
+      "val_f1_Negative": 0.7833,
+      "val_f1_Neutral": 0.581,
+      "val_f1_Positive": 0.9416
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.41,
+      "sec": 45,
+      "val_macro_f1": 0.7813,
+      "val_accuracy": 0.8532,
+      "val_f1_Negative": 0.8254,
+      "val_f1_Neutral": 0.5813,
+      "val_f1_Positive": 0.9372
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.3247,
+      "sec": 47,
+      "val_macro_f1": 0.7716,
+      "val_accuracy": 0.8455,
+      "val_f1_Negative": 0.8055,
+      "val_f1_Neutral": 0.5724,
+      "val_f1_Positive": 0.9369
+    }
+  ],
+  "best_epoch": 3,
+  "val_best": {
+    "macro_f1": 0.7813,
+    "accuracy": 0.8532,
+    "f1_Negative": 0.8254,
+    "f1_Neutral": 0.5813,
+    "f1_Positive": 0.9372
+  },
+  "note": "epoch chosen on val macro-F1 (val label = star label); test predictions only, metrics in Phase 6"
+}
