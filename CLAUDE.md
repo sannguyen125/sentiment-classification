@@ -9,7 +9,7 @@
 ## Nguyên tắc làm bài
 1. **Bám đề, không làm phình.** Chỉ làm những gì có trong `PHAN_TICH_DE.md`. Muốn thêm gì thì hỏi trước.
 2. **Bám slide chương 1–5.** Mỗi kỹ thuật trong báo cáo phải ghi nguồn chương (xem Bản đồ slide bên dưới). Chương 6 chỉ trích dẫn nhẹ. Kỹ thuật ngoài slide phải gắn nhãn **[Ngoài slide]** kèm 1 câu lý do.
-3. **Làm theo từng Phase, dừng ở mỗi checkpoint** để người dùng kiểm tra. Không tự nhảy phase.
+3. **Làm theo từng Phase, dừng ở mỗi checkpoint** để người dùng kiểm tra. Không tự nhảy phase. Sau mỗi checkpoint, cập nhật `STATUS.md` trước khi dừng. Khi bắt đầu phiên mới, đọc `STATUS.md` trước.
 4. **Chống rò rỉ dữ liệu:** chia tập trước; vectorizer, Word2Vec, scaler chỉ `fit` trên train. Tập test gold không bao giờ dùng để tinh chỉnh.
 5. **Tái lập được:** `random_state=42` ở mọi chỗ; mọi bước chạy được bằng một lệnh `python -m src.<module>`.
 6. **Không bịa số liệu.** Mọi con số trong báo cáo phải đọc từ file trong `results/`.
@@ -27,11 +27,11 @@
 ## Cấu trúc thư mục
 ```
 btl-dmx/
-├── CLAUDE.md, PHAN_TICH_DE.md, requirements.txt, README.md
+├── CLAUDE.md, STATUS.md, PHAN_TICH_DE.md, requirements.txt, README.md
 ├── data/
 │   ├── raw/        reviews.jsonl, html_cache/        (không commit)
 │   ├── interim/    reviews_clean.csv                 (sau lọc + bỏ trùng + nhãn sao)
-│   ├── gold/       gold_to_label.csv, llm_batches/, gold_llm.csv, review_needed.csv,
+│   ├── gold/       gold_to_label.csv, gold_llm.csv (gộp llm_batches/, đã xóa), review_needed.csv,
 │   │               g100_member2.csv, gold_test.csv   (tập test: LLM gán, người duyệt)
 │   └── processed/  train.csv, val.csv, test.csv
 ├── resources/      stopwords_vi.txt, keep_words.txt, teencode.txt

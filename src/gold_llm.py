@@ -7,6 +7,9 @@ python -m src.gold_llm merge    -> gold_llm.csv, review_needed.csv
 python -m src.gold_llm final    -> gold_test.csv, results/metrics/gold_agreement.json
 
 Stars / label_star are never written to a file the LLM or the reviewers see.
+After `merge`, llm_batches/ was deleted: batch inputs = gold_to_label.csv (id,text) and
+batch outputs = gold_llm.csv row for row (verified), so gold_llm.csv is the canonical copy
+(LLM output cannot be regenerated identically).
 """
 import json
 import sys
