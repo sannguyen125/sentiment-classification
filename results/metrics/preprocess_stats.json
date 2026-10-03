@@ -7,12 +7,12 @@
     "text_clean": 14.84
   },
   "vocab_size": {
-    "text_nostop": 7182,
-    "text_clean": 7083
+    "text_nostop": 7185,
+    "text_clean": 7086
   },
   "pct_tokens_removed_as_stopwords": 0.2245,
-  "reviews_with_word_correction": 2067,
-  "word_corrections_total": 3772,
+  "reviews_with_word_correction": 2057,
+  "word_corrections_total": 3745,
   "n_stopwords": 111,
   "n_keep_words": 39,
   "n_teencode_entries": 65,

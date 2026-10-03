@@ -1,8 +1,8 @@
 # Ch.2 §2.4 word correction: <abbreviation/teencode>\t<standard form>
-# Matched as whole words, case-insensitive. Ambiguous ones (bt, bh, kg, kt, nc, a) left out.
+# Matched as whole words, case-insensitive. Ambiguous ones (bt, bh, kg, kt, nc, a, kh) left out.
+# kh removed 2026-10-02: also means "khách hàng" ("chăm sóc kh tốt").
 ko	không
 k	không
-kh	không
 khg	không
 hok	không
 hông	không
@@ -28,6 +28,7 @@ zậy	vậy
 dzậy	vậy
 r	rồi
 rùi	rồi
+nhg	nhưng
 cx	cũng
 cg	cũng
 sd	sử dụng

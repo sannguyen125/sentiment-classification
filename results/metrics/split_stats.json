@@ -1,27 +1,27 @@
 {
   "train": {
-    "n": 5134,
+    "n": 5120,
     "label": {
-      "Positive": 3080,
+      "Positive": 3066,
       "Negative": 1274,
       "Neutral": 780
     },
     "label_pct": {
-      "Positive": 60.0,
-      "Negative": 24.8,
+      "Positive": 59.9,
+      "Negative": 24.9,
       "Neutral": 15.2
     }
   },
   "val": {
-    "n": 906,
+    "n": 904,
     "label": {
-      "Positive": 543,
+      "Positive": 542,
       "Negative": 225,
-      "Neutral": 138
+      "Neutral": 137
     },
     "label_pct": {
-      "Positive": 59.9,
-      "Negative": 24.8,
+      "Positive": 60.0,
+      "Negative": 24.9,
       "Neutral": 15.2
     }
   },
@@ -37,6 +37,32 @@
       "Positive": 32.8,
       "Neutral": 9.4
     }
+  },
+  "train_val_labels": "star",
+  "dropped_test_duplicates": {
+    "n": 16,
+    "by_split": {
+      "train": 14,
+      "val": 2
+    },
+    "texts": [
+      "hài_lòng sản_phẩm",
+      "rất hài_lòng",
+      "rất hài_lòng sản_phẩm",
+      "máy xài ok",
+      "dùng thấy ok",
+      "quạt_êm mát",
+      "ok tầm giá",
+      "tốt lắm",
+      "rất hài_lòng",
+      "máy xài ok",
+      "tốt lắm",
+      "rất hài_lòng sản_phẩm",
+      "rất hài_lòng",
+      "tủ_lạnh tốt",
+      "cục nóng kêu to",
+      "dùng cũng được"
+    ]
   },
   "note": "train/val label = star label; test label = gold label (LLM-labelled, human-checked)"
 }
