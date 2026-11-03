@@ -8,7 +8,7 @@
 
 ## Nguyên tắc làm bài
 1. **Bám đề, không làm phình.** Chỉ làm những gì có trong `PHAN_TICH_DE.md`. Muốn thêm gì thì hỏi trước.
-2. **Bám slide chương 1–5.** Mỗi kỹ thuật trong báo cáo phải ghi nguồn chương (xem Bản đồ slide bên dưới). Chương 6 chỉ trích dẫn nhẹ. Kỹ thuật ngoài slide phải gắn nhãn **[Ngoài slide]** kèm 1 câu lý do.
+2. **Bám slide chương 1–5.** Khi làm và khi báo cáo cho người dùng, mỗi kỹ thuật phải biết nó thuộc chương nào (xem Bản đồ slide bên dưới); kỹ thuật ngoài slide gắn nhãn **[Ngoài slide]** kèm 1 câu lý do. Riêng file báo cáo nộp (`reports/BAO_CAO.*`) **không** ghi chương slide hay `[Ngoài slide]`: theo `docs/YEU_CAU_BAO_CAO.md`.
 3. **Làm theo từng Phase, dừng ở mỗi checkpoint** để người dùng kiểm tra. Không tự nhảy phase. Sau mỗi checkpoint, cập nhật `STATUS.md` trước khi dừng. Khi bắt đầu phiên mới, đọc `STATUS.md` trước.
 4. **Chống rò rỉ dữ liệu:** chia tập trước; vectorizer, Word2Vec, scaler chỉ `fit` trên train. Tập test gold không bao giờ dùng để tinh chỉnh.
 5. **Tái lập được:** `random_state=42` ở mọi chỗ; mọi bước chạy được bằng một lệnh `python -m src.<module>`.
@@ -33,8 +33,7 @@ btl-dmx/
 │   ├── interim/    reviews_clean.csv                 (sau lọc + bỏ trùng + nhãn sao)
 │   ├── gold/       gold_to_label.csv, gold_llm.csv (gộp llm_batches/, đã xóa), review_needed.csv,
 │   │               g100_member2.csv, gold_test.csv   (tập test: LLM gán, người duyệt)
-│   ├── pool_llm/   pool_llm.csv (nhãn chữ train/val, gộp batches/, đã xóa), id_map.csv,
-│   │               train100_member.csv (bước 4b, đã bỏ, không dùng)
+│   ├── pool_llm/   pool_llm.csv (nhãn chữ train/val, gộp batches/, đã xóa), id_map.csv
 │   └── processed/  train.csv, val.csv, test.csv
 ├── resources/      stopwords_vi.txt, keep_words.txt, teencode.txt
 ├── src/
@@ -52,7 +51,7 @@ btl-dmx/
 ├── docs/       HUONG_DAN_GAN_NHAN.md, KE_HOACH_NHAN_CHU.md
 ├── results/    metrics/*.json, figures/*.png, comparison.csv, robustness.csv, errors.csv,
 │               error_groups.csv, archive_star/ (thí nghiệm A, nhãn sao)
-└── reports/    BAO_CAO.md
+└── reports/    BAO_CAO.md (nguồn) → BAO_CAO.docx (nộp), build_docx.py, template/ (mẫu PTIT)
 ```
 
 ## Các Phase và checkpoint
@@ -100,8 +99,12 @@ Không chạy PhoBERT trên máy nếu không có GPU. Seed 42 = mô hình dùng
 **Checkpoint.**
 
 ### Phase 7 — Báo cáo
-`reports/BAO_CAO.md`, bố cục đúng 5 bước của đề: (1) Thu thập, (2) Tiền xử lý, (3) Đặc trưng, (4) Mô hình, (5) Đánh giá; thêm mở đầu, kết luận, hướng phát triển. Mỗi kỹ thuật ghi `(Ch.x §y)`. Mọi số liệu lấy từ `results/`.
-Sau đó gọi subagent **`slide-reviewer`** để rà soát; sửa theo góp ý rồi báo người dùng.
+**Làm đúng theo `docs/YEU_CAU_BAO_CAO.md`** (đề của giảng viên, bố cục, văn phong, tài liệu tham khảo, hình thức). Tóm tắt:
+- Nộp `reports/BAO_CAO.docx`, dựng từ `reports/BAO_CAO.md` bằng `python reports/build_docx.py` (pandoc, mẫu `reports/template/reference.docx` nếu có).
+- Bố cục đúng đề: Tiêu đề (bìa), 1. Giới thiệu về bài toán, 2. Cơ sở lý thuyết, 3. Thực nghiệm và kết quả, Tài liệu tham khảo. Khoảng 15–20 trang nội dung.
+- Văn phong sinh viên tự viết, tiếng Việt tự nhiên; không trích dẫn trong thân bài, không ghi chương slide; tài liệu tham khảo có thật, thông tin đúng.
+- Mọi số liệu lấy từ `results/` hoặc `STATUS.md`.
+Sau đó gọi subagent **`slide-reviewer`** để rà soát; sửa theo góp ý, dựng lại docx rồi báo người dùng.
 
 ## Quy ước code
 - Python 3.10+, type hints nhẹ, hàm nhỏ, không class thừa.

@@ -155,4 +155,4 @@ Chống rò rỉ dữ liệu: mọi vectorizer và Word2Vec **chỉ fit trên tr
 2. Dữ liệu đã xử lý (không có thông tin cá nhân) + tập test gold (nhãn LLM, nhãn người duyệt, nhãn cuối).
 3. Notebook EDA + notebook PhoBERT (máy có GPU hoặc Colab).
 4. `results/`: bảng chỉ số, confusion matrix, biểu đồ.
-5. Báo cáo `reports/BAO_CAO.md` theo đúng 5 bước của đề, mỗi kỹ thuật ghi chương slide.
+5. Báo cáo `reports/BAO_CAO.docx` (nguồn `reports/BAO_CAO.md`), bố cục theo đề của giảng viên: Tiêu đề, 1. Giới thiệu về bài toán, 2. Cơ sở lý thuyết, 3. Thực nghiệm và kết quả, Tài liệu tham khảo. Chi tiết: `docs/YEU_CAU_BAO_CAO.md`.

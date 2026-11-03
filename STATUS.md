@@ -77,6 +77,6 @@ A tụt mạnh từ val sang test vì train học nhãn sao, test chấm theo nh
 - PhoBERT chạy trên máy (RTX 3060, batch 16, fp16), RDRSegmenter; notebook vẫn chạy được trên Colab. Seed 42 dùng cho test; seed 43/44 đo dao động. Checkpoint seed 43/44 đã xóa (dự đoán val còn trong `results/predictions/`).
 - (02/10) Train/val đổi sang nhãn chữ; (03/11) **chốt B là kết quả cuối**. Nhãn sao chỉ còn là đối chứng A.
 - Không sửa `docs/HUONG_DAN_GAN_NHAN.md` trong suốt quá trình.
-- **(03/11) Bỏ, không làm:** A′ (bước 5b), bảng A/A′/B (bước 6), gán tay 100 câu train (bước 4b; `data/pool_llm/train100_member.csv` giữ lại nhưng không dùng).
+- **(03/11) Bỏ, không làm:** A′ (bước 5b), bảng A/A′/B (bước 6), gán tay 100 câu train (bước 4b; file `train100_member.csv` trống đã xóa ngày 03/11, bỏ lệnh `pool_llm agree`).
 - (03/11) EDA không làm K-means và word cloud.
 - (03/11) Đã xóa `data/pool_llm/batches/` (sau khi đối chiếu `pool_llm.csv` khớp từng dòng) và `PROMPT.md`.

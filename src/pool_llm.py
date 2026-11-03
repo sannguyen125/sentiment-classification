@@ -1,14 +1,12 @@
 """Text-based labels for train+val (experiment B) with subagent gold-labeler. [Ngoài slide]
 
 python -m src.pool_llm prepare  -> data/pool_llm/batches/batch_XXX.csv (id,text only),
-                                   id_map.csv (id -> review_id), train100_member.csv
+                                   id_map.csv (id -> review_id)
 python -m src.pool_llm todo     -> list batches without an _out file (resume)
   (run gold-labeler on each batch -> batches/batch_XXX_out.csv, SAME guideline as gold:
    docs/HUONG_DAN_GAN_NHAN.md, unchanged; no stars shown)
 python -m src.pool_llm merge    -> data/pool_llm/pool_llm.csv (review_id, label_text, ...),
                                    results/label_noise_pool.csv, results/metrics/pool_llm_stats.json
-python -m src.pool_llm agree    -> kappa LLM vs member on train100_member.csv
-                                   (step 4b, dropped: the file was never filled; kept for reference)
 Train/val membership comes from data/processed (run `python -m src.split --labels star` first,
 then `python -m src.split --labels text` after `merge`).
 
@@ -21,15 +19,13 @@ import json
 import sys
 
 import pandas as pd
-from sklearn.metrics import cohen_kappa_score
 
-from src.config import DATA, LABELS, PROCESSED, RANDOM_STATE, RESULTS
+from src.config import DATA, LABELS, PROCESSED, RESULTS
 from src.gold_llm import norm_label
 
 DIR = DATA / "pool_llm"
 BATCH_DIR = DIR / "batches"
 BATCH = 50
-N_MEMBER = 100
 
 
 def pool() -> pd.DataFrame:
@@ -47,11 +43,7 @@ def prepare() -> None:
         f = BATCH_DIR / f"batch_{i // BATCH + 1:03d}.csv"
         if not f.exists():
             p.iloc[i:i + BATCH][["id", "text"]].to_csv(f, index=False, encoding="utf-8")
-    m = p[p["split"] == "train"].sample(N_MEMBER, random_state=RANDOM_STATE)[["id", "text"]]
-    m["label_human"] = ""
-    if not (DIR / "train100_member.csv").exists():
-        m.to_csv(DIR / "train100_member.csv", index=False, encoding="utf-8-sig")
-    print(f"{len(p)} reviews -> {(len(p) + BATCH - 1) // BATCH} batches; train100_member.csv: {len(m)} rows")
+    print(f"{len(p)} reviews -> {(len(p) + BATCH - 1) // BATCH} batches")
 
 
 def todo() -> list[str]:
@@ -95,19 +87,5 @@ def merge() -> None:
     print(ct.to_string())
 
 
-def agree() -> None:
-    m = pd.read_csv(DIR / "train100_member.csv", encoding="utf-8-sig", index_col=False)
-    m["label_human"] = m["label_human"].map(norm_label)
-    if m["label_human"].isna().any():
-        sys.exit(f"{m['label_human'].isna().sum()} rows not filled yet")
-    llm = pd.read_csv(DIR / "pool_llm.csv", encoding="utf-8-sig")
-    d = m.merge(llm[["id", "label_text"]], on="id")
-    res = {"n": len(d), "kappa_llm_vs_member_train": round(float(cohen_kappa_score(d["label_text"], d["label_human"], labels=LABELS)), 4),
-           "agree": round(float((d["label_text"] == d["label_human"]).mean()), 4),
-           "crosstab": pd.crosstab(d["label_text"], d["label_human"]).to_dict()}
-    (RESULTS / "metrics" / "pool_agreement.json").write_text(json.dumps(res, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(json.dumps(res, ensure_ascii=False, indent=1))
-
-
 if __name__ == "__main__":
-    {"prepare": prepare, "todo": todo, "merge": merge, "agree": agree}[sys.argv[1]]()
+    {"prepare": prepare, "todo": todo, "merge": merge}[sys.argv[1]]()

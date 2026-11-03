@@ -49,7 +49,7 @@ btl-dmx/
 │   ├── raw/        reviews.jsonl, html_cache/                     (không commit)
 │   ├── interim/    reviews_clean.csv, reviews_prep.csv
 │   ├── gold/       gold_to_label.csv, gold_llm.csv, review_needed.csv, g100_member2.csv, gold_test.csv
-│   ├── pool_llm/   pool_llm.csv (nhãn chữ train/val), id_map.csv, train100_member.csv (không dùng)
+│   ├── pool_llm/   pool_llm.csv (nhãn chữ train/val), id_map.csv
 │   └── processed/  train.csv, val.csv, test.csv
 ├── docs/           HUONG_DAN_GAN_NHAN.md, KE_HOACH_NHAN_CHU.md
 ├── resources/      stopwords_vi.txt, keep_words.txt, teencode.txt
