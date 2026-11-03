@@ -8,7 +8,14 @@ python -m src.pool_llm todo     -> list batches without an _out file (resume)
 python -m src.pool_llm merge    -> data/pool_llm/pool_llm.csv (review_id, label_text, ...),
                                    results/label_noise_pool.csv, results/metrics/pool_llm_stats.json
 python -m src.pool_llm agree    -> kappa LLM vs member on train100_member.csv
-Train/val membership comes from data/processed (run `python -m src.split --labels star` first).
+                                   (step 4b, dropped: the file was never filled; kept for reference)
+Train/val membership comes from data/processed (run `python -m src.split --labels star` first,
+then `python -m src.split --labels text` after `merge`).
+
+After `merge`, batches/ was deleted: batch inputs = id_map.csv + `text` of data/processed
+train/val, and batch outputs = pool_llm.csv row for row (id, label, confidence, reason; verified),
+so pool_llm.csv is the canonical copy (LLM output cannot be regenerated identically).
+`prepare` / `todo` / `merge` are kept to document how the labels were made.
 """
 import json
 import sys
