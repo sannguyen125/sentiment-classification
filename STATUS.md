@@ -3,24 +3,40 @@
 _Cập nhật: 03/10/2026. Mọi số liệu lấy từ `results/` (số của thí nghiệm A nằm ở `results/archive_star/`)._
 
 ## 1. Hiện tại: thí nghiệm B, gán lại nhãn train/val theo nội dung chữ
-Đang làm dở **bước 4 (gán nhãn)** trong `docs/KE_HOACH_NHAN_CHU.md`; dừng lại vì hết lượt dùng, chưa đến checkpoint.
+**Đang ở CHECKPOINT Phase 6 (B)** trong `docs/KE_HOACH_NHAN_CHU.md`: đã chạy lại Phase 4–6 với nhãn chữ (bước 5), chờ người dùng duyệt. Chưa làm 5b (A′), 6 (bảng A/A′/B), 7 (nhóm lỗi), 8.
 
 | Bước | Trạng thái |
 |---|---|
 | 0. Commit + tag `v1-star-labels` (thí nghiệm A), push GitHub | xong |
 | 1. Lưu trữ kết quả A vào `results/archive_star/` (kèm notebook `02_phobert_colab_star.ipynb`, `README.md`) | xong |
 | 2. Teencode: bỏ `kh`, thêm `nhg → nhưng`; chạy lại Phase 3 (21 review đổi `text_clean`/`text_seg`) | xong |
-| 3. `split.py` (giữ đúng thành viên các tập như v1) loại **16 review** train/val có `text_clean` trùng test (14 train, 2 val; khớp với 11 câu test). Train **5.120**, val **904**, test 500. Hiện `data/processed/` đang ở chế độ `--labels star` | xong |
-| 4. Gán nhãn chữ bằng `gold-labeler` (nguyên văn hướng dẫn, chỉ `id,text`): **120/121 lô xong = 6.000/6.024 review**; **còn lô 121 (24 review)** | đang làm |
+| 3. `split.py` (giữ đúng thành viên các tập như v1) loại **16 review** train/val có `text_clean` trùng test (14 train, 2 val; khớp với 11 câu test). Train **5.120**, val **904**, test 500. Hiện `data/processed/` đang ở chế độ `--labels text` (03/10) | xong |
+| 4. Gán nhãn chữ bằng `gold-labeler` (nguyên văn hướng dẫn, chỉ `id,text`): **121/121 lô xong = 6.024 review**; đã chạy `python -m src.pool_llm merge` | xong (03/10) |
 | 4b. `data/pool_llm/train100_member.csv`: 100 review train cho thành viên gán độc lập | chờ thành viên điền |
-| Checkpoint: phân bố nhãn mới, tỷ lệ `label_text ≠ label_star` theo từng mức sao | chưa |
-| 5–8. Chạy lại Phase 4–6 (B), A′, bảng so sánh A/A′/B, gán lại nhóm lỗi, hạn chế | chưa |
+| Checkpoint: phân bố nhãn mới, tỷ lệ `label_text ≠ label_star` theo từng mức sao | người dùng đã duyệt (03/10) |
+| 5. Chạy lại Phase 4–6 (B): split `--labels text`, `train_classic`, PhoBERT seed 42/43/44 (nbconvert trên máy), `evaluate` | xong (03/10), **CHECKPOINT** |
+| 5b. A′ (nhãn sao + tiền xử lý mới; TF-IDF+NB và PhoBERT seed 42) | chưa; phải chia lại `--labels star` → cần lưu đầu ra riêng để không ghi đè B |
+| 6. `results/label_source_comparison.csv` (A / A′ / B) | chưa |
+| 7. Gán lại nhóm lỗi cho `errors.csv` mới (30 dòng) → `results/error_groups.csv` | chưa (hiện cột `nhom_loi` trống) |
+| 8. Hạn chế, cập nhật CLAUDE.md, PHAN_TICH_DE.md | chưa |
 
-**File để chạy tiếp:** `data/pool_llm/batches/batch_XXX.csv` (đầu vào) và `batch_XXX_out.csv` (kết quả), cùng `data/pool_llm/id_map.csv` (P0001 → review_id).
-**Lệnh chạy tiếp:**
-1. `python -m src.pool_llm todo` để liệt kê các lô còn thiếu.
-2. Chạy `gold-labeler` cho lô 121.
-3. `python -m src.pool_llm merge` (ra `pool_llm.csv`, `results/label_noise_pool.csv`, `pool_llm_stats.json`), rồi **CHECKPOINT**.
+**Kết quả B** (`results/comparison.csv`, `results/metrics/test_metrics.json`, `phobert_seeds.json`):
+- Val macro-F1 (nhãn chữ): PhoBERT **0,8749** (seed 42, chọn epoch 2; 3 seed: 0,8807 ± 0,0151), TF-IDF+SVM 0,7905, BoW+SVM 0,7858, TF-IDF+NB 0,7757, BoW+NB 0,7563, W2V+SVM 0,7352, W2V+NB 0,6651, baseline 0,2362.
+- Test macro-F1 (gold): PhoBERT **0,9023** (acc 0,948; F1 Neu 0,771), TF-IDF+SVM **0,8038** (cổ điển tốt nhất theo val; acc 0,890; F1 Neu 0,590), TF-IDF+NB 0,7993, BoW+SVM 0,7599, W2V+SVM 0,7177, BoW+NB 0,7114, W2V+NB 0,6230, baseline 0,1647.
+- Thí nghiệm stopword (trên TF-IDF+SVM): val 0,7905 (bỏ) vs 0,7931 (không bỏ); test [tham khảo] 0,8118.
+- So với A (archive): TF-IDF+NB 0,633 → 0,799; PhoBERT 0,632 → 0,902. (Chưa tách được phần do nhãn với phần do teencode/loại trùng → cần A′.)
+- Trọng số lớp PhoBERT mới: Neg 0,843 · Neu 4,267 · Pos 0,633.
+- Demo "máy giặt chạy êm nhưng vắt không khô": TF-IDF+SVM → Positive, PhoBERT → Negative (0,62).
+- Code sửa để không gắn cứng A: `train_classic` ghi đúng loại nhãn; `evaluate` lấy mô hình stopword theo cấu hình tốt nhất trên val, nhãn biểu đồ theo `split_stats.json`; `predict` dùng cổ điển tốt nhất trên val. Đã xóa `models/TFIDF_NB_nostop.joblib` (của A).
+
+**Kết quả checkpoint gán nhãn** (`pool_llm_stats.json`, `results/label_noise_pool.csv`):
+- 6.024 review: Pos **3.192 (53,0%)** · Neg **2.367 (39,3%)** · Neu **465 (7,7%)**; nhãn sao cũ: Pos 59,9% · Neg 24,9% · Neu 15,2%.
+- Train 5.120: Pos 2.696 · Neg 2.024 · Neu 400. Val 904: Pos 496 · Neg 343 · Neu 65.
+- Confidence: high 5.138 · low 886.
+- `label_text ≠ label_star` chung **20,9%**; theo sao: 1★ 0,8% (957) · 2★ 0,7% (542) · **3★ 81,7%** (917: Neg 677, Neu 168, Pos 72) · 4★ 29,4% (1.219: Neu 200, Neg 158) · 5★ 5,8% (2.389: Neu 93, Neg 45).
+
+**Lệnh chạy lại B:** `python -m src.split --labels text` → `python -m src.train_classic` → notebook PhoBERT (`PHOBERT_SEED=42/43/44`, `jupyter nbconvert --execute`) → `python -m src.evaluate`.
+**Việc tiếp (sau khi người dùng duyệt):** 5b A′, 6 bảng so sánh, 7 nhóm lỗi, 8.
 
 ## 2. Các phase
 | Phase | Trạng thái | Đầu ra chính |
@@ -28,7 +44,7 @@ _Cập nhật: 03/10/2026. Mọi số liệu lấy từ `results/` (số của t
 | 0–2 Khởi tạo, thu thập, làm sạch + gold | xong | `data/interim/reviews_clean.csv`, `data/gold/gold_test.csv`, `docs/HUONG_DAN_GAN_NHAN.md` |
 | 3 Tiền xử lý | xong (chạy lại với teencode mới) | `data/interim/reviews_prep.csv` |
 | 4–6 với nhãn sao (A) | xong, đã lưu trữ | `results/archive_star/` |
-| 4–6 với nhãn chữ (B, kết quả chính) | chưa | `results/` |
+| 4–6 với nhãn chữ (B, kết quả chính) | xong (03/10), chờ duyệt; còn A′ + nhóm lỗi | `results/` |
 | 7 Báo cáo | chưa | `reports/BAO_CAO.md` + `slide-reviewer` |
 
 ## 3. Quyết định đã chốt khác kế hoạch ban đầu
@@ -56,4 +72,5 @@ _Cập nhật: 03/10/2026. Mọi số liệu lấy từ `results/` (số của t
 - Ba ghi chú bắt buộc: phân bố nhãn test khác train/val (`label_transition.csv`); Neutral test chỉ 47 mẫu; pool 6.040 < mục tiêu 8–10k.
 - Cả 71 sản phẩm của test đều có review trong train.
 - Câu demo "máy giặt chạy êm nhưng vắt không khô": cả hai mô hình (A) đều đoán Positive.
-- `models/` hiện vẫn là mô hình của A; sẽ bị ghi đè khi chạy B.
+- `models/` hiện là mô hình của B (03/10); mô hình A chạy lại được từ tag `v1-star-labels`.
+- B: Neutral vẫn là lớp yếu nhất (test F1: PhoBERT 0,771, TF-IDF+SVM 0,590; chỉ 47 mẫu). PhoBERT seed 42 chọn epoch 2, còn seed 43/44 chọn epoch 4.

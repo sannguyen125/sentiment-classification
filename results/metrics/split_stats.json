@@ -2,27 +2,27 @@
   "train": {
     "n": 5120,
     "label": {
-      "Positive": 3066,
-      "Negative": 1274,
-      "Neutral": 780
+      "Positive": 2696,
+      "Negative": 2024,
+      "Neutral": 400
     },
     "label_pct": {
-      "Positive": 59.9,
-      "Negative": 24.9,
-      "Neutral": 15.2
+      "Positive": 52.7,
+      "Negative": 39.5,
+      "Neutral": 7.8
     }
   },
   "val": {
     "n": 904,
     "label": {
-      "Positive": 542,
-      "Negative": 225,
-      "Neutral": 137
+      "Positive": 496,
+      "Negative": 343,
+      "Neutral": 65
     },
     "label_pct": {
-      "Positive": 60.0,
-      "Negative": 24.9,
-      "Neutral": 15.2
+      "Positive": 54.9,
+      "Negative": 37.9,
+      "Neutral": 7.2
     }
   },
   "test": {
@@ -38,7 +38,7 @@
       "Neutral": 9.4
     }
   },
-  "train_val_labels": "star",
+  "train_val_labels": "text",
   "dropped_test_duplicates": {
     "n": 16,
     "by_split": {
@@ -64,5 +64,5 @@
       "dùng cũng được"
     ]
   },
-  "note": "train/val label = star label; test label = gold label (LLM-labelled, human-checked)"
+  "note": "train/val label = label_text (LLM, text-based); test label = gold label (LLM-labelled, human-checked)"
 }

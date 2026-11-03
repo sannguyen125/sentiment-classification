@@ -1,0 +1,43 @@
+{
+  "seeds": {
+    "42": {
+      "best_epoch": 2,
+      "val_macro_f1_best": 0.8749,
+      "val_macro_f1_epoch3": 0.8609,
+      "history_val_macro_f1": [
+        0.8427,
+        0.8749,
+        0.8609,
+        0.8621
+      ]
+    },
+    "43": {
+      "best_epoch": 4,
+      "val_macro_f1_best": 0.8694,
+      "val_macro_f1_epoch3": 0.8645,
+      "history_val_macro_f1": [
+        0.8439,
+        0.844,
+        0.8645,
+        0.8694
+      ]
+    },
+    "44": {
+      "best_epoch": 4,
+      "val_macro_f1_best": 0.8978,
+      "val_macro_f1_epoch3": 0.8854,
+      "history_val_macro_f1": [
+        0.8765,
+        0.889,
+        0.8854,
+        0.8978
+      ]
+    }
+  },
+  "n_seeds": 3,
+  "val_macro_f1_best_epoch_mean": 0.8807,
+  "val_macro_f1_best_epoch_std": 0.0151,
+  "val_macro_f1_epoch3_mean": 0.8703,
+  "val_macro_f1_epoch3_std": 0.0132,
+  "note": "std = sample std (ddof=1); model used on test = seed 42, epoch 2 (best on val)"
+}

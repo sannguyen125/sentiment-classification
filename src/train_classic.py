@@ -103,6 +103,8 @@ def main() -> None:
     train = pd.read_csv(PROCESSED / "train.csv").fillna({"text_clean": "", "text_nostop": ""})
     val = pd.read_csv(PROCESSED / "val.csv").fillna({"text_clean": "", "text_nostop": ""})
     MODELS.mkdir(exist_ok=True)
+    split = json.loads((RESULTS / "metrics" / "split_stats.json").read_text(encoding="utf-8"))
+    label_name = "text-based LLM label" if split.get("train_val_labels") == "text" else "star label"
     grid_rows, best_rows = [], []
 
     base = DummyClassifier(strategy="most_frequent").fit(train["text_clean"], train["label"])
@@ -134,10 +136,11 @@ def main() -> None:
     comp.to_csv(RESULTS / "val_comparison.csv", index=False, encoding="utf-8")
     (RESULTS / "metrics" / "val_classic.json").write_text(json.dumps(
         {"best_per_config": best_rows, "stopword_experiment": stop_exp,
-         "note": "val labels = star labels; tuned by macro-F1 on val; models fitted on train only"},
+         "train_val_labels": split.get("train_val_labels"),
+         "note": f"val labels = {label_name}; tuned by macro-F1 on val; models fitted on train only"},
         ensure_ascii=False, indent=2), encoding="utf-8")
 
-    print("\nMacro-F1 on val (label = star label):")
+    print(f"\nMacro-F1 on val (label = {label_name}):")
     print(comp[["feature", "algo", "macro_f1", "accuracy", "f1_Negative", "f1_Neutral", "f1_Positive",
                 "feat_params", "clf_params"]].to_string(index=False))
     print("\nStopword experiment:", json.dumps(stop_exp, ensure_ascii=False, indent=1))

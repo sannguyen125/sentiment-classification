@@ -1,15 +1,17 @@
 """Demo: predict the sentiment of new reviews.
 
 Run: python -m src.predict "máy giặt chạy êm nhưng vắt không khô" ["..."]
-Uses the best classic model on val (TF-IDF + NB) and, if the checkpoint exists and torch /
-transformers are installed, PhoBERT (models/phobert_best, RDRSegmenter or underthesea input).
+Uses the best classic model on val (read from results/metrics/val_classic.json) and, if the
+checkpoint exists and torch / transformers are installed, PhoBERT (models/phobert_best,
+RDRSegmenter or underthesea input).
 """
+import json
 import os
 import sys
 
 import joblib
 
-from src.config import MODELS
+from src.config import MODELS, RESULTS
 from src.preprocess import to_text_clean, to_text_seg
 
 DEFAULT = ["máy giặt chạy êm nhưng vắt không khô",
@@ -49,15 +51,25 @@ def phobert_predictor():
     return predict
 
 
+def best_classic() -> str:
+    """Name of the best classic config on val, e.g. 'TF-IDF + SVM'."""
+    val = json.loads((RESULTS / "metrics" / "val_classic.json").read_text(encoding="utf-8"))
+    top = max(val["best_per_config"][1:], key=lambda r: r["macro_f1"])
+    return f"{top['feature']} + {top['algo']}"
+
+
 def main() -> None:
     texts = sys.argv[1:] or DEFAULT
-    nb = joblib.load(MODELS / "TFIDF_NB.joblib")
+    name = best_classic()
+    clf = joblib.load(MODELS / (name.replace(" + ", "_").replace("-", "") + ".joblib"))
     clean = [to_text_clean(t) for t in texts]
-    nb_pred, nb_prob = nb.predict(clean), nb.predict_proba(clean).max(1)
+    cl_pred = clf.predict(clean)
+    # LinearSVC has no predict_proba -> show the label only
+    cl_prob = clf.predict_proba(clean).max(1) if hasattr(clf, "predict_proba") else [None] * len(texts)
     pho = phobert_predictor()
     pho_pred = pho(texts) if pho else [("-", 0.0)] * len(texts)
-    for t, c, p, pr, (pl, pp) in zip(texts, clean, nb_pred, nb_prob, pho_pred):
-        print(f"\nReview : {t}\ntext_clean: {c}\n  TF-IDF+NB: {p} ({pr:.2f})"
+    for t, c, p, pr, (pl, pp) in zip(texts, clean, cl_pred, cl_prob, pho_pred):
+        print(f"\nReview : {t}\ntext_clean: {c}\n  {name}: {p}" + (f" ({pr:.2f})" if pr is not None else "")
               + (f"\n  PhoBERT  : {pl} ({pp:.2f})" if pho else ""))
 
 

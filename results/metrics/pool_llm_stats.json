@@ -1,0 +1,35 @@
+{
+  "n": 6024,
+  "label_text": {
+    "Positive": 3192,
+    "Negative": 2367,
+    "Neutral": 465
+  },
+  "label_text_pct": {
+    "Positive": 53.0,
+    "Negative": 39.3,
+    "Neutral": 7.7
+  },
+  "label_star_pct": {
+    "Positive": 59.9,
+    "Negative": 24.9,
+    "Neutral": 15.2
+  },
+  "by_split": {
+    "train": {
+      "Positive": 2696,
+      "Negative": 2024,
+      "Neutral": 400
+    },
+    "val": {
+      "Positive": 496,
+      "Negative": 343,
+      "Neutral": 65
+    }
+  },
+  "confidence": {
+    "high": 5138,
+    "low": 886
+  },
+  "pct_label_text_differs_from_star": 0.2087
+}

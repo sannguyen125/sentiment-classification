@@ -1,0 +1,111 @@
+{
+  "best_per_config": [
+    {
+      "feature": "-",
+      "algo": "Baseline (lớp đông nhất)",
+      "input": "-",
+      "feat_params": "",
+      "clf_params": "",
+      "macro_f1": 0.2362,
+      "accuracy": 0.5487,
+      "f1_Negative": 0.0,
+      "f1_Neutral": 0.0,
+      "f1_Positive": 0.7086
+    },
+    {
+      "feature": "BoW",
+      "algo": "NB",
+      "input": "text_clean",
+      "feat_params": "{\"ngram\": [1, 2], \"min_df\": 2}",
+      "clf_params": "{\"alpha\": 1.0, \"fit_prior\": false}",
+      "macro_f1": 0.7563,
+      "accuracy": 0.8927,
+      "f1_Negative": 0.9117,
+      "f1_Neutral": 0.4248,
+      "f1_Positive": 0.9323
+    },
+    {
+      "feature": "BoW",
+      "algo": "SVM",
+      "input": "text_clean",
+      "feat_params": "{\"ngram\": [1, 2], \"min_df\": 2}",
+      "clf_params": "{\"C\": 0.01}",
+      "macro_f1": 0.7858,
+      "accuracy": 0.8949,
+      "f1_Negative": 0.9019,
+      "f1_Neutral": 0.521,
+      "f1_Positive": 0.9344
+    },
+    {
+      "feature": "TF-IDF",
+      "algo": "NB",
+      "input": "text_clean",
+      "feat_params": "{\"ngram\": [1, 2], \"min_df\": 2}",
+      "clf_params": "{\"alpha\": 0.1, \"fit_prior\": false}",
+      "macro_f1": 0.7757,
+      "accuracy": 0.885,
+      "f1_Negative": 0.903,
+      "f1_Neutral": 0.4932,
+      "f1_Positive": 0.931
+    },
+    {
+      "feature": "TF-IDF",
+      "algo": "SVM",
+      "input": "text_clean",
+      "feat_params": "{\"ngram\": [1, 2], \"min_df\": 5}",
+      "clf_params": "{\"C\": 0.1}",
+      "macro_f1": 0.7905,
+      "accuracy": 0.9082,
+      "f1_Negative": 0.9215,
+      "f1_Neutral": 0.5043,
+      "f1_Positive": 0.9456
+    },
+    {
+      "feature": "W2V",
+      "algo": "NB",
+      "input": "text_clean",
+      "feat_params": "{\"vector_size\": 200}",
+      "clf_params": "{\"var_smoothing\": 1e-09, \"priors\": null}",
+      "macro_f1": 0.6651,
+      "accuracy": 0.7843,
+      "f1_Negative": 0.8151,
+      "f1_Neutral": 0.3212,
+      "f1_Positive": 0.859
+    },
+    {
+      "feature": "W2V",
+      "algo": "SVM",
+      "input": "text_clean",
+      "feat_params": "{\"vector_size\": 200}",
+      "clf_params": "{\"C\": 0.3}",
+      "macro_f1": 0.7352,
+      "accuracy": 0.8418,
+      "f1_Negative": 0.8771,
+      "f1_Neutral": 0.4195,
+      "f1_Positive": 0.9089
+    }
+  ],
+  "stopword_experiment": {
+    "config": "TF-IDF + SVM",
+    "with_stopword_removal": {
+      "macro_f1": 0.7905,
+      "accuracy": 0.9082,
+      "f1_Negative": 0.9215,
+      "f1_Neutral": 0.5043,
+      "f1_Positive": 0.9456
+    },
+    "without_stopword_removal": {
+      "macro_f1": 0.7931,
+      "accuracy": 0.906,
+      "f1_Negative": 0.9215,
+      "f1_Neutral": 0.5172,
+      "f1_Positive": 0.9405
+    },
+    "best_params_without": {
+      "feat": "{\"ngram\": [1, 2], \"min_df\": 5}",
+      "clf": "{\"C\": 0.1}"
+    }
+  },
+  "train_val_labels": "text",
+  "note": "val labels = text-based LLM label; tuned by macro-F1 on val; models fitted on train only"
+}

@@ -1,0 +1,26 @@
+{
+  "train_val_labels": "text",
+  "label_distribution_pct": {
+    "train": {
+      "Positive": 52.7,
+      "Negative": 39.5,
+      "Neutral": 7.8
+    },
+    "val": {
+      "Positive": 54.9,
+      "Negative": 37.9,
+      "Neutral": 7.2
+    },
+    "test": {
+      "Negative": 57.8,
+      "Positive": 32.8,
+      "Neutral": 9.4
+    }
+  },
+  "label_distribution_note": "train/val = text-based LLM labels (same guideline as gold), test = gold labels; test distribution differs because gold was sampled stratified by star",
+  "test_neutral_support": 47,
+  "pool_reviews": 6040,
+  "clean_reviews": 6540,
+  "raw_reviews": 9481,
+  "target_reviews": "8000-10000"
+}

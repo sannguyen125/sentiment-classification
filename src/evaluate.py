@@ -3,7 +3,7 @@
 Run: python -m src.evaluate
 - Accuracy, Precision/Recall/F1 per class + macro, confusion matrix (counts + row-normalised)
   for baseline, 6 classic configs and PhoBERT (seed 42, epoch chosen on val).
-- TF-IDF+NB without stopword removal is reported on test FOR REFERENCE ONLY (not used to choose).
+- The best val config without stopword removal is reported on test FOR REFERENCE ONLY (not used to choose).
 - Label noise: star label vs gold label per star; LLM/member-2 agreement (gold_agreement.json).
 - PhoBERT seed variance on val (seeds 42/43/44).
 - errors.csv: 15 errors of the best classic model (chosen on val) + 15 of PhoBERT;
@@ -75,13 +75,13 @@ def plot_cm(y, pred, title: str, path) -> list:
     return cm.tolist()
 
 
-def plot_bars(comp: pd.DataFrame, path) -> None:
+def plot_bars(comp: pd.DataFrame, path, val_label: str) -> None:
     d = comp[~comp["is_reference"]].reset_index(drop=True)
     y = np.arange(len(d))[::-1]
     h = 0.38
     fig, ax = plt.subplots(figsize=(8.5, 5.2), facecolor=SURF)
     ax.set_facecolor(SURF)
-    ax.barh(y + h / 2, d["val_macro_f1"], h - 0.04, color=BLUE, label="Val (nhãn sao)")
+    ax.barh(y + h / 2, d["val_macro_f1"], h - 0.04, color=BLUE, label=f"Val ({val_label})")
     ax.barh(y - h / 2, d["test_macro_f1"], h - 0.04, color=ORANGE, label="Test (nhãn gold)")
     for yi, v in zip(y, d["test_macro_f1"]):
         ax.text(v + 0.008, yi - h / 2, f"{v:.3f}", va="center", fontsize=9, color=INK)
@@ -95,7 +95,7 @@ def plot_bars(comp: pd.DataFrame, path) -> None:
     ax.spines["bottom"].set_color("#c3c2b7")
     ax.tick_params(colors=INK2, length=0)
     ax.legend(loc="lower left", bbox_to_anchor=(0, 1.0), ncol=2, frameon=False)
-    ax.set_title("Macro-F1 theo mô hình: val (nhãn sao) và test (nhãn gold)", color=INK, fontsize=12,
+    ax.set_title(f"Macro-F1 theo mô hình: val ({val_label}) và test (nhãn gold)", color=INK, fontsize=12,
                  loc="left", pad=28)
     fig.tight_layout()
     fig.savefig(path, dpi=150, facecolor=SURF)
@@ -117,7 +117,8 @@ def phobert_seeds() -> dict:
     return {"seeds": runs, "n_seeds": len(runs),
             "val_macro_f1_best_epoch_mean": round(float(best.mean()), 4), "val_macro_f1_best_epoch_std": sd(best),
             "val_macro_f1_epoch3_mean": round(float(ep3.mean()), 4), "val_macro_f1_epoch3_std": sd(ep3),
-            "note": "std = sample std (ddof=1); model used on test = seed 42, epoch 3"}
+            "note": f"std = sample std (ddof=1); model used on test = seed 42, "
+                    f"epoch {runs.get(42, {}).get('best_epoch')} (best on val)"}
 
 
 def main() -> None:
@@ -140,8 +141,10 @@ def main() -> None:
     ph = pd.read_csv(PRED / "phobert_test.csv").set_index("review_id").loc[test["review_id"], "pred"].to_numpy()
     preds["PhoBERT"] = ph
     val_f1["PhoBERT"] = pho["val_best"]["macro_f1"]
-    ref = "TF-IDF + NB, không bỏ stopword [tham khảo]"
-    preds[ref] = joblib.load(MODELS / "TFIDF_NB_nostop.joblib").predict(test["text_nostop"])
+    stop_cfg = val_cls["stopword_experiment"]["config"]  # e.g. "TF-IDF + SVM" (best config on val)
+    ref = f"{stop_cfg}, không bỏ stopword [tham khảo]"
+    nostop_file = stop_cfg.replace(" + ", "_").replace("-", "") + "_nostop.joblib"
+    preds[ref] = joblib.load(MODELS / nostop_file).predict(test["text_nostop"])
     val_f1[ref] = val_cls["stopword_experiment"]["without_stopword_removal"]["macro_f1"]
     pd.DataFrame({"review_id": test["review_id"], "label": y, **{f"pred_{slug(k)}": v for k, v in preds.items()}}
                  ).to_csv(PRED / "classic_test.csv", index=False, encoding="utf-8")
@@ -161,7 +164,9 @@ def main() -> None:
                      **{f"test_{k}_{lab}": m[f"{k}_{lab}"] for lab in LABELS for k in ("precision", "recall", "f1")}})
     comp = pd.DataFrame(rows)
     comp.to_csv(RESULTS / "comparison.csv", index=False, encoding="utf-8")
-    plot_bars(comp, FIG / "macro_f1_val_test.png")
+    split = json.loads((MET / "split_stats.json").read_text(encoding="utf-8"))
+    text_labels = split.get("train_val_labels") == "text"
+    plot_bars(comp, FIG / "macro_f1_val_test.png", "nhãn chữ" if text_labels else "nhãn sao")
 
     # ---- label noise (star label vs gold label) ----
     ct = pd.crosstab(test["star"], test["label"]).reindex(columns=LABELS, fill_value=0)
@@ -201,11 +206,15 @@ def main() -> None:
                    if err["nhom_loi"].notna().any() and (err["nhom_loi"] != "").any() else {})
 
     # ---- notes for the report ----
-    split = json.loads((MET / "split_stats.json").read_text(encoding="utf-8"))
     clean = json.loads((MET / "clean_stats.json").read_text(encoding="utf-8"))
     notes = {
+        "train_val_labels": split.get("train_val_labels"),
         "label_distribution_pct": {k: split[k]["label_pct"] for k in ("train", "val", "test")},
-        "label_distribution_note": "train/val = star labels, test = gold labels (text-based) -> distributions differ",
+        "label_distribution_note": (
+            "train/val = text-based LLM labels (same guideline as gold), test = gold labels; "
+            "test distribution differs because gold was sampled stratified by star"
+            if text_labels else
+            "train/val = star labels, test = gold labels (text-based) -> distributions differ"),
         "test_neutral_support": int((y == "Neutral").sum()),
         "pool_reviews": clean["pool_after_gold"], "clean_reviews": clean["clean"], "raw_reviews": clean["raw"],
         "target_reviews": "8000-10000",
