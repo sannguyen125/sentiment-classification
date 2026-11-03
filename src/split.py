@@ -6,7 +6,7 @@ Pool = clean reviews minus the gold set -> stratified 85/15 train/val on the STA
 appears in the test set are dropped from train/val (exact-duplicate guard).
 Train/val label: --labels text (default, main result B) = label_text from
 data/pool_llm/pool_llm.csv (LLM, text-based, same guideline as gold);
---labels star (experiment A/A') = label_star.
+--labels star (control experiment A, also needed once before `src.pool_llm prepare`) = label_star.
 Test = gold set (label = final gold label `label`), label_star kept to measure label noise.
 Out: data/processed/{train,val,test}.csv, results/metrics/split_stats.json
 """

@@ -1,10 +1,13 @@
-"""Phase 2: filter junk, remove (near-)duplicates, star labels, gold sample to label by hand.
+"""Phase 2: filter junk, remove (near-)duplicates, star labels, sample the gold test set.
 
 Run: python -m src.clean_label
 In : data/raw/reviews.jsonl
 Out: data/interim/reviews_clean.csv
-     data/gold/gold_to_label.csv   (500 reviews, star hidden, to be labelled by hand)
+     data/gold/gold_to_label.csv   (500 reviews, star hidden; labelled by src.gold_llm: LLM + human review)
      results/metrics/clean_stats.json
+label_star (1-2 Neg, 3 Neu, 4-5 Pos) is only the control label (experiment A); train/val use the
+text-based LLM label from src.pool_llm (experiment B). Near-duplicates are removed on ALL reviews
+before the gold sample is drawn, so no near-duplicate pair spans test and train/val.
 """
 import json
 import re

@@ -74,5 +74,5 @@
     "f1_Neutral": 0.6772,
     "f1_Positive": 0.9689
   },
-  "note": "epoch chosen on val macro-F1 (val label = star label); test predictions only, metrics in Phase 6"
+  "note": "epoch chosen on val macro-F1 (val label = text-based LLM label); test predictions only, metrics in Phase 6"
 }
