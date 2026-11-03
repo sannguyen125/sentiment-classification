@@ -1,0 +1,11 @@
+model,is_reference,test_macro_f1,ci95_low,ci95_high,human2_n,human2_accuracy,human2_macro_f1
+Baseline (lớp đông nhất),False,0.1647,0.149,0.1793,100,0.31,0.1578
+BoW + NB,False,0.7114,0.6574,0.7612,100,0.8,0.6421
+BoW + SVM,False,0.7599,0.7084,0.8094,100,0.76,0.6313
+TF-IDF + NB,False,0.7993,0.7505,0.8457,100,0.86,0.7704
+TF-IDF + SVM,False,0.8038,0.7511,0.8527,100,0.8,0.7054
+W2V + NB,False,0.623,0.5792,0.6682,100,0.71,0.6444
+W2V + SVM,False,0.7177,0.6721,0.7629,100,0.75,0.6545
+PhoBERT,False,0.9023,0.8639,0.9353,100,0.89,0.8497
+"TF-IDF + SVM, không bỏ stopword [tham khảo]",True,0.8118,0.7601,0.8586,100,0.79,0.6788
+Nhãn gold (LLM) vs thành viên 2 [mốc],True,,,,100,0.88,0.8184

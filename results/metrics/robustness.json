@@ -1,0 +1,114 @@
+{
+  "bootstrap": {
+    "n_resamples": 2000,
+    "seed": 42,
+    "ci": "percentile 2.5-97.5",
+    "note": "paired: the same resampled test sets are used for every model"
+  },
+  "human2": {
+    "labels": "label_human_2 of gold_test.csv (member 2, independent, G001-G100)",
+    "note": "models scored against human labels instead of the LLM-based gold label"
+  },
+  "rows": [
+    {
+      "model": "Baseline (lớp đông nhất)",
+      "is_reference": false,
+      "test_macro_f1": 0.1647,
+      "ci95_low": 0.149,
+      "ci95_high": 0.1793,
+      "human2_n": 100,
+      "human2_accuracy": 0.31,
+      "human2_macro_f1": 0.1578
+    },
+    {
+      "model": "BoW + NB",
+      "is_reference": false,
+      "test_macro_f1": 0.7114,
+      "ci95_low": 0.6574,
+      "ci95_high": 0.7612,
+      "human2_n": 100,
+      "human2_accuracy": 0.8,
+      "human2_macro_f1": 0.6421
+    },
+    {
+      "model": "BoW + SVM",
+      "is_reference": false,
+      "test_macro_f1": 0.7599,
+      "ci95_low": 0.7084,
+      "ci95_high": 0.8094,
+      "human2_n": 100,
+      "human2_accuracy": 0.76,
+      "human2_macro_f1": 0.6313
+    },
+    {
+      "model": "TF-IDF + NB",
+      "is_reference": false,
+      "test_macro_f1": 0.7993,
+      "ci95_low": 0.7505,
+      "ci95_high": 0.8457,
+      "human2_n": 100,
+      "human2_accuracy": 0.86,
+      "human2_macro_f1": 0.7704
+    },
+    {
+      "model": "TF-IDF + SVM",
+      "is_reference": false,
+      "test_macro_f1": 0.8038,
+      "ci95_low": 0.7511,
+      "ci95_high": 0.8527,
+      "human2_n": 100,
+      "human2_accuracy": 0.8,
+      "human2_macro_f1": 0.7054
+    },
+    {
+      "model": "W2V + NB",
+      "is_reference": false,
+      "test_macro_f1": 0.623,
+      "ci95_low": 0.5792,
+      "ci95_high": 0.6682,
+      "human2_n": 100,
+      "human2_accuracy": 0.71,
+      "human2_macro_f1": 0.6444
+    },
+    {
+      "model": "W2V + SVM",
+      "is_reference": false,
+      "test_macro_f1": 0.7177,
+      "ci95_low": 0.6721,
+      "ci95_high": 0.7629,
+      "human2_n": 100,
+      "human2_accuracy": 0.75,
+      "human2_macro_f1": 0.6545
+    },
+    {
+      "model": "PhoBERT",
+      "is_reference": false,
+      "test_macro_f1": 0.9023,
+      "ci95_low": 0.8639,
+      "ci95_high": 0.9353,
+      "human2_n": 100,
+      "human2_accuracy": 0.89,
+      "human2_macro_f1": 0.8497
+    },
+    {
+      "model": "TF-IDF + SVM, không bỏ stopword [tham khảo]",
+      "is_reference": true,
+      "test_macro_f1": 0.8118,
+      "ci95_low": 0.7601,
+      "ci95_high": 0.8586,
+      "human2_n": 100,
+      "human2_accuracy": 0.79,
+      "human2_macro_f1": 0.6788
+    },
+    {
+      "model": "Nhãn gold (LLM) vs thành viên 2 [mốc]",
+      "is_reference": true,
+      "test_macro_f1": NaN,
+      "ci95_low": NaN,
+      "ci95_high": NaN,
+      "human2_n": 100,
+      "human2_accuracy": 0.88,
+      "human2_macro_f1": 0.8184
+    }
+  ]
+}

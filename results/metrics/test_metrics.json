@@ -468,5 +468,30 @@
     "kappa_final_vs_member2": 0.7975,
     "pct_star_label_differs_from_final": 0.312
   },
-  "error_groups": {}
+  "error_groups": {
+    "PhoBERT": {
+      "Chê/báo lỗi bị đoán Neutral": 1,
+      "Chê/báo lỗi bị đoán Positive": 1,
+      "Chưa dùng / ranh giới Neutral": 1,
+      "Câu cụt, viết tắt, thiếu ngữ cảnh": 2,
+      "Câu hỏi thông tin": 0,
+      "Câu hỏi vì gặp sự cố": 1,
+      "Khen chê lẫn lộn": 7,
+      "Nhãn gold tranh cãi": 1,
+      "Phàn nàn dịch vụ/khuyến mãi": 1,
+      "Phủ định": 0
+    },
+    "TF-IDF + SVM": {
+      "Chê/báo lỗi bị đoán Neutral": 0,
+      "Chê/báo lỗi bị đoán Positive": 2,
+      "Chưa dùng / ranh giới Neutral": 0,
+      "Câu cụt, viết tắt, thiếu ngữ cảnh": 1,
+      "Câu hỏi thông tin": 1,
+      "Câu hỏi vì gặp sự cố": 0,
+      "Khen chê lẫn lộn": 7,
+      "Nhãn gold tranh cãi": 0,
+      "Phàn nàn dịch vụ/khuyến mãi": 0,
+      "Phủ định": 4
+    }
+  }
 }

@@ -1,0 +1,31 @@
+review_id,nhom_loi,ghi_chu
+e5e9863c51d072b0,"Câu cụt, viết tắt, thiếu ngữ cảnh","Chê ngầm: 3 số gió như nhau, không có từ chê; 'điều' viết sai thành 'đều'"
+c550a29b288416fa,Khen chê lẫn lộn,"Khen sấy ok, khô rang; chê sấy nhanh không khô; 'tạm ổn so với giá' -> nghiêng khen; cả hai mô hình đoán Neutral"
+23199d902fe976d9,Phủ định,"Khen bằng từ phủ định/tiêu cực: 'không ồn', 'chống nóng', 'hơi ù ù' kéo về Negative"
+8fd26711dd7764ff,Phủ định,"'ko ngon': từ 'ngon' kéo về Positive, mô hình túi từ không bắt được phủ định"
+86147dfbed1b33be,Khen chê lẫn lộn,"Chỉ ở mức cơ bản, 'tạm ổn' với giá rẻ -> cân bằng"
+7e3e8bb26dfcdb97,Khen chê lẫn lộn,"Khen vẻ ngoài, dễ dùng; chê dọn chưa sạch, 'không êm lắm'"
+84230c25030a1bb4,Khen chê lẫn lộn,"'Dùng tốt có điều hơi yếu một chút': khen chính, chê nhẹ"
+17b1615a180693c0,Khen chê lẫn lộn,"Chê giặt lâu, lực yếu; 'với giá tiền khá ổn' -> cân bằng"
+06a81b59af2de09b,Khen chê lẫn lộn,"Chê chạy lâu, ồn; khen giặt sạch, vắt êm"
+5d64fec338cbab76,Phủ định,'chưa ngon': từ 'ngon' kéo về Positive
+73f69f8cd1ca33c5,Phủ định,"Khen 'ok', 'rất tiện' nhưng 'k biết', 'ko' (viết tắt phủ định) kéo về Negative"
+714e23284798b9f6,Câu hỏi thông tin,"Hỏi cách vệ sinh, không phải sự cố; 'sạch sẽ dễ dàng' kéo về Positive"
+df31662231e9d792,Chê/báo lỗi bị đoán Positive,"Chê bằng so sánh ('như máy sấy tóc'), không có từ chê; 'rất' gắn với khen trong train"
+a96488019f35e261,Chê/báo lỗi bị đoán Positive,"Báo lỗi đọng nước, đóng băng bằng mô tả, không có từ chê"
+52ddfb82fa599ff0,Khen chê lẫn lộn,"'Sử dụng ổn, tuy nhiên vẫn có mùi nhựa' -> cân bằng"
+5199e10f9550f787,"Câu cụt, viết tắt, thiếu ngữ cảnh","3 chữ, khen ngầm (quạt mát như điều hòa); thiếu ngữ cảnh"
+0d16e8f1c5c539d0,Chê/báo lỗi bị đoán Neutral,"So với máy cũ, chê bơm yếu, làm nóng trung bình; nhiều lỗi chính tả"
+40d6cf0bb5ddb13b,Chưa dùng / ranh giới Neutral,"Mới dùng vài lần, chưa biết bền không -> Neutral"
+7ac010abffda238a,Khen chê lẫn lộn,"Khen êm, lạnh nhanh nhưng hông tủ nóng 'muốn phỏng tay' -> chê nặng hơn"
+fe2c245df6bfe2cf,Khen chê lẫn lộn,'khá ổn trừ cái nồi... cực kỳ tệ' -> chê nặng hơn
+95402a139bc4a458,Câu hỏi vì gặp sự cố,Hỏi vì ngăn đông mềm không khác ngăn mát -> Negative
+81c0eb1dd2e58bdf,Khen chê lẫn lộn,"Khen giao hàng, nhân viên; chê nhẹ tổng đài -> nghiêng khen"
+9f3ae209bbfaa2cb,Chê/báo lỗi bị đoán Positive,"Mở đầu 'ok' rồi báo lỗi không chuyển chế độ rán, hạ lửa (5 sao)"
+b481ca105b516134,Khen chê lẫn lộn,"Khen hút bụi, 'lau sàn cũng tạm', chê mau hết pin -> cân bằng"
+a55bbe8612535cb3,"Câu cụt, viết tắt, thiếu ngữ cảnh","'kh ok 5sao ổn': viết tắt 'kh' đa nghĩa (đã bỏ khỏi teencode), câu cụt"
+8e93e994e3072ca0,Phàn nàn dịch vụ/khuyến mãi,Máy ok nhưng phàn nàn lắp đặt thiếu hút chân không
+fe03fb64d0db418b,Khen chê lẫn lộn,"Chê sấy 3 tiếng vẫn ẩm (ý chính), khen không ồn"
+54bea84cf020ca1c,Khen chê lẫn lộn,"Chê nhân viên tư vấn; 'tạm ổn', giá khuyến mãi -> cân bằng; Negative cũng có thể chấp nhận"
+be151ca782593652,Nhãn gold tranh cãi,"'Mới đầu làm lạnh chưa nhanh': chê nhẹ, mơ hồ; Neutral cũng có thể chấp nhận"
+5d20c1cdc79f1ddf,Khen chê lẫn lộn,"'tivi tốt nhưng âm thanh chưa hay', tự chấm 4 sao -> nghiêng khen; cả hai mô hình đoán Neutral"

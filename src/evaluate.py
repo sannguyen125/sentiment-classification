@@ -6,9 +6,12 @@ Run: python -m src.evaluate
 - The best val config without stopword removal is reported on test FOR REFERENCE ONLY (not used to choose).
 - Label noise: star label vs gold label per star; LLM/member-2 agreement (gold_agreement.json).
 - PhoBERT seed variance on val (seeds 42/43/44).
+- Robustness (reads saved predictions only): bootstrap 95% CI of test macro-F1 (2000 paired
+  resamples, seed 42) and accuracy / macro-F1 against member 2's labels on G001-G100.
 - errors.csv: 15 errors of the best classic model (chosen on val) + 15 of PhoBERT;
   error groups come from results/error_groups.csv (manual analysis) when present.
-Out: results/comparison.csv, results/metrics/{test_metrics,phobert_seeds,eval_notes}.json,
+Out: results/comparison.csv, results/robustness.csv,
+     results/metrics/{test_metrics,phobert_seeds,eval_notes,robustness}.json,
      results/label_noise.csv, results/label_transition.csv, results/errors.csv,
      results/predictions/classic_test.csv, results/figures/*.png
 """
@@ -31,6 +34,7 @@ from src.config import GOLD, LABELS, MODELS, PROCESSED, RANDOM_STATE, RESULTS
 MET, FIG, PRED = RESULTS / "metrics", RESULTS / "figures", RESULTS / "predictions"
 CLASSIC = [("BoW", "NB"), ("BoW", "SVM"), ("TF-IDF", "NB"), ("TF-IDF", "SVM"), ("W2V", "NB"), ("W2V", "SVM")]
 N_ERR = 15
+N_BOOT = 2000
 # palette (dataviz reference instance, validated): series blue/orange, ink, blue sequential ramp
 BLUE, ORANGE, INK, INK2, GRID, SURF = "#2a78d6", "#eb6834", "#0b0b0b", "#52514e", "#e1e0d9", "#fcfcfb"
 SEQ = LinearSegmentedColormap.from_list("seq", ["#fcfcfb", "#cde2fb", "#86b6ef", "#3987e5", "#1c5cab", "#0d366b"])
@@ -102,6 +106,47 @@ def plot_bars(comp: pd.DataFrame, path, val_label: str) -> None:
     plt.close(fig)
 
 
+def fast_macro_f1(y: np.ndarray, p: np.ndarray, k: int = 3) -> np.ndarray:
+    """Macro-F1 for each row of int-coded (B, n) arrays; F1 of a class = 0 when undefined."""
+    f1 = []
+    for c in range(k):
+        tp = ((y == c) & (p == c)).sum(1)
+        denom = (y == c).sum(1) + (p == c).sum(1)
+        f1.append(np.where(denom > 0, 2 * tp / np.maximum(denom, 1), 0.0))
+    return np.mean(f1, axis=0)
+
+
+def robustness(test: pd.DataFrame, preds: dict, ref: str) -> pd.DataFrame:
+    """(1) bootstrap 95% CI of test macro-F1 (paired resamples, seed 42);
+    (2) accuracy / macro-F1 against member 2's independent labels (G001-G100)."""
+    code = {lab: i for i, lab in enumerate(LABELS)}
+    y = test["label"].map(code).to_numpy()
+    rng = np.random.default_rng(RANDOM_STATE)
+    idx = rng.integers(0, len(y), size=(N_BOOT, len(y)))  # same resamples for every model
+    gold = pd.read_csv(GOLD / "gold_test.csv")[["review_id", "label_human_2"]]
+    h2 = test[["review_id", "label"]].merge(gold, on="review_id", how="left")["label_human_2"]
+    has_h2 = h2.notna().to_numpy()
+    rows = []
+    for name, p in preds.items():
+        pc = pd.Series(p).map(code).to_numpy()
+        boot = fast_macro_f1(y[idx], pc[idx])
+        rows.append({"model": name, "is_reference": name == ref,
+                     "test_macro_f1": metrics(test["label"], p)["macro_f1"],
+                     "ci95_low": round(float(np.percentile(boot, 2.5)), 4),
+                     "ci95_high": round(float(np.percentile(boot, 97.5)), 4),
+                     "human2_n": int(has_h2.sum()),
+                     "human2_accuracy": round(float(accuracy_score(h2[has_h2], p[has_h2])), 4),
+                     "human2_macro_f1": round(float(precision_recall_fscore_support(
+                         h2[has_h2], p[has_h2], labels=LABELS, average="macro", zero_division=0)[2]), 4)})
+    g = test["label"].to_numpy()
+    rows.append({"model": "Nhãn gold (LLM) vs thành viên 2 [mốc]", "is_reference": True,
+                 "test_macro_f1": None, "ci95_low": None, "ci95_high": None, "human2_n": int(has_h2.sum()),
+                 "human2_accuracy": round(float(accuracy_score(h2[has_h2], g[has_h2])), 4),
+                 "human2_macro_f1": round(float(precision_recall_fscore_support(
+                     h2[has_h2], g[has_h2], labels=LABELS, average="macro", zero_division=0)[2]), 4)})
+    return pd.DataFrame(rows)
+
+
 def phobert_seeds() -> dict:
     runs = {}
     for seed, f in ((42, "phobert.json"), (43, "phobert_seed43.json"), (44, "phobert_seed44.json")):
@@ -168,6 +213,16 @@ def main() -> None:
     text_labels = split.get("train_val_labels") == "text"
     plot_bars(comp, FIG / "macro_f1_val_test.png", "nhãn chữ" if text_labels else "nhãn sao")
 
+    # ---- robustness: bootstrap CI + scoring against member 2's labels (no retraining) ----
+    rob = robustness(test, preds, ref)
+    rob.to_csv(RESULTS / "robustness.csv", index=False, encoding="utf-8")
+    (MET / "robustness.json").write_text(json.dumps(
+        {"bootstrap": {"n_resamples": N_BOOT, "seed": RANDOM_STATE, "ci": "percentile 2.5-97.5",
+                       "note": "paired: the same resampled test sets are used for every model"},
+         "human2": {"labels": "label_human_2 of gold_test.csv (member 2, independent, G001-G100)",
+                    "note": "models scored against human labels instead of the LLM-based gold label"},
+         "rows": rob.to_dict("records")}, ensure_ascii=False, indent=2), encoding="utf-8")
+
     # ---- label noise (star label vs gold label) ----
     ct = pd.crosstab(test["star"], test["label"]).reindex(columns=LABELS, fill_value=0)
     noise = ct.copy()
@@ -231,6 +286,7 @@ def main() -> None:
     show = ["model", "val_macro_f1", "test_macro_f1", "test_accuracy", "test_f1_Negative", "test_f1_Neutral", "test_f1_Positive"]
     print(comp[show].to_string(index=False))
     print(f"\nBest classic (by val): {best_classic}")
+    print("\nRobustness:\n", rob.drop(columns="is_reference").to_string(index=False))
     print("\nStar -> gold label (test):\n", noise.to_string())
     print("\nlabel_star -> gold label:\n", trans.to_string())
     print("\nPhoBERT seeds:", json.dumps(seeds, ensure_ascii=False))
