@@ -1,9 +1,9 @@
 # STATUS — BTL phân loại cảm xúc review ĐMX
 
-_Cập nhật: 03/11/2026. Mọi số liệu lấy từ `results/` (thí nghiệm A ở `results/archive_star/`)._
+_Cập nhật: 04/11/2026. Mọi số liệu lấy từ `results/` (thí nghiệm A ở `results/archive_star/`). Làm tròn: half-up theo giá trị ghi trong file (0.7905 → 0,791; 0.7505 → 0,751)._
 
 ## 1. Trạng thái
-**Phase 0–6 xong. Còn Phase 7 (báo cáo `reports/BAO_CAO.md` + rà soát bằng `slide-reviewer`).**
+**Phase 0–6 xong. Phase 7: xong bản nháp 1 (04/11/2026), chờ người dùng điền `[...]` và gửi mẫu báo cáo PTIT.**
 Kết quả cuối = **thí nghiệm B**: train/val gán nhãn theo nội dung chữ (LLM, cùng hướng dẫn với gold), test = 500 review gold.
 
 | Phase | Trạng thái | Đầu ra chính |
@@ -16,9 +16,18 @@ Kết quả cuối = **thí nghiệm B**: train/val gán nhãn theo nội dung c
 | 5 PhoBERT (B, seed 42/43/44, chạy trên máy) | xong | `results/metrics/phobert*.json`, `results/predictions/phobert*.csv` |
 | 6 Đánh giá (B) + robustness + nhóm lỗi | xong | `results/comparison.csv`, `robustness.csv`, `errors.csv`, `error_groups.csv`, `metrics/test_metrics.json`, `figures/` |
 | 4–6 với nhãn sao (A, đối chứng) | xong, lưu trữ | `results/archive_star/` (tag `v1-star-labels`) |
-| 7 Báo cáo | **chưa** | `reports/BAO_CAO.md` |
+| 7 Báo cáo | **bản nháp 1 xong** (04/11), đã rà soát bằng `slide-reviewer` | `reports/BAO_CAO.docx` (nộp), `reports/BAO_CAO.md` (nguồn), `reports/build_docx.py`, `reports/make_figures.py`, `results/figures/report_*.png`, `results/metrics/crawl_stats.json` |
 
 **Lệnh chạy lại toàn bộ:** xem `README.md` (crawl → clean_label → gold_llm → preprocess → split --labels star → pool_llm → split --labels text → train_classic → notebook PhoBERT → evaluate → predict; EDA).
+
+## 1b. Phase 7: báo cáo (bản nháp 1)
+- Dựng: `python reports/make_figures.py` (hình `report_*.png`, chỉ đọc kết quả đã có) → `python reports/build_docx.py` → `reports/BAO_CAO.docx`. Sửa nội dung ở `BAO_CAO.md` rồi dựng lại, không sửa tay docx. Khi mở docx bằng Word: chấp nhận cập nhật trường (mục lục có số trang).
+- Bố cục theo `docs/YEU_CAU_BAO_CAO.md`: bìa, mục lục, 1. Giới thiệu, 2. Cơ sở lý thuyết, 3. Thực nghiệm và kết quả (3.1–3.8), Tài liệu tham khảo (15 mục). 9 bảng, 5 hình. Không ghi link GitHub (theo yêu cầu người dùng).
+- Độ dài (Word xuất PDF): tổng 25 trang; nội dung 20 trang (mục 1 ≈ 1,5; mục 2 ≈ 5; mục 3 ≈ 12,5), tài liệu tham khảo 2 trang.
+- Đối chiếu số liệu: `reports/_so_lieu.md` (nháp, không commit) liệt kê mọi con số kèm nguồn; mọi số trong báo cáo và mọi ô của Bảng 3.1, 3.2, 3.5–3.9 đã so khớp với `results/`.
+- **Người dùng cần điền `[...]` trên bìa:** giảng viên hướng dẫn; nhóm; lớp; mã sinh viên của Nguyễn Văn Ngọc San; họ tên và mã sinh viên các thành viên còn lại (đang để 2 dòng, thêm/bớt theo số thành viên). Tài liệu [1] đang ghi TS. Nguyễn Thị Mai Trang (tên trên slide), chưa có năm.
+- **Việc chờ:** mẫu báo cáo PTIT → đặt vào `reports/template/` (dạng `reference.docx` cho pandoc: chỉ style được dùng) rồi chạy lại `build_docx.py`. `reports/template/reference.docx` hiện là bản tự sinh (có dấu `auto-generated` trong thuộc tính comments); file người dùng đặt vào sẽ được dùng nguyên.
+- Báo cáo nói phân nhóm lỗi "do một mô hình ngôn ngữ lớn đề xuất, chỉ làm một lượt" (đúng thực tế: Claude gán). Nếu thành viên tự duyệt lại `results/error_groups.csv` thì sửa câu ở 3.7 và hạn chế ở 3.8.
 
 ## 2. Kết quả B (`results/comparison.csv`, `results/robustness.csv`)
 Val chấm bằng nhãn chữ, test chấm bằng nhãn gold. CI 95% = bootstrap 2.000 lần trên 500 câu test (seed 42, cùng mẫu cho mọi mô hình). "So với người" = chấm trên 100 câu G001–G100 bằng nhãn thành viên 2.
@@ -27,7 +36,7 @@ Val chấm bằng nhãn chữ, test chấm bằng nhãn gold. CI 95% = bootstrap
 |---|---|---|---|---|---|
 | **PhoBERT** (seed 42, epoch 2) | 0,875 | **0,902** [0,864; 0,935] | 0,948 | 0,771 | 0,89 / 0,850 |
 | **TF-IDF + SVM** (cổ điển tốt nhất theo val) | 0,791 | **0,804** [0,751; 0,853] | 0,890 | 0,590 | 0,80 / 0,705 |
-| TF-IDF + NB | 0,776 | 0,799 [0,750; 0,846] | 0,878 | 0,571 | 0,86 / 0,770 |
+| TF-IDF + NB | 0,776 | 0,799 [0,751; 0,846] | 0,878 | 0,571 | 0,86 / 0,770 |
 | BoW + SVM | 0,786 | 0,760 [0,708; 0,809] | 0,862 | 0,500 | 0,76 / 0,631 |
 | W2V + SVM | 0,735 | 0,718 [0,672; 0,763] | 0,812 | 0,425 | 0,75 / 0,655 |
 | BoW + NB | 0,756 | 0,711 [0,657; 0,761] | 0,852 | 0,366 | 0,80 / 0,642 |

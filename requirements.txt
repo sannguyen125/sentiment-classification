@@ -13,6 +13,10 @@ lxml>=4.9
 jupyter
 nbconvert>=7
 
+# Report (Phase 7): reports/build_docx.py (pandoc bundled in pypandoc_binary, no Word needed)
+pypandoc_binary>=1.13
+python-docx>=1.1
+
 # PhoBERT (Phase 5) - not installed by default. Run on a machine with an NVIDIA GPU or on Colab
 # (the notebook pip-installs transformers + py_vncorenlp itself on Colab).
 # Local run (tested: RTX 3060 6GB, torch 2.7.1+cu118, transformers 5.17.0, py_vncorenlp 0.1.4):

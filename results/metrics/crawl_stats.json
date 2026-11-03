@@ -1,0 +1,11 @@
+{
+  "sitemap_products_allowed": 14841,
+  "sitemap_categories_allowed": 195,
+  "products_crawled": 72,
+  "categories_crawled": 19,
+  "products_by_pick": {
+    "top_sold": 45,
+    "low_rank": 27
+  },
+  "note": "pick: top_sold = best-sellers of the category page, low_rank = lowest-rated"
+}

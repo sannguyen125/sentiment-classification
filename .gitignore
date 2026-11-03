@@ -12,6 +12,9 @@ models/
 # Course slides (lecturer's material, the team already has them)
 slides/
 
+# Report scratch table of numbers (draft only, not submitted)
+reports/_so_lieu.md
+
 # Machine-specific Claude Code permissions
 .claude/settings.local.json
 

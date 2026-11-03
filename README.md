@@ -35,6 +35,8 @@ PhoBERT cần thêm thư viện, xem ghi chú cuối `requirements.txt` (máy c�
 | 6. Đánh giá | `python -m src.evaluate` (cần `results/error_groups.csv` để có nhóm lỗi) |
 | Demo | `python -m src.predict "máy giặt chạy êm nhưng vắt không khô"` |
 | EDA | `notebooks/01_eda.ipynb` (`jupyter nbconvert --to notebook --execute --inplace notebooks/01_eda.ipynb`) |
+| 7. Hình cho báo cáo | `python reports/make_figures.py` (chỉ đọc kết quả đã có → `results/figures/report_*.png`, `results/metrics/crawl_stats.json`) |
+| 7. Dựng báo cáo | `python reports/build_docx.py` → `reports/BAO_CAO.docx` (nguồn `reports/BAO_CAO.md`; kiểu chữ theo `reports/template/reference.docx`, không cần cài Word) |
 
 Ghi chú:
 - Các lô LLM (`data/gold/llm_batches/`, `data/pool_llm/batches/`) đã xóa sau khi gộp và đối chiếu từng dòng; `gold_llm.csv` và `pool_llm.csv` là bản gốc, vì LLM không sinh lại được y hệt.
@@ -62,7 +64,8 @@ btl-dmx/
 ├── results/        comparison.csv, robustness.csv, errors.csv, error_groups.csv, label_noise*.csv,
 │                   metrics/*.json, predictions/*.csv, figures/*.png, archive_star/ (thí nghiệm A)
 ├── slides/         slide môn học                                      (không commit)
-└── reports/        BAO_CAO.md
+└── reports/        BAO_CAO.md (nguồn), BAO_CAO.docx (nộp), build_docx.py, make_figures.py,
+                    template/reference.docx (tự sinh; thay bằng mẫu PTIT khi có)
 ```
 
 ## Dữ liệu cá nhân
