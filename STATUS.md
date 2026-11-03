@@ -1,76 +1,82 @@
 # STATUS — BTL phân loại cảm xúc review ĐMX
 
-_Cập nhật: 03/10/2026. Mọi số liệu lấy từ `results/` (số của thí nghiệm A nằm ở `results/archive_star/`)._
+_Cập nhật: 03/11/2026. Mọi số liệu lấy từ `results/` (thí nghiệm A ở `results/archive_star/`)._
 
-## 1. Hiện tại: thí nghiệm B, gán lại nhãn train/val theo nội dung chữ
-**Đang ở CHECKPOINT Phase 6 (B)** trong `docs/KE_HOACH_NHAN_CHU.md`: đã chạy lại Phase 4–6 với nhãn chữ (bước 5), chờ người dùng duyệt. Chưa làm 5b (A′), 6 (bảng A/A′/B), 7 (nhóm lỗi), 8.
+## 1. Trạng thái
+**Phase 0–6 xong. Còn Phase 7 (báo cáo `reports/BAO_CAO.md` + rà soát bằng `slide-reviewer`).**
+Kết quả cuối = **thí nghiệm B**: train/val gán nhãn theo nội dung chữ (LLM, cùng hướng dẫn với gold), test = 500 review gold.
 
-| Bước | Trạng thái |
-|---|---|
-| 0. Commit + tag `v1-star-labels` (thí nghiệm A), push GitHub | xong |
-| 1. Lưu trữ kết quả A vào `results/archive_star/` (kèm notebook `02_phobert_colab_star.ipynb`, `README.md`) | xong |
-| 2. Teencode: bỏ `kh`, thêm `nhg → nhưng`; chạy lại Phase 3 (21 review đổi `text_clean`/`text_seg`) | xong |
-| 3. `split.py` (giữ đúng thành viên các tập như v1) loại **16 review** train/val có `text_clean` trùng test (14 train, 2 val; khớp với 11 câu test). Train **5.120**, val **904**, test 500. Hiện `data/processed/` đang ở chế độ `--labels text` (03/10) | xong |
-| 4. Gán nhãn chữ bằng `gold-labeler` (nguyên văn hướng dẫn, chỉ `id,text`): **121/121 lô xong = 6.024 review**; đã chạy `python -m src.pool_llm merge` | xong (03/10) |
-| 4b. `data/pool_llm/train100_member.csv`: 100 review train cho thành viên gán độc lập | chờ thành viên điền |
-| Checkpoint: phân bố nhãn mới, tỷ lệ `label_text ≠ label_star` theo từng mức sao | người dùng đã duyệt (03/10) |
-| 5. Chạy lại Phase 4–6 (B): split `--labels text`, `train_classic`, PhoBERT seed 42/43/44 (nbconvert trên máy), `evaluate` | xong (03/10), **CHECKPOINT** |
-| 5b. A′ (nhãn sao + tiền xử lý mới; TF-IDF+NB và PhoBERT seed 42) | chưa; phải chia lại `--labels star` → cần lưu đầu ra riêng để không ghi đè B |
-| 6. `results/label_source_comparison.csv` (A / A′ / B) | chưa |
-| 7. Gán lại nhóm lỗi cho `errors.csv` mới (30 dòng) → `results/error_groups.csv` | chưa (hiện cột `nhom_loi` trống) |
-| 8. Hạn chế, cập nhật CLAUDE.md, PHAN_TICH_DE.md | chưa |
-
-**Kết quả B** (`results/comparison.csv`, `results/metrics/test_metrics.json`, `phobert_seeds.json`):
-- Val macro-F1 (nhãn chữ): PhoBERT **0,8749** (seed 42, chọn epoch 2; 3 seed: 0,8807 ± 0,0151), TF-IDF+SVM 0,7905, BoW+SVM 0,7858, TF-IDF+NB 0,7757, BoW+NB 0,7563, W2V+SVM 0,7352, W2V+NB 0,6651, baseline 0,2362.
-- Test macro-F1 (gold): PhoBERT **0,9023** (acc 0,948; F1 Neu 0,771), TF-IDF+SVM **0,8038** (cổ điển tốt nhất theo val; acc 0,890; F1 Neu 0,590), TF-IDF+NB 0,7993, BoW+SVM 0,7599, W2V+SVM 0,7177, BoW+NB 0,7114, W2V+NB 0,6230, baseline 0,1647.
-- Thí nghiệm stopword (trên TF-IDF+SVM): val 0,7905 (bỏ) vs 0,7931 (không bỏ); test [tham khảo] 0,8118.
-- So với A (archive): TF-IDF+NB 0,633 → 0,799; PhoBERT 0,632 → 0,902. (Chưa tách được phần do nhãn với phần do teencode/loại trùng → cần A′.)
-- Trọng số lớp PhoBERT mới: Neg 0,843 · Neu 4,267 · Pos 0,633.
-- Demo "máy giặt chạy êm nhưng vắt không khô": TF-IDF+SVM → Positive, PhoBERT → Negative (0,62).
-- Code sửa để không gắn cứng A: `train_classic` ghi đúng loại nhãn; `evaluate` lấy mô hình stopword theo cấu hình tốt nhất trên val, nhãn biểu đồ theo `split_stats.json`; `predict` dùng cổ điển tốt nhất trên val. Đã xóa `models/TFIDF_NB_nostop.joblib` (của A).
-
-**Kết quả checkpoint gán nhãn** (`pool_llm_stats.json`, `results/label_noise_pool.csv`):
-- 6.024 review: Pos **3.192 (53,0%)** · Neg **2.367 (39,3%)** · Neu **465 (7,7%)**; nhãn sao cũ: Pos 59,9% · Neg 24,9% · Neu 15,2%.
-- Train 5.120: Pos 2.696 · Neg 2.024 · Neu 400. Val 904: Pos 496 · Neg 343 · Neu 65.
-- Confidence: high 5.138 · low 886.
-- `label_text ≠ label_star` chung **20,9%**; theo sao: 1★ 0,8% (957) · 2★ 0,7% (542) · **3★ 81,7%** (917: Neg 677, Neu 168, Pos 72) · 4★ 29,4% (1.219: Neu 200, Neg 158) · 5★ 5,8% (2.389: Neu 93, Neg 45).
-
-**Lệnh chạy lại B:** `python -m src.split --labels text` → `python -m src.train_classic` → notebook PhoBERT (`PHOBERT_SEED=42/43/44`, `jupyter nbconvert --execute`) → `python -m src.evaluate`.
-**Việc tiếp (sau khi người dùng duyệt):** 5b A′, 6 bảng so sánh, 7 nhóm lỗi, 8.
-
-## 2. Các phase
 | Phase | Trạng thái | Đầu ra chính |
 |---|---|---|
-| 0–2 Khởi tạo, thu thập, làm sạch + gold | xong | `data/interim/reviews_clean.csv`, `data/gold/gold_test.csv`, `docs/HUONG_DAN_GAN_NHAN.md` |
-| 3 Tiền xử lý | xong (chạy lại với teencode mới) | `data/interim/reviews_prep.csv` |
-| 4–6 với nhãn sao (A) | xong, đã lưu trữ | `results/archive_star/` |
-| 4–6 với nhãn chữ (B, kết quả chính) | xong (03/10), chờ duyệt; còn A′ + nhóm lỗi | `results/` |
-| 7 Báo cáo | chưa | `reports/BAO_CAO.md` + `slide-reviewer` |
+| 0–2 Khởi tạo, thu thập, làm sạch, gold | xong | `data/interim/reviews_clean.csv`, `data/gold/gold_test.csv`, `docs/HUONG_DAN_GAN_NHAN.md`, `results/metrics/clean_stats.json`, `gold_agreement.json` |
+| EDA | xong (03/11) | `notebooks/01_eda.ipynb`, `results/figures/eda_*.png` |
+| 3 Tiền xử lý | xong (teencode mới: bỏ `kh`, thêm `nhg`) | `data/interim/reviews_prep.csv` |
+| Nhãn chữ train/val | xong | `data/pool_llm/pool_llm.csv`, `results/label_noise_pool.csv`, `pool_llm_stats.json` |
+| 4 Chia tập, NB + SVM (B) | xong | `data/processed/`, `results/val_comparison.csv`, `metrics/val_classic.json` |
+| 5 PhoBERT (B, seed 42/43/44, chạy trên máy) | xong | `results/metrics/phobert*.json`, `results/predictions/phobert*.csv` |
+| 6 Đánh giá (B) + robustness + nhóm lỗi | xong | `results/comparison.csv`, `robustness.csv`, `errors.csv`, `error_groups.csv`, `metrics/test_metrics.json`, `figures/` |
+| 4–6 với nhãn sao (A, đối chứng) | xong, lưu trữ | `results/archive_star/` (tag `v1-star-labels`) |
+| 7 Báo cáo | **chưa** | `reports/BAO_CAO.md` |
 
-## 3. Quyết định đã chốt khác kế hoạch ban đầu
-- Crawl giới hạn theo sao (lấy hết 1–3★, 4★ ≤ 60, 5★ ≤ 100, ≤ 300/sản phẩm); có lưu phân bố sao thật.
-- Chọn sản phẩm theo "Đã bán" + nhóm điểm thấp nhất mỗi ngành, vì chỉ 5/~2.370 sản phẩm có điểm < 4.5.
-- Giữ 6.540 review sạch, không crawl thêm.
-- Gold 500, ≤ 15 review/sản phẩm; nhãn gold do LLM gán, người duyệt (chấp nhận hàng loạt 189/191 dòng gắn cờ).
+**Lệnh chạy lại toàn bộ:** xem `README.md` (crawl → clean_label → gold_llm → preprocess → split --labels star → pool_llm → split --labels text → train_classic → notebook PhoBERT → evaluate → predict; EDA).
+
+## 2. Kết quả B (`results/comparison.csv`, `results/robustness.csv`)
+Val chấm bằng nhãn chữ, test chấm bằng nhãn gold. CI 95% = bootstrap 2.000 lần trên 500 câu test (seed 42, cùng mẫu cho mọi mô hình). "So với người" = chấm trên 100 câu G001–G100 bằng nhãn thành viên 2.
+
+| Mô hình | Val macro-F1 | Test macro-F1 [CI 95%] | Test acc | F1 Neutral | Người: acc / macro-F1 |
+|---|---|---|---|---|---|
+| **PhoBERT** (seed 42, epoch 2) | 0,875 | **0,902** [0,864; 0,935] | 0,948 | 0,771 | 0,89 / 0,850 |
+| **TF-IDF + SVM** (cổ điển tốt nhất theo val) | 0,791 | **0,804** [0,751; 0,853] | 0,890 | 0,590 | 0,80 / 0,705 |
+| TF-IDF + NB | 0,776 | 0,799 [0,750; 0,846] | 0,878 | 0,571 | 0,86 / 0,770 |
+| BoW + SVM | 0,786 | 0,760 [0,708; 0,809] | 0,862 | 0,500 | 0,76 / 0,631 |
+| W2V + SVM | 0,735 | 0,718 [0,672; 0,763] | 0,812 | 0,425 | 0,75 / 0,655 |
+| BoW + NB | 0,756 | 0,711 [0,657; 0,761] | 0,852 | 0,366 | 0,80 / 0,642 |
+| W2V + NB | 0,665 | 0,623 [0,579; 0,668] | 0,720 | 0,301 | 0,71 / 0,644 |
+| Baseline (lớp đông nhất) | 0,236 | 0,165 [0,149; 0,179] | 0,328 | 0 | 0,31 / 0,158 |
+| *TF-IDF + SVM, không bỏ stopword [tham khảo]* | 0,793 | 0,812 [0,760; 0,859] | 0,888 | 0,625 | 0,79 / 0,679 |
+| *Mốc: nhãn gold (LLM) vs thành viên 2* | | | | | 0,88 / 0,818 |
+
+- PhoBERT 3 seed trên val: 0,8807 ± 0,0151 (`phobert_seeds.json`); seed 42 chọn epoch 2, seed 43/44 chọn epoch 4.
+- Thí nghiệm stopword (Ch.2 §2.3) trên cấu hình tốt nhất TF-IDF+SVM: val 0,7905 (bỏ) vs 0,7931 (không bỏ), gần như bằng nhau.
+- Robustness: số tự tính của người dùng khớp phần chấm theo người; CI bootstrap lệch ≤ 0,002 ở cận (do cách sinh số ngẫu nhiên).
+- So với người, PhoBERT (0,850) cao hơn cả mốc gold-LLM (0,818); khoảng cách PhoBERT – cổ điển vẫn còn khi chấm bằng nhãn người. Trong nhóm cổ điển, TF-IDF+NB (0,770) vượt TF-IDF+SVM (0,705) khi chấm bằng người.
+- Nhóm lỗi (30 mẫu sai, 15 TF-IDF+SVM + 15 PhoBERT, **do Claude gán**, `results/error_groups.csv`): khen chê lẫn lộn 14 (7 + 7), phủ định 4 (đều TF-IDF+SVM), câu cụt/viết tắt 3, chê/báo lỗi bị đoán Positive 3, mỗi nhóm còn lại 1 (câu hỏi thông tin, chê bị đoán Neutral, chưa dùng, câu hỏi vì sự cố, phàn nàn dịch vụ, nhãn gold tranh cãi).
+- Demo "máy giặt chạy êm nhưng vắt không khô": TF-IDF+SVM → Positive, PhoBERT → Negative (0,62). Bỏ chữ "giặt": PhoBERT → Neutral (0,68), ví dụ cho nhóm lỗi khen chê lẫn lộn.
+
+## 3. So sánh A (nhãn sao) và B (nhãn chữ), test macro-F1
+| Mô hình | A (val / test) | B (val / test) |
+|---|---|---|
+| PhoBERT | 0,781 / 0,632 | 0,875 / 0,902 |
+| TF-IDF + NB | 0,738 / 0,633 | 0,776 / 0,799 |
+| TF-IDF + SVM | 0,723 / 0,626 | 0,791 / 0,804 |
+| BoW + SVM | 0,708 / 0,581 | 0,786 / 0,760 |
+| W2V + SVM | 0,717 / 0,571 | 0,735 / 0,718 |
+
+A tụt mạnh từ val sang test vì train học nhãn sao, test chấm theo nhãn chữ; B hết tụt. **Không chạy A′ nên chưa tách được phần do nhãn** (xem hạn chế).
+
+## 4. Số liệu dữ liệu
+- Thô 9.481 → sạch 6.540 (19 ngành, 72 sản phẩm) → gold 500 + pool 6.040 → loại 16 câu trùng test (14 train, 2 val) → train **5.120**, val **904**, test 500.
+- Nhãn chữ train: Pos 2.696 · Neg 2.024 · Neu 400; val: Pos 496 · Neg 343 · Neu 65. Test (gold): Neg 289 · Pos 164 · Neu 47.
+- Nhãn chữ khác nhãn sao (train+val) 20,9%; 3★ 81,7%, 4★ 29,4% (`label_noise_pool.csv`). Trên test: nhãn sao khác gold 31,2%, 3★ 83,3% (`label_noise.csv`).
+- Gold: 191 dòng gắn cờ, 2 dòng người duyệt từng dòng, 189 chấp nhận nhãn LLM hàng loạt; kappa LLM vs thành viên 2 = **0,7975** (G001–G100).
+
+## 5. Hạn chế phải ghi trong báo cáo
+1. **Cùng một LLM gán nhãn train, val và test** → điểm có thể cao hơn thực tế (mô hình học "khẩu vị" của LLM). Đối trọng: kappa 0,80 LLM vs người; bảng chấm mô hình bằng nhãn người (`robustness.csv`): PhoBERT vẫn đứng đầu và TF-IDF vẫn là nhóm cổ điển tốt nhất, nhưng thứ tự trong nhóm cổ điển thay đổi (TF-IDF+NB 0,770 > TF-IDF+SVM 0,705; chỉ 100 câu). **[Ngoài slide]**
+2. **B khác A ở 3 chỗ**: nhãn train/val, teencode mới, 16 câu trùng test bị loại. Không chạy A′ nên chưa tách riêng được tác động của nhãn.
+3. Neutral test chỉ 47 câu (CI rộng, F1 Neutral dao động mạnh); phân bố nhãn test khác train/val (gold lấy mẫu phân tầng theo sao); pool 6.040 < mục tiêu 8–10k; cả 71/71 sản phẩm của test đều có review trong train.
+4. **Thí nghiệm B được đề xuất sau khi thấy kết quả A trên test.** Giảm rủi ro: giữ nguyên văn `docs/HUONG_DAN_GAN_NHAN.md`, không gán lại test, không dùng test chọn mô hình/tham số.
+5. Gold: chỉ 2/191 dòng gắn cờ được người duyệt từng dòng (189 chấp nhận hàng loạt); dòng LLM trùng nhãn sao không được duyệt → tỷ lệ nhiễu nhãn sao là cận dưới.
+6. Nhóm lỗi do Claude gán (một người gán, không đo đồng thuận).
+
+**Điểm tốt nên ghi:** bỏ gần trùng (cosine TF-IDF > 0,9, Ch.5) chạy trên toàn bộ dữ liệu **trước** khi lấy mẫu gold, nên không có rò rỉ câu gần trùng giữa test và train; thêm bước loại câu train/val trùng `text_clean` với test.
+
+## 6. Quyết định đã chốt
+- Crawl giới hạn theo sao (lấy hết 1–3★, 4★ ≤ 60, 5★ ≤ 100, ≤ 300/sản phẩm); có lưu phân bố sao thật. Chọn sản phẩm theo "Đã bán" + nhóm điểm thấp nhất mỗi ngành. Giữ 6.540 review sạch, không crawl thêm.
+- Gold 500, ≤ 15 review/sản phẩm; nhãn gold do LLM gán, người duyệt.
 - Mô hình chính dùng `text_clean`; biến thể không bỏ stopword chỉ báo trên test để tham khảo.
-- PhoBERT chạy trên máy (RTX 3060, batch 16, fp16), RDRSegmenter; notebook vẫn chạy được trên Colab. Seed 42 dùng cho test; seed 43/44 để đo dao động.
-- **(02/10) Train/val đổi sang nhãn theo nội dung chữ (B = kết quả chính)**; giữ `label_star` song song; kết quả nhãn sao (A) lưu trữ, không xóa.
-- **(02/10) Không sửa `docs/HUONG_DAN_GAN_NHAN.md`** trong suốt quá trình (tránh tinh chỉnh bằng test).
-- **(02/10) Sửa teencode** (bỏ `kh` đa nghĩa, thêm `nhg`); **loại khỏi train/val các review trùng `text_clean` với test**.
-- **(02/10) Làm thêm A′** (nhãn sao + tiền xử lý mới, cho TF-IDF+NB và PhoBERT seed 42), để so sánh A′ với B chỉ khác nhãn.
-- **(02/10) Làm 4b**: 1 thành viên gán 100 review train để đo kappa trên nhãn train.
-
-## 4. Số liệu chính (thí nghiệm A, nhãn sao, `results/archive_star/`)
-- Thô 9.481 → sạch 6.540 (19 ngành, 72 sản phẩm) → gold 500 + pool 6.040.
-- Test 500 (gold): Neg 57,8% · Pos 32,8% · Neu 9,4% (47 mẫu). Kappa LLM vs thành viên 2 = **0,80**. Nhãn sao khác nhãn gold 31,2% (3★: 83,3%).
-- Test macro-F1 (A): TF-IDF+NB **0,633**, PhoBERT 0,632, TF-IDF+SVM 0,626, W2V+NB 0,583, BoW+SVM 0,581, W2V+SVM 0,571, BoW+NB 0,568, baseline 0,165.
-- Val macro-F1 (A): PhoBERT 0,781 (3 seed: 0,7778 ± 0,0044), TF-IDF+NB 0,738.
-
-## 5. Vấn đề mở / cần ghi trong báo cáo
-- Kết quả A tụt từ val sang test vì train học nhãn sao, còn test chấm theo nhãn chữ; đây là lý do làm thí nghiệm B.
-- **Hạn chế:** nhãn train, val và test đều do cùng một LLM gán, nên điểm có thể cao hơn thực tế. Kiểm chứng bằng kappa 0,80 với người trên 100 câu gold, cộng kappa trên 100 câu train (4b). **[Ngoài slide]**
-- Ba ghi chú bắt buộc: phân bố nhãn test khác train/val (`label_transition.csv`); Neutral test chỉ 47 mẫu; pool 6.040 < mục tiêu 8–10k.
-- Cả 71 sản phẩm của test đều có review trong train.
-- Câu demo "máy giặt chạy êm nhưng vắt không khô": cả hai mô hình (A) đều đoán Positive.
-- `models/` hiện là mô hình của B (03/10); mô hình A chạy lại được từ tag `v1-star-labels`.
-- B: Neutral vẫn là lớp yếu nhất (test F1: PhoBERT 0,771, TF-IDF+SVM 0,590; chỉ 47 mẫu). PhoBERT seed 42 chọn epoch 2, còn seed 43/44 chọn epoch 4.
+- PhoBERT chạy trên máy (RTX 3060, batch 16, fp16), RDRSegmenter; notebook vẫn chạy được trên Colab. Seed 42 dùng cho test; seed 43/44 đo dao động. Checkpoint seed 43/44 đã xóa (dự đoán val còn trong `results/predictions/`).
+- (02/10) Train/val đổi sang nhãn chữ; (03/11) **chốt B là kết quả cuối**. Nhãn sao chỉ còn là đối chứng A.
+- Không sửa `docs/HUONG_DAN_GAN_NHAN.md` trong suốt quá trình.
+- **(03/11) Bỏ, không làm:** A′ (bước 5b), bảng A/A′/B (bước 6), gán tay 100 câu train (bước 4b; `data/pool_llm/train100_member.csv` giữ lại nhưng không dùng).
+- (03/11) EDA không làm K-means và word cloud.
+- (03/11) Đã xóa `data/pool_llm/batches/` (sau khi đối chiếu `pool_llm.csv` khớp từng dòng) và `PROMPT.md`.

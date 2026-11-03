@@ -30,7 +30,7 @@ Tiền xử lý → Trích chọn đặc trưng → Xây dựng mô hình → Đ
 
 Nếu chỉ quy số sao thành nhãn thì bài dễ. Độ khó được nâng ở 3 điểm mà không làm bài phình to:
 
-1. **Nhãn từ số sao cho train/val.** 1–2★ → Negative, 3★ → Neutral, 4–5★ → Positive. Nhanh nhưng nhiễu.
+1. **Nhãn train/val theo nội dung chữ (thí nghiệm B, kết quả chính).** Kế hoạch ban đầu dùng nhãn sao cho train/val (1–2★ → Negative, 3★ → Neutral, 4–5★ → Positive). Kết quả thí nghiệm này (A) cho thấy nhãn sao lệch nội dung nhiều, nhất là 3★, nên điểm tụt mạnh từ val sang test. Vì vậy train/val được gán lại theo nội dung chữ bằng **cùng LLM và cùng hướng dẫn** với tập gold (`src/pool_llm.py`, giữ nguyên văn `docs/HUONG_DAN_GAN_NHAN.md`, LLM không thấy số sao) **[Ngoài slide]**. Nhãn sao chỉ còn là đối chứng (A, `results/archive_star/`). Hạn chế: train/val/test đều do cùng một LLM gán; đối trọng là kappa LLM vs người trên 100 câu gold và bảng chấm mô hình bằng nhãn người (`results/robustness.csv`).
 2. **Tập test gold 500 review gán nhãn theo nội dung chữ**, không nhìn số sao. Nhãn do **LLM gán, người duyệt** **[Ngoài slide]**: LLM (subagent `gold-labeler`) gán cả 500 review; nhóm duyệt lại các dòng LLM khác nhãn sao hoặc LLM tự đánh giá độ tin cậy thấp; thành viên 2 gán độc lập G001–G100 để đo Cohen's kappa với LLM. Tập gold cho phép đo tỷ lệ "sao nói một đằng, chữ nói một nẻo". Ví dụ thật trên ĐMX: review 5★ nhưng nội dung báo máy đang lỗi, nhờ shop khắc phục. Hạn chế: dòng LLM trùng nhãn sao không được người duyệt, nên tỷ lệ nhiễu nhãn sao đo được là cận dưới.
 3. **Mất cân bằng nặng.** Review ĐMX phần lớn là 5★, nên phải xử lý mất cân bằng và lấy **macro-F1** làm chỉ số chính. Ch.3 nói F1 hữu ích khi Precision và Recall lệch nhau. Ví dụ "mô hình lười" trong Ch.6 (luôn đoán Tích cực, Accuracy 99% mà vô dụng) chỉ dẫn nhẹ.
 
@@ -81,9 +81,10 @@ Lớp **Neutral** (3★, khen chê lẫn lộn) là lớp khó nhất. Đây là
 | 0.3 Lưu dữ liệu thô | `data/raw/reviews.jsonl` | — |
 | 0.4 Lọc rác | Bỏ rỗng, quá ngắn (< 3 từ), không phải tiếng Việt, phản hồi nhân viên | Ch.2 §2 ("loại bỏ nhiễu") |
 | 0.5 Bỏ trùng | Trùng y hệt: so chuỗi. **Gần trùng**: cosine similarity trên TF-IDF > 0.9 | **Ch.5** (độ tương tự cosine) |
-| 0.6 Gán nhãn theo sao | 1–2★ Neg, 3★ Neu, 4–5★ Pos | — |
+| 0.6 Gán nhãn theo sao | 1–2★ Neg, 3★ Neu, 4–5★ Pos (nhãn đối chứng A) | — |
+| 0.6b Nhãn chữ cho train/val | LLM gán theo cùng hướng dẫn với gold (thí nghiệm B, nhãn huấn luyện chính) | [Ngoài slide] |
 | 0.7 Tập test gold | Lấy 500 review phân tầng theo sao (1★100 / 2★70 / 3★150 / 4★80 / 5★100, mỗi sản phẩm ≤ 15). LLM gán nhãn, người duyệt các dòng lệch nhãn sao hoặc độ tin cậy thấp; thành viên 2 gán độc lập 100 mẫu để đo kappa với LLM | [Ngoài slide] |
-| 0.8 Khám phá dữ liệu (EDA) | Phân bố nhãn, theo ngành hàng, độ dài review, top từ mỗi lớp, word cloud. Tùy chọn: K-means trên TF-IDF để xem review tự gom thành nhóm chủ đề nào | Ch.3; **Ch.5** (K-means, Elbow) |
+| 0.8 Khám phá dữ liệu (EDA) | `notebooks/01_eda.ipynb`: thống kê làm sạch, phân bố sao và nhãn (sao / chữ / gold), theo ngành hàng, độ dài review, top từ/bigram mỗi lớp (chỉ trên train), nhãn chữ theo mức sao. **Đã chốt không làm** K-means và word cloud | Ch.2; Ch.3; Ch.5 (cosine) |
 
 ### Bước 1. Tiền xử lý (Ch.2)
 
@@ -116,7 +117,7 @@ Chống rò rỉ dữ liệu: mọi vectorizer và Word2Vec **chỉ fit trên tr
 
 | Hạng mục | Chi tiết | Slide |
 |---|---|---|
-| Chia dữ liệu | Dữ liệu nhãn-sao chia stratified **train 85% / val 15%**. **Test = 500 review gold** (loại khỏi train/val) | Ch.3 "Chia tập dữ liệu" (train/val/test) |
+| Chia dữ liệu | Pool chia stratified theo nhãn sao **train 85% / val 15%**, nhãn huấn luyện = nhãn chữ. **Test = 500 review gold** (loại khỏi train/val); thêm: loại khỏi train/val các review có `text_clean` trùng câu test (16 review) | Ch.3 "Chia tập dữ liệu" (train/val/test) |
 | Naive Bayes | `MultinomialNB(alpha)` cho BoW/TF-IDF (alpha chính là làm mịn Laplace); `GaussianNB` cho Word2Vec (vector có giá trị âm) | Ch.3 NB + Laplace smoothing |
 | SVM | `LinearSVC` cho BoW/TF-IDF (không gian nhiều chiều); `SVC(kernel="rbf")` cho Word2Vec | Ch.3 SVM |
 | Mất cân bằng | `class_weight="balanced"` cho SVM; NB thử `fit_prior` | Ch.3 (nhược điểm NB với dữ liệu lệch) |
@@ -126,7 +127,7 @@ Chống rò rỉ dữ liệu: mọi vectorizer và Word2Vec **chỉ fit trên tr
 ### Bước 3b. Mô hình hiện đại: **Fine-tune PhoBERT** (`vinai/phobert-base-v2`)
 - **Lý do chọn:** Ch.1 liệt kê PhoBERT là công cụ NLP tiếng Việt; Ch.3 nói Transformer tạo vector ngữ cảnh động, khắc phục điểm yếu bỏ qua thứ tự từ của BoW/TF-IDF. PhoBERT được pretrain trên tiếng Việt nên tốt hơn BERT đa ngôn ngữ **[Ngoài slide phần fine-tune]**.
 - **Đầu vào:** `text_seg` (tách từ bằng VnCoreNLP RDRSegmenter như PhoBERT khuyến nghị; nếu cài không được thì dùng underthesea và ghi chú), `max_len=128`.
-- **Huấn luyện:** lr 2e-5, batch 16, 3–4 epoch, cross-entropy có trọng số lớp, giữ checkpoint tốt nhất theo macro-F1 trên val. Chạy trên **Google Colab/Kaggle GPU** (notebook riêng).
+- **Huấn luyện:** lr 2e-5, batch 16, 3–4 epoch, cross-entropy có trọng số lớp, giữ checkpoint tốt nhất theo macro-F1 trên val. Chạy trên **máy có GPU** (đã chạy trên RTX 3060) hoặc **Google Colab GPU** (cùng một notebook); seed 42 dùng cho test, seed 43/44 đo dao động trên val.
 
 ### Bước 4. Đánh giá và so sánh (Ch.3)
 
@@ -136,7 +137,8 @@ Chống rò rỉ dữ liệu: mọi vectorizer và Word2Vec **chỉ fit trên tr
 | Confusion Matrix | Cho mọi mô hình (số đếm + chuẩn hóa theo hàng) |
 | Bảng so sánh | 6 cấu hình cổ điển + PhoBERT + baseline, biểu đồ cột macro-F1 |
 | Nhiễu nhãn | Trên 500 review gold: tỷ lệ nhãn-sao khác nhãn gold, theo từng mức sao (cận dưới, xem mục 2); kappa LLM vs thành viên 2, tỷ lệ nhãn LLM bị người sửa |
-| Phân tích lỗi | Lấy ~30 mẫu sai, nhóm theo: phủ định, khen chê lẫn lộn, châm biếm, sao lệch nội dung, viết tắt, Neutral |
+| Phân tích lỗi | Lấy ~30 mẫu sai, nhóm theo: phủ định, khen chê lẫn lộn, châm biếm, sao lệch nội dung, viết tắt, Neutral (`results/error_groups.csv`, do Claude gán) |
+| Độ tin cậy | Bootstrap 2000 lần: CI 95% của macro-F1; chấm lại mô hình bằng nhãn thành viên 2 trên 100 câu (`results/robustness.csv`) **[Ngoài slide]** |
 | Demo | `predict("máy giặt chạy êm nhưng vắt không khô")` |
 
 ---
@@ -151,6 +153,6 @@ Chống rò rỉ dữ liệu: mọi vectorizer và Word2Vec **chỉ fit trên tr
 ## 6. Sản phẩm nộp
 1. Code chạy lại được (`src/`, `requirements.txt`, seed 42).
 2. Dữ liệu đã xử lý (không có thông tin cá nhân) + tập test gold (nhãn LLM, nhãn người duyệt, nhãn cuối).
-3. Notebook EDA + notebook PhoBERT (Colab).
+3. Notebook EDA + notebook PhoBERT (máy có GPU hoặc Colab).
 4. `results/`: bảng chỉ số, confusion matrix, biểu đồ.
 5. Báo cáo `reports/BAO_CAO.md` theo đúng 5 bước của đề, mỗi kỹ thuật ghi chương slide.

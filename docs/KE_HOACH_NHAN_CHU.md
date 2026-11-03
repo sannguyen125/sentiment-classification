@@ -2,6 +2,8 @@
 
 _Soạn 02/10/2026. Điểm xuất phát: commit `0cb60b0`, tag `v1-star-labels` (thí nghiệm A: train/val dùng nhãn sao)._
 
+> **Kết cục (03/11/2026):** đã làm bước 0–5, 7, 8; B là kết quả cuối. **Đã bỏ** bước 4b (gán tay 100 câu train), 5b (A′) và 6 (bảng A/A′/B). Trạng thái cuối xem `STATUS.md`.
+
 ## Mục tiêu
 Train, val và test dùng **cùng một định nghĩa nhãn** (theo nội dung chữ). Kết quả B là **kết quả chính**; A giữ làm đối chứng để đo tác động của nhiễu nhãn sao.
 

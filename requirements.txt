@@ -9,5 +9,14 @@ seaborn>=0.12
 tqdm>=4.65
 lxml>=4.9
 
-# PhoBERT (Phase 5) - install only in the GPU notebook (Colab):
-# transformers, torch, py_vncorenlp
+# Notebooks (01_eda.ipynb; also to run 02_phobert_colab.ipynb with nbconvert)
+jupyter
+nbconvert>=7
+
+# PhoBERT (Phase 5) - not installed by default. Run on a machine with an NVIDIA GPU or on Colab
+# (the notebook pip-installs transformers + py_vncorenlp itself on Colab).
+# Local run (tested: RTX 3060 6GB, torch 2.7.1+cu118, transformers 5.17.0, py_vncorenlp 0.1.4):
+#   pip install torch --index-url https://download.pytorch.org/whl/cu118   # pick the CUDA build for your driver
+#   pip install "transformers>=4.40" py_vncorenlp
+# py_vncorenlp (RDRSegmenter) needs Java; models/vncorenlp/ holds the downloaded VnCoreNLP jar.
+# Without Java the notebook falls back to the underthesea segmentation in text_seg.

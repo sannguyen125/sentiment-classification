@@ -33,6 +33,8 @@ btl-dmx/
 │   ├── interim/    reviews_clean.csv                 (sau lọc + bỏ trùng + nhãn sao)
 │   ├── gold/       gold_to_label.csv, gold_llm.csv (gộp llm_batches/, đã xóa), review_needed.csv,
 │   │               g100_member2.csv, gold_test.csv   (tập test: LLM gán, người duyệt)
+│   ├── pool_llm/   pool_llm.csv (nhãn chữ train/val, gộp batches/, đã xóa), id_map.csv,
+│   │               train100_member.csv (bước 4b, đã bỏ, không dùng)
 │   └── processed/  train.csv, val.csv, test.csv
 ├── resources/      stopwords_vi.txt, keep_words.txt, teencode.txt
 ├── src/
@@ -40,21 +42,23 @@ btl-dmx/
 │   ├── clean_label.py     lọc rác, bỏ trùng, gán nhãn sao, lấy mẫu tập gold
 │   ├── gold_llm.py        prepare / merge / final cho nhãn gold (LLM gán, người duyệt)
 │   ├── preprocess.py      text_clean + text_seg
-│   ├── split.py
+│   ├── split.py           --labels star | text; loại câu train/val trùng text_clean với test
+│   ├── pool_llm.py        prepare / todo / merge nhãn chữ cho train/val (LLM, cùng hướng dẫn gold)
 │   ├── features.py        bow / tfidf / w2v
 │   ├── train_classic.py   NB + SVM × 3 đặc trưng
-│   ├── evaluate.py        chỉ số, confusion matrix, bảng so sánh, nhiễu nhãn
+│   ├── evaluate.py        chỉ số, confusion matrix, bảng so sánh, nhiễu nhãn, robustness
 │   └── predict.py         demo
 ├── notebooks/  01_eda.ipynb, 02_phobert_colab.ipynb
-├── docs/       HUONG_DAN_GAN_NHAN.md
-├── results/    metrics/*.json, figures/*.png, comparison.csv, errors.csv
+├── docs/       HUONG_DAN_GAN_NHAN.md, KE_HOACH_NHAN_CHU.md
+├── results/    metrics/*.json, figures/*.png, comparison.csv, robustness.csv, errors.csv,
+│               error_groups.csv, archive_star/ (thí nghiệm A, nhãn sao)
 └── reports/    BAO_CAO.md
 ```
 
 ## Các Phase và checkpoint
 
 ### Phase 0 — Khởi tạo
-Tạo cấu trúc thư mục, `requirements.txt` (pandas, scikit-learn, underthesea, gensim, playwright, matplotlib, seaborn, tqdm; PhoBERT: transformers, torch, py_vncorenlp chỉ trong notebook Colab), `README.md`.
+Tạo cấu trúc thư mục, `requirements.txt` (pandas, scikit-learn, underthesea, gensim, playwright, matplotlib, seaborn, tqdm; PhoBERT: transformers, torch, py_vncorenlp cài riêng khi chạy trên máy có GPU, notebook tự cài trên Colab), `README.md`.
 **Checkpoint:** in cây thư mục.
 
 ### Phase 1 — Thu thập dữ liệu
@@ -65,7 +69,7 @@ Dùng skill **`dmx-crawler`** (đọc `.claude/skills/dmx-crawler/SKILL.md` trư
 **Checkpoint:** thống kê số review theo ngành hàng và theo sao.
 
 ### Phase 2 — Làm sạch, gán nhãn, tập test gold
-- `clean_label.py`: bỏ rỗng, < 3 từ, không phải tiếng Việt, phản hồi nhân viên; bỏ trùng y hệt; bỏ gần trùng bằng cosine TF-IDF > 0.9 (Ch.5); nhãn sao 1–2 → Negative, 3 → Neutral, 4–5 → Positive.
+- `clean_label.py`: bỏ rỗng, < 3 từ, không phải tiếng Việt, phản hồi nhân viên; bỏ trùng y hệt; bỏ gần trùng bằng cosine TF-IDF > 0.9 (Ch.5) trên toàn bộ dữ liệu **trước** khi lấy mẫu gold (không rò rỉ câu gần trùng giữa test và train); nhãn sao 1–2 → Negative, 3 → Neutral, 4–5 → Positive (nay chỉ là nhãn đối chứng, xem Phase 4).
 - Lấy mẫu phân tầng **500 review** → `data/gold/gold_to_label.csv`: đúng 1★100 / 2★70 / 3★150 / 4★80 / 5★100, **mỗi product_id tối đa 15 dòng**, seed 42; review bị loại trả về pool; **ẩn số sao**. Viết `docs/HUONG_DAN_GAN_NHAN.md` (định nghĩa 3 nhãn theo nội dung chữ, 10 ví dụ biên **không nằm trong gold**, quy tắc khen chê lẫn lộn → Neutral nếu cân bằng, nghiêng bên nào theo bên đó).
 - **Gán nhãn gold: LLM gán, người duyệt [Ngoài slide]** (`src/gold_llm.py`):
   1. `python -m src.gold_llm prepare` → `data/gold/llm_batches/batch_XX.csv` (chỉ `id,text`) + `data/gold/g100_member2.csv` (G001–G100: `id,text,label_human_2` trống, không nhãn LLM).
@@ -81,17 +85,18 @@ Dùng skill **`dmx-crawler`** (đọc `.claude/skills/dmx-crawler/SKILL.md` trư
 **Checkpoint.**
 
 ### Phase 4 — Chia tập, đặc trưng, NB + SVM
-- `split.py`: loại các review thuộc gold khỏi pool; pool chia stratified 85/15 → train/val; test = gold (nhãn = cột `label` của `gold_test.csv`). Lưu thêm `label_star` trong test để đo nhiễu.
+- `split.py`: loại các review thuộc gold khỏi pool; pool chia stratified (theo nhãn sao) 85/15 → train/val; test = gold (nhãn = cột `label` của `gold_test.csv`). Lưu thêm `label_star` trong test để đo nhiễu. **Loại khỏi train/val các review có `text_clean` trùng một câu test** (16 review).
+- **Nhãn train/val = nhãn chữ (thí nghiệm B, kết quả chính, chốt 03/10/2026):** `python -m src.split --labels star` (cố định thành viên) → `python -m src.pool_llm prepare` → `gold-labeler` gán từng lô 50 câu, **nguyên văn** `docs/HUONG_DAN_GAN_NHAN.md`, chỉ thấy `id,text` → `python -m src.pool_llm merge` → `python -m src.split --labels text`. Nhãn sao (`label_star`) chỉ còn là đối chứng (thí nghiệm A, `results/archive_star/`). Báo cáo ghi **[Ngoài slide]**: train/val/test đều do cùng một LLM gán.
 - `features.py`: BoW (1,1) và (1,2); TF-IDF (1,2), `min_df` tune; Word2Vec gensim Skip-gram 200 chiều train trên train, vector câu = trung bình có trọng số TF-IDF.
 - `train_classic.py`: 6 cấu hình (3 đặc trưng × {NB, SVM}), tune grid nhỏ trên val theo macro-F1; baseline lớp đông nhất; thêm 1 thí nghiệm có/không bỏ stopword với cấu hình tốt nhất.
 **Checkpoint:** bảng macro-F1 trên val.
 
-### Phase 5 — PhoBERT (Colab)
-`notebooks/02_phobert_colab.ipynb` chạy độc lập trên Colab GPU: cài thư viện, tải `train/val/test.csv`, tách từ RDRSegmenter (py_vncorenlp; fallback underthesea, ghi chú), fine-tune `vinai/phobert-base-v2` (max_len 128, lr 2e-5, batch 16, 3–4 epoch, weighted CE, chọn epoch tốt nhất theo macro-F1 val), xuất `results/metrics/phobert.json` + `results/predictions/phobert_test.csv`.
-Không chạy PhoBERT trên máy nếu không có GPU. **Checkpoint:** người dùng chạy trên Colab và đưa file kết quả về.
+### Phase 5 — PhoBERT (máy có GPU hoặc Colab)
+`notebooks/02_phobert_colab.ipynb` chạy được trên máy có GPU (đã chạy trên RTX 3060 bằng `jupyter nbconvert --execute`, `PHOBERT_SEED=42/43/44`) hoặc độc lập trên Colab GPU: cài thư viện, tải `train/val/test.csv`, tách từ RDRSegmenter (py_vncorenlp; fallback underthesea, ghi chú), fine-tune `vinai/phobert-base-v2` (max_len 128, lr 2e-5, batch 16, 3–4 epoch, weighted CE, chọn epoch tốt nhất theo macro-F1 val), xuất `results/metrics/phobert.json` + `results/predictions/phobert_test.csv`.
+Không chạy PhoBERT trên máy nếu không có GPU. Seed 42 = mô hình dùng cho test; seed 43/44 chỉ để đo dao động trên val. **Checkpoint:** kết quả nằm trong `results/` (chạy trên máy, hoặc người dùng chạy Colab và đưa file về).
 
 ### Phase 6 — Đánh giá và so sánh
-`evaluate.py` trên test gold: Accuracy, P/R/F1 từng lớp + macro, confusion matrix (đếm + chuẩn hóa) cho mọi mô hình; `results/comparison.csv` + biểu đồ cột macro-F1; bảng nhiễu nhãn (nhãn sao vs nhãn gold, theo từng mức sao; Cohen's kappa LLM vs thành viên 2 và tỷ lệ nhãn LLM bị sửa, lấy từ `gold_agreement.json` **[Ngoài slide]**); `errors.csv` ~30 mẫu sai của mô hình tốt nhất cổ điển và PhoBERT, gắn nhóm lỗi.
+`evaluate.py` trên test gold: Accuracy, P/R/F1 từng lớp + macro, confusion matrix (đếm + chuẩn hóa) cho mọi mô hình; `results/comparison.csv` + biểu đồ cột macro-F1; bảng nhiễu nhãn (nhãn sao vs nhãn gold, theo từng mức sao; Cohen's kappa LLM vs thành viên 2 và tỷ lệ nhãn LLM bị sửa, lấy từ `gold_agreement.json` **[Ngoài slide]**); `errors.csv` ~30 mẫu sai của mô hình tốt nhất cổ điển và PhoBERT, gắn nhóm lỗi (`results/error_groups.csv`, do Claude gán); **robustness** (chỉ đọc dự đoán đã có): bootstrap 2000 lần CI 95% macro-F1 và chấm theo nhãn thành viên 2 trên G001–G100 → `results/robustness.csv`, `results/metrics/robustness.json` **[Ngoài slide]**.
 **Checkpoint.**
 
 ### Phase 7 — Báo cáo
