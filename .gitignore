@@ -21,8 +21,11 @@ reports/template/*.pdf
 # Word lock files (appear while a document is open)
 ~$*
 
-# Machine-specific Claude Code permissions
-.claude/settings.local.json
+# Internal working notes and Claude Code config (kept on the local machine only)
+CLAUDE.md
+STATUS.md
+PHAN_TICH_DE.md
+.claude/
 
 # Python / Jupyter
 __pycache__/

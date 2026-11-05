@@ -2,12 +2,12 @@
 
 Môn **Phân tích và khai phá dữ liệu văn bản** (PTIT). Phân loại review sản phẩm trên dienmayxanh.com thành 3 nhãn **Positive / Neutral / Negative**.
 
-Đề và kế hoạch chi tiết: [`PHAN_TICH_DE.md`](PHAN_TICH_DE.md). Quy ước làm bài: [`CLAUDE.md`](CLAUDE.md). Trạng thái và kết quả: [`STATUS.md`](STATUS.md).
+Báo cáo: [`reports/BAO_CAO.docx`](reports/BAO_CAO.docx). Kết quả: [`results/`](results/).
 
 ## Nhãn dữ liệu
 | Tập | Nhãn | Cách tạo |
 |---|---|---|
-| Test (500 review gold) | `label` của `data/gold/gold_test.csv` | LLM (subagent `gold-labeler`) gán theo nội dung chữ với `docs/HUONG_DAN_GAN_NHAN.md`, người duyệt; thành viên 2 gán độc lập 100 câu để đo kappa |
+| Test (500 review gold) | `label` của `data/gold/gold_test.csv` | LLM gán theo nội dung chữ với `docs/HUONG_DAN_GAN_NHAN.md`, người duyệt; thành viên 2 gán độc lập 100 câu để đo kappa |
 | Train/val (thí nghiệm **B**, kết quả chính) | `label_text` của `data/pool_llm/pool_llm.csv` | LLM gán theo nội dung chữ, **cùng hướng dẫn** với gold, không thấy số sao |
 | Đối chứng (thí nghiệm **A**) | `label_star` | 1–2★ Negative, 3★ Neutral, 4–5★ Positive; kết quả lưu ở `results/archive_star/` |
 
@@ -25,10 +25,10 @@ PhoBERT cần thêm thư viện, xem ghi chú cuối `requirements.txt` (máy c�
 |---|---|
 | 1. Thu thập | `python -m src.crawl.sitemap` → `python -m src.crawl.reviews` |
 | 2. Làm sạch, nhãn sao, lấy mẫu gold | `python -m src.clean_label` |
-| 2. Nhãn gold (LLM gán, người duyệt) | `python -m src.gold_llm prepare` → subagent `gold-labeler` từng lô → `python -m src.gold_llm merge` → nhóm điền `review_needed.csv`, `g100_member2.csv` → `python -m src.gold_llm final` |
+| 2. Nhãn gold (LLM gán, người duyệt) | `python -m src.gold_llm prepare` → LLM gán từng lô → `python -m src.gold_llm merge` → nhóm điền `review_needed.csv`, `g100_member2.csv` → `python -m src.gold_llm final` |
 | 3. Tiền xử lý | `python -m src.preprocess` |
 | 4. Chia tập (lần 1, để cố định thành viên train/val) | `python -m src.split --labels star` |
-| 4. Nhãn chữ cho train/val | `python -m src.pool_llm prepare` → subagent `gold-labeler` từng lô (`python -m src.pool_llm todo` để resume) → `python -m src.pool_llm merge` |
+| 4. Nhãn chữ cho train/val | `python -m src.pool_llm prepare` → LLM gán từng lô (`python -m src.pool_llm todo` để resume) → `python -m src.pool_llm merge` |
 | 4. Chia tập (nhãn chữ) | `python -m src.split --labels text` |
 | 4. Đặc trưng, NB + SVM | `python -m src.train_classic` |
 | 5. PhoBERT | `notebooks/02_phobert_colab.ipynb` trên máy có GPU hoặc Colab. Seed: biến môi trường `PHOBERT_SEED` (42 = mô hình dùng cho test; 43, 44 = đo dao động). Chạy không cần mở Jupyter: `PHOBERT_SEED=42 jupyter nbconvert --to notebook --execute --inplace notebooks/02_phobert_colab.ipynb` |
@@ -45,8 +45,7 @@ Ghi chú:
 ## Cấu trúc thư mục
 ```
 btl-dmx/
-├── CLAUDE.md, STATUS.md, PHAN_TICH_DE.md, README.md, requirements.txt
-├── .claude/        agents/gold-labeler.md, agents/slide-reviewer.md, skills/dmx-crawler/
+├── README.md, requirements.txt
 ├── data/
 │   ├── raw/        reviews.jsonl, html_cache/                     (không commit)
 │   ├── interim/    reviews_clean.csv, reviews_prep.csv
