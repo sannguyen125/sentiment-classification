@@ -1,9 +1,15 @@
 ::: {custom-style="CoverSchool"}
 HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
+
+KHOA CÔNG NGHỆ THÔNG TIN I
 :::
 
-::: {custom-style="CoverSubject"}
-MÔN HỌC: PHÂN TÍCH VÀ KHAI PHÁ DỮ LIỆU VĂN BẢN
+::: {custom-style="CoverLine"}
+——————o0o——————
+:::
+
+::: {custom-style="CoverLogo"}
+![](template/ptit_logo.png){width=4.2cm}
 :::
 
 ::: {custom-style="CoverReport"}
@@ -14,23 +20,57 @@ BÁO CÁO BÀI TẬP LỚN
 PHÂN LOẠI CẢM XÚC BÌNH LUẬN SẢN PHẨM TRÊN ĐIỆN MÁY XANH
 :::
 
-::: {custom-style="CoverInfo"}
-Giảng viên hướng dẫn: \[\.\.\.\]
-
-Nhóm: \[\.\.\.\]          Lớp: \[\.\.\.\]
-
-Sinh viên thực hiện:
-
-Nguyễn Văn Ngọc San, mã sinh viên: \[\.\.\.\]
-
-\[\.\.\.\], mã sinh viên: \[\.\.\.\]
-
-\[\.\.\.\], mã sinh viên: \[\.\.\.\]
-:::
++----------------------------+----------------------------------------------+
+| Môn học:                   | **Phân tích và khai phá dữ liệu văn bản**    |
++----------------------------+----------------------------------------------+
+| Giảng viên hướng dẫn:      | **TS. Nguyễn Thị Mai Trang**                 |
++----------------------------+----------------------------------------------+
+| Sinh viên thực hiện:       | **Nguyễn Danh Thái - B23DCKH105**            |
++----------------------------+----------------------------------------------+
+|                            | **Nguyễn Văn Ngọc San - B23DCKH097**         |
++----------------------------+----------------------------------------------+
+|                            | **Nguyễn Duy Tuấn Anh - B23DCKH003**         |
++----------------------------+----------------------------------------------+
+|                            | **Vũ Đình Hồng - B23DCKH049**                |
++----------------------------+----------------------------------------------+
 
 ::: {custom-style="CoverDate"}
-Hà Nội, tháng 11/2026
+Hà Nội, 11/2026
 :::
+
+::: {custom-style="FrontTitle"}
+BẢNG PHÂN CHIA CÔNG VIỆC
+:::
+
++----------+----------------------------------------+--------------------------+-----------------------------------------------+-----------------+
+| STT      | Họ tên                                 | Mã sinh viên             | Công việc                                     | Mức độ đóng góp |
++==========+========================================+==========================+===============================================+=================+
+| 1        | Nguyễn Danh Thái                       | B23DCKH105               | Tìm hiểu và tinh chỉnh mô hình PhoBERT        | 25%             |
+|          |                                        |                          |                                               |                 |
+|          |                                        |                          | Chạy nhiều hạt giống, đo độ dao động          |                 |
+|          |                                        |                          |                                               |                 |
+|          |                                        |                          | Viết phần PhoBERT trong báo cáo               |                 |
++----------+----------------------------------------+--------------------------+-----------------------------------------------+-----------------+
+| 2        | Nguyễn Văn Ngọc San                    | B23DCKH097               | Thu thập dữ liệu                              | 25%             |
+|          |                                        |                          |                                               |                 |
+|          |                                        |                          | Làm sạch dữ liệu                              |                 |
+|          |                                        |                          |                                               |                 |
+|          |                                        |                          | Đánh giá các mô hình                          |                 |
+|          |                                        |                          |                                               |                 |
+|          |                                        |                          | Tổng hợp và viết báo cáo                      |                 |
++----------+----------------------------------------+--------------------------+-----------------------------------------------+-----------------+
+| 3        | Nguyễn Duy Tuấn Anh                    | B23DCKH003               | Tiền xử lý văn bản tiếng Việt                 | 25%             |
+|          |                                        |                          |                                               |                 |
+|          |                                        |                          | Trích chọn đặc trưng BoW, TF-IDF, Word2Vec    |                 |
+|          |                                        |                          |                                               |                 |
+|          |                                        |                          | Khám phá dữ liệu                              |                 |
++----------+----------------------------------------+--------------------------+-----------------------------------------------+-----------------+
+| 4        | Vũ Đình Hồng                           | B23DCKH049               | Huấn luyện Naive Bayes và SVM                 | 25%             |
+|          |                                        |                          |                                               |                 |
+|          |                                        |                          | Xây dựng hướng dẫn gán nhãn, tổ chức gán nhãn |                 |
+|          |                                        |                          |                                               |                 |
+|          |                                        |                          | Gán nhãn độc lập 100 bình luận                |                 |
++----------+----------------------------------------+--------------------------+-----------------------------------------------+-----------------+
 
 # 1. Giới thiệu về bài toán
 
@@ -287,7 +327,7 @@ Bảng 3.5 cho kết quả trên tập kiểm tra kèm macro-F1 trên tập ki�
 | TF-IDF | 0,799 | 0,804 |
 | Word2Vec | 0,623 | 0,718 |
 
-Bảng 3.6 sắp lại macro-F1 kiểm tra của sáu cấu hình theo đặc trưng và thuật toán. TF-IDF cho kết quả tốt nhất với cả hai thuật toán (0,799 với NB, 0,804 với SVM). So với BoW, TF-IDF giảm trọng số của các từ có mặt ở hầu hết bình luận như "máy", "mua", "dùng", và tf dạng logarit hạn chế ảnh hưởng của từ bị lặp. Word2Vec kém nhất (0,623 và 0,718). Theo nhóm, Word2Vec chỉ được huấn luyện trên 5.120 bình luận ngắn, quá ít để học vector từ tốt, và phép lấy trung bình trộn vector của "không" với "lạnh" làm mất thông tin phủ định, vốn quan trọng với bài toán này.
+Bảng 3.6 sắp lại macro-F1 kiểm tra của sáu cấu hình theo đặc trưng và thuật toán. TF-IDF cho kết quả tốt nhất với cả hai thuật toán (0,799 với NB, 0,804 với SVM). So với BoW, TF-IDF giảm trọng số của các từ xuất hiện ở nhiều bình luận như "máy", "mua", "dùng", và tf dạng logarit hạn chế ảnh hưởng của từ bị lặp. Word2Vec kém nhất (0,623 và 0,718). Theo nhóm, Word2Vec chỉ được huấn luyện trên 5.120 bình luận ngắn, quá ít để học vector từ tốt, và phép lấy trung bình trộn vector của "không" với "lạnh" làm mất thông tin phủ định, vốn quan trọng với bài toán này.
 
 SVM tốt hơn NB khi dùng BoW (0,760 so với 0,711, dù khoảng tin cậy của hai mô hình vẫn chồng nhau) và tốt hơn rõ rệt khi dùng Word2Vec (0,718 so với 0,623). Với Word2Vec, nhóm cho rằng Gaussian NB bị ảnh hưởng nặng vì các chiều của vector tương quan với nhau, trái với giả thiết độc lập. Với TF-IDF, hai thuật toán chỉ chênh 0,005; khoảng tin cậy của hai mô hình gần như trùng nhau, và khi chấm bằng nhãn của người (mục 3.6.5) TF-IDF + NB (0,770) còn đứng trên TF-IDF + SVM (0,705). Vì vậy nhóm chỉ kết luận TF-IDF là cách trích chọn đặc trưng tốt nhất trong nhóm cổ điển, không khẳng định SVM hơn NB khi dùng TF-IDF. TF-IDF + SVM có macro-F1 kiểm định cao nhất (0,791) nên được chọn làm mô hình cổ điển đại diện ở các phần sau.
 
@@ -353,9 +393,9 @@ Nhóm lấy ngẫu nhiên 30 bình luận bị đoán sai, gồm 15 bình luận
 
 Khen chê lẫn lộn là nhóm lỗi lớn nhất (14 trên 30 bình luận). Câu "Mọi thứ khá ổn trừ cái nồi bên trong, chống dính cực kỳ tệ" có nhãn Tiêu cực vì lời chê cụ thể nặng hơn lời khen chung chung, nhưng PhoBERT đoán Trung tính; TF-IDF + SVM đoán đúng. Ranh giới giữa "cân bằng" và "nghiêng về một bên" vốn khó, chính người gán nhãn cũng có thể không thống nhất ở những câu này.
 
-Lỗi phủ định chỉ gặp ở TF-IDF + SVM. Với câu "Nồi cơm nấu ít hơi lắm, cho nên cơm ăn ko ngon", từ "ngon" kéo mô hình về Tích cực, có thể vì bigram "không ngon" quá hiếm để có trọng số đủ lớn; PhoBERT đoán đúng Tiêu cực. Câu "Khi máy hoạt động âm thanh rất to cứ như máy sấy tóc vậy" chê bằng cách so sánh, không có từ chê quen thuộc, còn "rất" thường đi với lời khen trong tập huấn luyện, nên TF-IDF + SVM đoán Tích cực. Ngược lại, câu cụt "kh ok 5sao ổn" khiến PhoBERT đoán Trung tính, trong khi TF-IDF + SVM dựa vào "ok", "ổn" để đoán đúng Tích cực.
+Lỗi phủ định chỉ gặp ở TF-IDF + SVM. Với câu "Nồi cơm nấu ít hơi lắm, cho nên cơm ăn ko ngon", bước tách từ gộp "ăn không" thành "ăn_không", một từ quá hiếm nên không có trong từ điển của mô hình, vì vậy "không" biến mất và "ngon" kéo mô hình về Tích cực; PhoBERT đoán đúng Tiêu cực. Câu "Khi máy hoạt động âm thanh rất to cứ như máy sấy tóc vậy" chê bằng cách so sánh, không có từ chê quen thuộc, còn "rất" thường đi với lời khen trong tập huấn luyện, nên TF-IDF + SVM đoán Tích cực. Ngược lại, câu cụt "kh ok 5sao ổn" khiến PhoBERT đoán Trung tính, trong khi TF-IDF + SVM dựa vào "ok", "ổn" để đoán đúng Tích cực.
 
-Câu thử "máy giặt chạy êm nhưng vắt không khô" gom các khó khăn trên. TF-IDF + SVM đoán Tích cực vì "êm" là tín hiệu khen mạnh, còn "không" và "khô" đứng riêng không mang nghĩa chê. PhoBERT đoán Tiêu cực với xác suất 0,62, đúng với hướng dẫn vì lỗi vắt không khô là ý chính; tuy vậy, bỏ chữ "giặt" thì PhoBERT chuyển sang Trung tính (0,68), cho thấy dự đoán với câu khen chê lẫn lộn vẫn chưa ổn định.
+Câu thử "máy giặt chạy êm nhưng vắt không khô" gom các khó khăn trên. TF-IDF + SVM đoán Tích cực vì "êm", "chạy êm" là tín hiệu khen mạnh, "khô" trong tập huấn luyện cũng thường đi với lời khen, và tín hiệu chê của "không" không đủ kéo lại. PhoBERT đoán Tiêu cực với xác suất 0,62, đúng với hướng dẫn vì lỗi vắt không khô là ý chính; tuy vậy, bỏ chữ "giặt" thì PhoBERT chuyển sang Trung tính (0,68), cho thấy dự đoán với câu khen chê lẫn lộn vẫn chưa ổn định.
 
 ## 3.8 Kết luận và hướng phát triển
 
@@ -367,7 +407,7 @@ Kết quả có các hạn chế sau:
 - Lớp Trung tính trong tập kiểm tra chỉ có 47 bình luận nên các chỉ số dao động nhiều.
 - Phân bố nhãn của tập kiểm tra khác tập huấn luyện vì được lấy mẫu theo số sao; mọi sản phẩm của tập kiểm tra đều có bình luận trong tập huấn luyện.
 - Dữ liệu chỉ khoảng 6.500 bình luận, ít hơn mức 8.000–10.000 dự kiến.
-- Việc chuyển sang nhãn theo nội dung cho tập huấn luyện được quyết định sau khi đã thấy kết quả trên tập kiểm tra. Nhóm giữ nguyên văn hướng dẫn gán nhãn, không gán lại tập kiểm tra và chỉ chọn mô hình trên tập kiểm định, nhưng so sánh hai cách gán nhãn chưa tách riêng được ảnh hưởng của việc sửa từ điển và loại câu trùng.
+- Việc chuyển sang nhãn theo nội dung cho tập huấn luyện được quyết định sau khi đã thấy kết quả trên tập kiểm tra. Nhóm giữ nguyên văn hướng dẫn gán nhãn, không gán lại tập kiểm tra và chỉ chọn mô hình trên tập kiểm định.
 - Việc phân nhóm lỗi do một mô hình ngôn ngữ lớn đề xuất, chỉ làm một lượt và chưa đo độ đồng thuận.
 
 Về hướng phát triển, cần thu thập thêm dữ liệu và tăng số bình luận được người gán nhãn độc lập, nhất là lớp Trung tính. Với mô hình cổ điển, có thể ghép từ phủ định với từ đứng sau ngay ở bước tiền xử lý ("không ngon" thành một token) để giảm lỗi phủ định. Bài toán cũng có thể mở rộng sang phân tích cảm xúc theo khía cạnh (sản phẩm, giao hàng, lắp đặt, giá), hoặc dùng mô hình chủ đề như LDA, NMF trên các bình luận Tiêu cực để tìm các loại lỗi khách hàng hay phàn nàn.

@@ -15,6 +15,12 @@ slides/
 # Report scratch table of numbers (draft only, not submitted)
 reports/_so_lieu.md
 
+# Cover sample (another assignment, only used to copy the layout)
+reports/template/*.pdf
+
+# Word lock files (appear while a document is open)
+~$*
+
 # Machine-specific Claude Code permissions
 .claude/settings.local.json
 

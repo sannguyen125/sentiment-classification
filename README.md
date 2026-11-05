@@ -65,7 +65,7 @@ btl-dmx/
 │                   metrics/*.json, predictions/*.csv, figures/*.png, archive_star/ (thí nghiệm A)
 ├── slides/         slide môn học                                      (không commit)
 └── reports/        BAO_CAO.md (nguồn), BAO_CAO.docx (nộp), build_docx.py, make_figures.py,
-                    template/reference.docx (tự sinh; thay bằng mẫu PTIT khi có)
+                    template/ (reference.docx tự sinh, ptit_logo.png cho bìa)
 ```
 
 ## Dữ liệu cá nhân

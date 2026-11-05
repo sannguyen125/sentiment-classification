@@ -1,9 +1,9 @@
 # STATUS — BTL phân loại cảm xúc review ĐMX
 
-_Cập nhật: 04/11/2026. Mọi số liệu lấy từ `results/` (thí nghiệm A ở `results/archive_star/`). Làm tròn: half-up theo giá trị ghi trong file (0.7905 → 0,791; 0.7505 → 0,751)._
+_Cập nhật: 05/11/2026. Mọi số liệu lấy từ `results/` (thí nghiệm A ở `results/archive_star/`). Làm tròn: half-up theo giá trị ghi trong file (0.7905 → 0,791; 0.7505 → 0,751)._
 
 ## 1. Trạng thái
-**Phase 0–6 xong. Phase 7: xong bản nháp 1 (04/11/2026), chờ người dùng điền `[...]` và gửi mẫu báo cáo PTIT.**
+**Phase 0–6 xong. Phase 7: bản hoàn thiện (04/11/2026): bìa theo mẫu PTIT, đủ 4 thành viên, có bảng phân chia công việc, không còn `[...]`, đã rà soát lần cuối. Còn 2 điểm nhóm cần xác nhận (xem mục 1b). Đã commit và push lên GitHub (05/11/2026), repo public.**
 Kết quả cuối = **thí nghiệm B**: train/val gán nhãn theo nội dung chữ (LLM, cùng hướng dẫn với gold), test = 500 review gold.
 
 | Phase | Trạng thái | Đầu ra chính |
@@ -16,17 +16,20 @@ Kết quả cuối = **thí nghiệm B**: train/val gán nhãn theo nội dung c
 | 5 PhoBERT (B, seed 42/43/44, chạy trên máy) | xong | `results/metrics/phobert*.json`, `results/predictions/phobert*.csv` |
 | 6 Đánh giá (B) + robustness + nhóm lỗi | xong | `results/comparison.csv`, `robustness.csv`, `errors.csv`, `error_groups.csv`, `metrics/test_metrics.json`, `figures/` |
 | 4–6 với nhãn sao (A, đối chứng) | xong, lưu trữ | `results/archive_star/` (tag `v1-star-labels`) |
-| 7 Báo cáo | **bản nháp 1 xong** (04/11), đã rà soát bằng `slide-reviewer` | `reports/BAO_CAO.docx` (nộp), `reports/BAO_CAO.md` (nguồn), `reports/build_docx.py`, `reports/make_figures.py`, `results/figures/report_*.png`, `results/metrics/crawl_stats.json` |
+| 7 Báo cáo | **hoàn thiện** (04/11), đã rà soát bằng `slide-reviewer` | `reports/BAO_CAO.docx` (nộp), `reports/BAO_CAO.md` (nguồn), `reports/build_docx.py`, `reports/make_figures.py`, `results/figures/report_*.png`, `results/metrics/crawl_stats.json` |
 
 **Lệnh chạy lại toàn bộ:** xem `README.md` (crawl → clean_label → gold_llm → preprocess → split --labels star → pool_llm → split --labels text → train_classic → notebook PhoBERT → evaluate → predict; EDA).
 
-## 1b. Phase 7: báo cáo (bản nháp 1)
-- Dựng: `python reports/make_figures.py` (hình `report_*.png`, chỉ đọc kết quả đã có) → `python reports/build_docx.py` → `reports/BAO_CAO.docx`. Sửa nội dung ở `BAO_CAO.md` rồi dựng lại, không sửa tay docx. Khi mở docx bằng Word: chấp nhận cập nhật trường (mục lục có số trang).
-- Bố cục theo `docs/YEU_CAU_BAO_CAO.md`: bìa, mục lục, 1. Giới thiệu, 2. Cơ sở lý thuyết, 3. Thực nghiệm và kết quả (3.1–3.8), Tài liệu tham khảo (15 mục). 9 bảng, 5 hình. Không ghi link GitHub (theo yêu cầu người dùng).
-- Độ dài (Word xuất PDF): tổng 25 trang; nội dung 20 trang (mục 1 ≈ 1,5; mục 2 ≈ 5; mục 3 ≈ 12,5), tài liệu tham khảo 2 trang.
+## 1b. Phase 7: báo cáo
+- Dựng: `python reports/make_figures.py` (hình `report_*.png`, chỉ đọc kết quả đã có) → `python reports/build_docx.py` → `reports/BAO_CAO.docx`. Sửa nội dung ở `BAO_CAO.md` rồi dựng lại, không sửa tay docx; **trước khi dựng lại phải so docx hiện có với `BAO_CAO.md`**, vì docx từng được sửa tay trong Word (04/11) và dựng đè sẽ mất phần đó. Bản `reports/BAO_CAO.docx` hiện tại đã cho Word cập nhật mục lục (có sẵn số trang, không cần bấm gì khi mở); nếu dựng lại thì khi mở bằng Word phải chấp nhận cập nhật trường.
+- Bố cục theo `docs/YEU_CAU_BAO_CAO.md`: bìa (khuôn từ `reports/template/Nguyen_Van_Ngoc_San_B23DCKH097_BaitapWE.pdf`, không commit; logo `reports/template/ptit_logo.png`), bảng phân chia công việc (trang riêng, không đánh số mục), mục lục, 1. Giới thiệu, 2. Cơ sở lý thuyết, 3. Thực nghiệm và kết quả (3.1–3.8), Tài liệu tham khảo (15 mục). 9 bảng nội dung, 5 hình. Không ghi link GitHub (theo yêu cầu người dùng).
+- Độ dài (Word xuất PDF): tổng 26 trang; nội dung 20 trang (mục 1 ≈ 1,5; mục 2 ≈ 5; mục 3 ≈ 12,5), tài liệu tham khảo 2 trang.
 - Đối chiếu số liệu: `reports/_so_lieu.md` (nháp, không commit) liệt kê mọi con số kèm nguồn; mọi số trong báo cáo và mọi ô của Bảng 3.1, 3.2, 3.5–3.9 đã so khớp với `results/`.
-- **Người dùng cần điền `[...]` trên bìa:** giảng viên hướng dẫn; nhóm; lớp; mã sinh viên của Nguyễn Văn Ngọc San; họ tên và mã sinh viên các thành viên còn lại (đang để 2 dòng, thêm/bớt theo số thành viên). Tài liệu [1] đang ghi TS. Nguyễn Thị Mai Trang (tên trên slide), chưa có năm.
-- **Việc chờ:** mẫu báo cáo PTIT → đặt vào `reports/template/` (dạng `reference.docx` cho pandoc: chỉ style được dùng) rồi chạy lại `build_docx.py`. `reports/template/reference.docx` hiện là bản tự sinh (có dấu `auto-generated` trong thuộc tính comments); file người dùng đặt vào sẽ được dùng nguyên.
+- **Thông tin nhóm đã chốt (người dùng sửa trong Word, 04/11, đã chuyển vào `BAO_CAO.md`):** Thái `B23DCKH105`, tên "Nguyễn Duy Tuấn Anh", bỏ dòng Lớp trên bìa, mỗi người 25%, "Đánh giá các mô hình" cho San, "Xây dựng hướng dẫn gán nhãn, tổ chức gán nhãn" cho Hồng.
+- **Rà soát lần cuối (04/11):** kiểm tra câu chữ với dữ liệu và trọng số mô hình, sửa 3 chỗ: 3.6.2 ("hầu hết bình luận" thành "nhiều bình luận"), 3.7 (câu nồi cơm: lỗi do tách từ gộp `ăn_không`, không phải do bigram hiếm; câu thử: "không" có trọng số chê lớn, "khô" nghiêng về khen). Bỏ mệnh đề trùng với 3.6.4 ở phần hạn chế để giữ 20 trang.
+- **In bản cứng (04/11):** `make_figures.py` thêm vân sọc cho Hình 3.2 và 3.4 (3 màu nhóm in đen trắng gần cùng mức xám), giảm figsize của cả 5 hình để chữ trên giấy khoảng 6–8pt, số liệu không đổi. In được cả màu lẫn đen trắng; muốn in file thì in thẳng từ Word, không cần bước riêng.
+- **Nhóm cần xác nhận:** (1) việc "gán nhãn độc lập 100 bình luận" ghi cho Hồng là giả định, cần đúng người thật sự đã gán; Hồng hiện cũng phụ trách hướng dẫn gán nhãn nên tính "độc lập" có thể bị hỏi; (2) tài liệu [1] chưa có năm.
+- Mẫu trình bày phần nội dung: hiện dùng `reports/template/reference.docx` tự sinh; nếu có mẫu Word riêng thì đặt đè lên file này (dạng reference của pandoc, chỉ style được dùng) rồi chạy lại `build_docx.py`.
 - Báo cáo nói phân nhóm lỗi "do một mô hình ngôn ngữ lớn đề xuất, chỉ làm một lượt" (đúng thực tế: Claude gán). Nếu thành viên tự duyệt lại `results/error_groups.csv` thì sửa câu ở 3.7 và hạn chế ở 3.8.
 
 ## 2. Kết quả B (`results/comparison.csv`, `results/robustness.csv`)
